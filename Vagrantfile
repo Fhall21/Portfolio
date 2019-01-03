@@ -1,3 +1,5 @@
+
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -69,7 +71,7 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  config.vm.provision :shell, :path => "vagrant/provision.sh", :args => "wagtail_freelancer"
+  #config.vm.provision :shell, :path => "vagrant/provision.sh", :args => "wagtail_freelancer"
 
   # Enable agent forwarding over SSH connections.
   config.ssh.forward_agent = true
