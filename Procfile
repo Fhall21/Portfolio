@@ -1,1 +1,1 @@
-web: gunicorn diversityFIRST.wsgi
+web: gunicorn wagtail_freelancer.wsgi
