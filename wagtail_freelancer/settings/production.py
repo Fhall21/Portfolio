@@ -1,5 +1,4 @@
 import os
-import dj_database_url
 
 from .base import *
 
@@ -17,11 +16,6 @@ try:
 except ImportError:
     pass
 
-import django_heroku
-django_heroku.settings(locals())
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 AWS_ACCESS_KEY_ID = 'AKIAJTYSZXRLP6M46BRQ'

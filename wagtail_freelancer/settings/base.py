@@ -169,3 +169,11 @@ WAGTAIL_SITE_NAME = "wagtail_freelancer"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+import dj_database_url
+
+import django_heroku
+django_heroku.settings(locals())
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
