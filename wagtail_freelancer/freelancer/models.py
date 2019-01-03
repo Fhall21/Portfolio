@@ -15,13 +15,15 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, PageBase
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from freelancer.blocks import PortfolioBlock
+from freelancer.blocks import PortfolioBlock, ProgrammingToolsBlock
 from modelcluster.fields import ParentalKey
 
 
 class FreelancerFormField(AbstractFormField):
     page = ParentalKey('FreelancerPage', related_name='form_fields')
 
+#class ProgrammingToolsFormField(AbstractFormField):
+#    page = ParentalKey('FreelancerPage', related_name='programming_tools')
 
 class FreelancerPage(AbstractForm):
     subtitle = models.CharField(max_length=100, blank=True)
@@ -37,9 +39,14 @@ class FreelancerPage(AbstractForm):
         ('portfolio', PortfolioBlock()),
     ], null=True, blank=True)
 
+
     about_text = RichTextField(blank=True)
     about_CTA_text = models.CharField(max_length=100, blank=True)
     about_CTA_link = models.URLField(blank=True)
+
+    programming_tools = StreamField([
+        ('programming_tools', ProgrammingToolsBlock()),
+        ], null=True, blank=True)
 
     content_panels = AbstractForm.content_panels + [
         MultiFieldPanel([
@@ -54,6 +61,8 @@ class FreelancerPage(AbstractForm):
             FieldPanel('about_CTA_text'),
             FieldPanel('about_CTA_link'),
         ], "Hero"),
+
+        StreamFieldPanel('programming_tools'),
 
         InlinePanel('form_fields', label="Form fields"),
 

@@ -14,3 +14,9 @@ class PortfolioBlock(blocks.StructBlock):
 
     class Meta:
         template = 'freelancer/blocks/portfolio.html'
+
+class ProgrammingToolsBlock(blocks.StructBlock):
+	logo = ImageChooserBlock()
+
+	class Meta:
+		template = 'freelancer/blocks/programming_tools.html'

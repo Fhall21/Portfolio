@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'widget_tweaks',
+    'storages',
 
     'freelancer',
+
 ]
 
 MIDDLEWARE = [

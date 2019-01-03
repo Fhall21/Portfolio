@@ -63,9 +63,9 @@
 
         {% if page.profile_image %}
           {% image page.profile_image original as profile_image %}
-          <img alt="{{ profile_image.title }}" src="{{ profile_image.url }}" class="img-fluid mb-5 d-block mx-auto rounded-circle">
+          <img alt="{{ profile_image.title }}" src="{{ profile_image.url }}" class="img-fluid mb-5 d-block mx-auto rounded-circle" style="height: 30vh; width: auto;">
         {% else %}
-          <img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="">
+          <img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="height: 30vh; width: auto;">
         {% endif %}
 
         <h1 class="text-uppercase mb-0">{{ page.title }}</h1>
@@ -100,13 +100,26 @@
                 {{ self.about_text|richtext }}
             </div>
         </div>
+        <div class="container" style="">
+        <hr class="star-dark mb-5">
+        <div class="row">
+        {% with logos=self.programming_tools %}
+            {% for logo in logos %}
+                {{ logo }}
+            {% endfor %}
+        {% endwith %}
+
+        </div>
+    </div>
+        
+
     </div>
 </section>
 
 <!-- Contact Section -->
 <section id="contact">
     <div class="container">
-        <h2 class="text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+        <h2 class="text-center text-uppercase text-secondary mb-0">Let's get in touch!</h2>
         <hr class="star-dark mb-5">
         <div class="row">
             <div class="col-lg-8 mx-auto">
@@ -137,7 +150,7 @@
 
 <div class="copyright py-4 text-center text-white">
     <div class="container">
-      <p class="m-0 text-center text-white">Made with <span class='text-danger'>❤</span> by <a href="https://blog.michaelyin.info/">MichaelYin</a></p>
+      <p class="m-0 text-center text-white">Made with <span class='text-success'>simplicity for impact</span> by <a href="#">Felix Hall</a></p>
     </div>
 </div>
 
