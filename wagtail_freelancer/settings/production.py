@@ -16,7 +16,7 @@ try:
 except ImportError:
     pass
 
-
+'''
 
 AWS_ACCESS_KEY_ID = 'AKIAJTYSZXRLP6M46BRQ'
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
@@ -39,3 +39,4 @@ DEFAULT_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PublicMediaStorage'
 
 AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
 PRIVATE_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PrivateMediaStorage'
+'''
