@@ -165,7 +165,13 @@ section h2 {
   }
 }
 
+
+
 header.masthead {
+  background-color: white;
+  -webkit-transition: all ease 2.5s;
+  -moz-transition: all ease 2.5s;
+  transition: all ease 2.5s;
   padding-top: calc(6rem + 72px);
   padding-bottom: 6rem;
 }
@@ -261,6 +267,11 @@ header.masthead h2 {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+/* 
+more details on hover here:
+https://www.w3schools.com/howto/howto_css_image_overlay.asp
+*/ 
 
 @media (min-width: 576px) {
   .portfolio {

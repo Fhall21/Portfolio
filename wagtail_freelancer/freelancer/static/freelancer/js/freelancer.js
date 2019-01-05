@@ -1,4 +1,13 @@
 (function($) {
+
+  /*
+  $('.masthead').fadeIn("slow", function(){
+    $(this).addClass('bg-primary');
+  });
+  */
+  $('.masthead').addClass('bg-primary');
+
+
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
