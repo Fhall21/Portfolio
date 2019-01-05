@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailuserbar wagtailimages_tags widget_tweaks %}
+{% load static freelancer_tags i18n wagtailcore_tags wagtailuserbar wagtailimages_tags widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,8 +72,15 @@
           <img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="height: 30vh; width: auto;">
         {% endif %}
 
+        {% if self.title_roles %}
+        
+        <p style="display: none;" id="role_list_data">{% block_to_list self.title_roles %}</p>
+        <h1 class="text-uppercase mb-0 test"></h1>
+
+        {% else %}
         <h1 class="text-uppercase mb-0">{{ page.title }}</h1>
-        <h1 class="test"></h1>
+        {% endif %}
+
         <hr class="star-light">
         <h2 class="font-weight-light mb-0">
             {{ page.subtitle }}
@@ -180,11 +187,15 @@
 
 <script type="text/javascript">
 $(function(){
-  var page_title = "{{page.title}}";
-  alert(page_title);
+
+  var str_role_list = $('#role_list_data').text();
+  alert(str_role_list);
+  var string_list = str_role_list.replace(/\['|'\]/g, '');
+  var role_list = string_list.split("', '");
+
 
   var options = {
-    strings: ["<i>First</i> sentence.", page_title],
+    strings: role_list,
     typeSpeed: 40
   };
     
