@@ -1,4 +1,8 @@
+//import Typed from 'typed.js';
 (function($) {
+  // Can also be included with a regular script tag
+
+
 
   /*
   $('.masthead').fadeIn("slow", function(){

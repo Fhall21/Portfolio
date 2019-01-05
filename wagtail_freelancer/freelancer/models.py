@@ -15,7 +15,7 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, PageBase
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from freelancer.blocks import PortfolioBlock, ProgrammingToolsBlock
+from freelancer.blocks import PortfolioBlock, ProgrammingToolsBlock, TitleRoleBlock
 from modelcluster.fields import ParentalKey
 
 
@@ -34,6 +34,8 @@ class FreelancerPage(AbstractForm):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+
+    title_roles = StreamField([('title_roles', TitleRoleBlock())], null=True, blank=True)
 
     portfolio = StreamField([
         ('portfolio', PortfolioBlock()),
@@ -54,6 +56,8 @@ class FreelancerPage(AbstractForm):
             ImageChooserPanel('profile_image'),
         ], "Hero"),
 
+        StreamFieldPanel('title_roles'),
+
         StreamFieldPanel('portfolio'),
 
         MultiFieldPanel([
@@ -67,3 +71,10 @@ class FreelancerPage(AbstractForm):
         InlinePanel('form_fields', label="Form fields"),
 
     ]
+'''
+To do: add testimonial quotes:
+BlockQuoteBlock
+wagtail.core.blocks.BlockQuoteBlock
+
+A text field, the contents of which will be wrapped in an HTML <blockquote> tag pair. The keyword arguments required (default: True), max_length, min_length and help_text are accepted.
+'''

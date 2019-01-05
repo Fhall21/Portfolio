@@ -20,6 +20,10 @@
     <!-- Plugin CSS -->
     <link href="{% static 'freelancer/vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
 
+    <!-- Plugin JS -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+
+
     <!-- Custom styles for this template -->
     <link href="{% static 'freelancer/css/freelancer.css' %}" rel="stylesheet">
 
@@ -69,6 +73,7 @@
         {% endif %}
 
         <h1 class="text-uppercase mb-0">{{ page.title }}</h1>
+        <h1 class="test"></h1>
         <hr class="star-light">
         <h2 class="font-weight-light mb-0">
             {{ page.subtitle }}
@@ -172,6 +177,22 @@
 
 <!-- Custom scripts for this template -->
 <script src="{% static 'freelancer/js/freelancer.js' %}" ></script>
+
+<script type="text/javascript">
+$(function(){
+  var page_title = "{{page.title}}";
+  alert(page_title);
+
+  var options = {
+    strings: ["<i>First</i> sentence.", page_title],
+    typeSpeed: 40
+  };
+    
+  var typed = new Typed(".test", options);
+
+});
+
+</script>
 
 {% block extra_js %}
 {% endblock %}

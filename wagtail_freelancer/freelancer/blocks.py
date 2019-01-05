@@ -16,8 +16,9 @@ class PortfolioBlock(blocks.StructBlock):
         template = 'freelancer/blocks/portfolio.html'
 
 class ProgrammingToolsBlock(blocks.StructBlock):
-    name = blocks.CharBlock(classname="full title")
     logo = ImageChooserBlock()
 
     class Meta:
         template = 'freelancer/blocks/programming_tools.html'
+class TitleRoleBlock(blocks.StructBlock):
+    role = blocks.CharBlock()
