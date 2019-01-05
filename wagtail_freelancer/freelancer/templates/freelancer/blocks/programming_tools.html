@@ -1,6 +1,19 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-
-<div class="col" style="text-align: center;">
+<!--
+<div class="col tool" style="text-align: center;">
     {% image self.logo width-100  %}
 </div>
+--->
+
+<div class="col logo align-self-center" style="text-align: center;">
+    <div class="logo-img">
+	    {% image self.logo width-100  %}
+    </div>
+    <div class="logo-overlay d-flex position-absolute h-90 w-100">
+            <div class="logo-title my-auto w-100 text-center text-white">
+                <h3>{{ self.logo.title }}</h3>
+            </div>
+        </div>
+</div>
+

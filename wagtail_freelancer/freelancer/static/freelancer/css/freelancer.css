@@ -221,6 +221,47 @@ header.masthead h2 {
   font-size: 1.5rem;
 }
 
+
+.logo{
+  position: relative;
+  max-width: 30vw;
+  max-height: 20vh;
+}
+
+.logo-img{
+  display: block;
+}
+
+.logo-overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  background-color: rgba(24, 188, 156, 0.9);
+}
+
+.logo:hover .logo-overlay{
+  opacity: 1;
+}
+
+.logo-title {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 @media (min-width: 576px) {
   .portfolio {
     margin-bottom: -30px;
