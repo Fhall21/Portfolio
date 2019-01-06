@@ -17,6 +17,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 from decouple import config
 
+ALLOWED_HOSTS = ['*', 'felix-hall.com', '127.0.0.1', '138.68.255.50'] 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/

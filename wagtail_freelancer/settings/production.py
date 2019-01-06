@@ -8,19 +8,20 @@ DEBUG = False
 
 SECRET_KEY = env['SECRET_KEY']
 
-ALLOWED_HOSTS = env['ALLOWED_HOSTS'].split(',')
+#ALLOWED_HOSTS = env['ALLOWED_HOSTS'].split(',')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 try:
     from .local import *
 except ImportError:
     pass
 
-'''
 
-AWS_ACCESS_KEY_ID = 'AKIAJTYSZXRLP6M46BRQ'
+
+AWS_ACCESS_KEY_ID = 'AKIAI2YLK5C66Z5I6ONA'
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'aws-portfolio-bucket'
+AWS_STORAGE_BUCKET_NAME = 'personal-portfolio-bucket'
 
 AWS_DEFAULT_ACL = 'public-read'
 
