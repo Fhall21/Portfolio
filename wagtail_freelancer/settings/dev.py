@@ -2,9 +2,9 @@ from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '1&3rqr_6=x*qn93mwg=ao2d(lm9od&q67xi1gayz9wuf9867t#'

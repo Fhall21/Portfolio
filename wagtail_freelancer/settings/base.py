@@ -164,8 +164,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "wagtail_freelancer"
-#STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
