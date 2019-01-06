@@ -15,7 +15,7 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, PageBase
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from freelancer.blocks import PortfolioBlock, ProgrammingToolsBlock, TitleRoleBlock
+from freelancer.blocks import PortfolioBlock, ProgrammingToolsBlock, TitleRoleBlock, ExtraHeadTagBlock
 from modelcluster.fields import ParentalKey
 
 
@@ -35,6 +35,8 @@ class FreelancerPage(AbstractForm):
         related_name='+'
     )
 
+    extra_head_tags = StreamField([('extra_head_tags', ExtraHeadTagBlock())], null=True, blank=True)
+
     title_roles = StreamField([('title_roles', TitleRoleBlock())], null=True, blank=True)
 
     portfolio = StreamField([
@@ -51,10 +53,14 @@ class FreelancerPage(AbstractForm):
         ], null=True, blank=True)
 
     content_panels = AbstractForm.content_panels + [
+
+        StreamFieldPanel('extra_head_tags'),
+
         MultiFieldPanel([
             FieldPanel('subtitle'),
             ImageChooserPanel('profile_image'),
         ], "Hero"),
+
 
         StreamFieldPanel('title_roles'),
 

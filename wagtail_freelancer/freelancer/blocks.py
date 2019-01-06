@@ -22,3 +22,10 @@ class ProgrammingToolsBlock(blocks.StructBlock):
         template = 'freelancer/blocks/programming_tools.html'
 class TitleRoleBlock(blocks.StructBlock):
     role = blocks.CharBlock()
+
+
+class ExtraHeadTagBlock(blocks.StructBlock):
+    tag = blocks.RawHTMLBlock()
+
+    class Meta:
+        template = 'freelancer/blocks/extra_tags.html'
