@@ -178,7 +178,7 @@ DATABASES['default'].update(db_from_env)
 DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
-
+'''
 AWS_ACCESS_KEY_ID = 'AKIAI2YLK5C66Z5I6ONA'
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'personal-portfolio-static'
@@ -199,4 +199,4 @@ AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
 DEFAULT_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PublicMediaStorage'
 
 AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
-PRIVATE_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PrivateMediaStorage'
+PRIVATE_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PrivateMediaStorage''''
