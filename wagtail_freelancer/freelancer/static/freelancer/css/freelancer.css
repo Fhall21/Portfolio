@@ -214,6 +214,7 @@ header.masthead h2 {
 
 .portfolio {
   margin-bottom: -15px;
+  justify-content: center;
 }
 
 .portfolio .portfolio-item {
