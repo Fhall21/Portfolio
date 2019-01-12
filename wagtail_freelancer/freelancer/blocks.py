@@ -12,6 +12,8 @@ class PortfolioBlock(blocks.StructBlock):
     heading = blocks.CharBlock(classname="full title")
     image = ImageChooserBlock()
     intro = blocks.RichTextBlock()
+    display_link = blocks.BooleanBlock(required=False)
+    link = blocks.CharBlock(required=False)
 
     class Meta:
         template = 'freelancer/blocks/portfolio.html'

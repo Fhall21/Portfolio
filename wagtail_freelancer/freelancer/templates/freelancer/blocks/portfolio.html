@@ -29,10 +29,26 @@
                     <div class="mb-5">{{ self.intro|richtext }}</div>
 
                     <div class="text-center">
+                        <div class="container">
+                            <div class="row">
+                                {% if self.display_link %}
+                                    <div class="col">
+                                      <a class="btn btn-secondary btn-lg rounded-pill" href="{{ self.link }}">
+                                        <i class="fa fa-desktop"></i>
+                                        Visit </a>  
+                                    </div>
+                                {% endif %}
+                                <div class="col">
+                                  <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                                    <i class="fa fa-close"></i>
+                                    Close </a>
+                                    
+                                </div>
 
-                      <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-                        <i class="fa fa-close"></i>
-                        Close </a>
+                            </div>
+                            
+                        </div>
+
 
                     </div>
                 </div>
