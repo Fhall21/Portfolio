@@ -94,7 +94,7 @@
 
 <section class="mission" id="mission">
     <div class="container">
-        <div class="row">
+        <div class="row" style="justify-content: center;">
             
        {% with blocks=self.mission %}
        {% for block in blocks %}
@@ -110,7 +110,7 @@
     <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
         <hr class="star-dark mb-5">
-        <div class="row">
+        <div class="row" style="justify-content: center;">
         {% with blocks=self.portfolio %}
             {% for block in blocks %}
                {{ block }}
