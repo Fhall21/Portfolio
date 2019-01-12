@@ -79,7 +79,7 @@
         {% if self.title_roles %}
         
         <p style="display: none;" id="role_list_data">{% block_to_list self.title_roles %}</p>
-        <h1 class="text-uppercase mb-0 test"></h1>
+        <h1 class="text-uppercase mb-0 test">Felix Hall</h1>
 
         {% else %}
         <h1 class="text-uppercase mb-0">{{ page.title }}</h1>
@@ -92,6 +92,20 @@
     </div>
 </header>
 
+<section class="mission" id="mission">
+    <div class="container">
+        <div class="row">
+            
+       {% with blocks=self.mission %}
+       {% for block in blocks %}
+       {{ block }} 
+             {% endfor %}
+        {% endwith %}       
+        </div>
+    </div>
+</section>
+
+{# portolfio section #}
 <section class="portfolio" id="portfolio">
     <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
@@ -106,6 +120,30 @@
     </div>
 </section>
 
+<div class="container"> 
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        {% with testimonials=self.testimonial %}
+        {% for testimonial in testimonials %}
+
+        {% if forloop.first %}
+      <div class="item active">
+        {{ testimonial }}
+      </div>
+      {% else %}
+      <div class="item">
+        {{ testimonial }}
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endwith %}
+    </div>
+
+  </div>
+</div>
 <!-- About Section -->
 <section class="bg-primary mb-0" id="about">
     <div class="container">
@@ -199,7 +237,9 @@ $(function(){
 
   var options = {
     strings: role_list,
-    typeSpeed: 40
+    typeSpeed: 40,
+    showCursor:false,
+    fadeOut: true,
   };
     
   var typed = new Typed(".test", options);

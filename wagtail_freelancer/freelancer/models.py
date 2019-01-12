@@ -15,7 +15,9 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, PageBase
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from freelancer.blocks import PortfolioBlock, ProgrammingToolsBlock, TitleRoleBlock, ExtraHeadTagBlock
+from freelancer.blocks import (
+    PortfolioBlock, ProgrammingToolsBlock, TitleRoleBlock, 
+    ExtraHeadTagBlock, MissionBlock, TestimonialBlock)
 from modelcluster.fields import ParentalKey
 
 
@@ -35,45 +37,43 @@ class FreelancerPage(AbstractForm):
         related_name='+'
     )
 
+    #blocks
     extra_head_tags = StreamField([('extra_head_tags', ExtraHeadTagBlock())], null=True, blank=True)
-
     title_roles = StreamField([('title_roles', TitleRoleBlock())], null=True, blank=True)
-
-    portfolio = StreamField([
-        ('portfolio', PortfolioBlock()),
-    ], null=True, blank=True)
-
+    portfolio = StreamField([('portfolio', PortfolioBlock())], null=True, blank=True)
+    mission = StreamField([('mission', MissionBlock())], null=True, blank=True)
+    programming_tools = StreamField([('programming_tools', ProgrammingToolsBlock())], null=True, blank=True)
+    testimonial = StreamField([('testimonial', TestimonialBlock())], null=True, blank=True)
 
     about_text = RichTextField(blank=True)
     about_CTA_text = models.CharField(max_length=100, blank=True)
     about_CTA_link = models.URLField(blank=True)
 
-    programming_tools = StreamField([
-        ('programming_tools', ProgrammingToolsBlock()),
-        ], null=True, blank=True)
-
     content_panels = AbstractForm.content_panels + [
 
+        #landing
         StreamFieldPanel('extra_head_tags'),
-
         MultiFieldPanel([
             FieldPanel('subtitle'),
             ImageChooserPanel('profile_image'),
         ], "Hero"),
-
-
         StreamFieldPanel('title_roles'),
 
-        StreamFieldPanel('portfolio'),
 
+        #secondary
+        StreamFieldPanel('mission'),
+        StreamFieldPanel('portfolio'),
         MultiFieldPanel([
             FieldPanel('about_text', classname="full"),
             FieldPanel('about_CTA_text'),
             FieldPanel('about_CTA_link'),
         ], "Hero"),
+        StreamFieldPanel('testimonial'),
 
+        #about
         StreamFieldPanel('programming_tools'),
 
+        #contact
         InlinePanel('form_fields', label="Form fields"),
 
     ]

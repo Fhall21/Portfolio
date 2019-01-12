@@ -61,6 +61,8 @@ section h2 {
   line-height: 2rem;
 }
 
+
+
 @media (min-width: 992px) {
   section h2 {
     font-size: 3rem;
@@ -200,6 +202,12 @@ header.masthead h2 {
   }
 }
 
+.mission_icon{
+  font-size: 6em;
+  width: 100%;
+  height: 100%
+}
+
 .portfolio {
   margin-bottom: -15px;
 }
@@ -272,6 +280,16 @@ header.masthead h2 {
 more details on hover here:
 https://www.w3schools.com/howto/howto_css_image_overlay.asp
 */ 
+
+.blockquote_styling {
+
+  font-style: normal;
+  font-size: 1em;
+  margin-left: 4vw;
+  font-family: Consolas, "Times New Roman", Verdana;
+  border-left: 4px solid #CCC;
+  padding-left: 1vw;
+}
 
 @media (min-width: 576px) {
   .portfolio {

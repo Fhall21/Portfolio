@@ -1,0 +1,16 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="col-sm-4 align-self-center mission mx-1" style="text-align: center;">
+    <div class="row">
+    	{% if self.img_requried %}
+		    {% image self.icon_img width-100  %}
+    	{% else %}
+    	<div class="mission_icon">
+    		{{ self.icon_link }}
+    	</div>
+    	{% endif %}
+    </div>
+    <div class="row mission_txt">
+    	{{ self.text }}
+    </div>
+</div>

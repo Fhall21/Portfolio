@@ -7,6 +7,7 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
+
 class PortfolioBlock(blocks.StructBlock):
     heading = blocks.CharBlock(classname="full title")
     image = ImageChooserBlock()
@@ -29,3 +30,20 @@ class ExtraHeadTagBlock(blocks.StructBlock):
 
     class Meta:
         template = 'freelancer/blocks/extra_tags.html'
+
+class MissionBlock(blocks.StructBlock):
+    text = blocks.CharBlock()
+
+    icon_link = blocks.RawHTMLBlock(required=False)
+    img_required = blocks.BooleanBlock(required=False)
+    icon_img = ImageChooserBlock(required=False)
+
+    class Meta:
+        template = 'freelancer/blocks/mission.html'
+
+class TestimonialBlock(blocks.StructBlock):
+    testimonial = blocks.BlockQuoteBlock()
+    author = blocks.CharBlock()
+
+    class Meta:
+        template = 'freelancer/blocks/testimonials.html'
