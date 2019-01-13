@@ -1,0 +1,12 @@
+{% extends 'wagtailadmin/base.html' %}
+{% load staticfiles i18n wagtailcore_tags wagtailimages_tags static %}
+
+
+{% block branding_logo %}
+{% if page.profile_image %}
+          {% image page.profile_image original as profile_image %}
+          <img alt="{{ profile_image.title }}" src="{{ profile_image.url }}" class="img-fluid mb-5 d-block mx-auto rounded-circle" style="height: 80; width: auto;">
+        {% else %}
+          <img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="height: 80; width: 80;">
+        {% endif %}
+{% endblock %}

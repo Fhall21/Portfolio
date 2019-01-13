@@ -25,14 +25,17 @@ ALLOWED_HOSTS = ['*', 'felix-hall.com', '127.0.0.1', '138.68.255.50']
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
 
+
+WAGTAIL_APPS = [
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -45,14 +48,23 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
+]
+
+THIRD_PARTY_APPS = [
     'modelcluster',
     'taggit',
     'widget_tweaks',
     'storages',
+]
 
+PERSONAL_APPS = [
     'freelancer',
 
 ]
+
+INSTALLED_APPS = DJANGO_APPS + PERSONAL_APPS + WAGTAIL_APPS + THIRD_PARTY_APPS
+
+
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -163,11 +175,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Wagtail settings
 
-WAGTAIL_SITE_NAME = "wagtail_freelancer"
+WAGTAIL_SITE_NAME = "Felix Hall"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://felix-hall.com'
+BASE_URL = 'https://felix-hall.com'
 
 import dj_database_url
 

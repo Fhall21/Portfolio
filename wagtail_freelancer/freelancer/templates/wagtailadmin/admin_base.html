@@ -1,0 +1,11 @@
+{% extends 'wagtailadmin/admin_base.html' %}
+{% load staticfiles i18n wagtailcore_tags wagtailimages_tags static %}
+
+{% block branding_favicon %}
+<!-- {% if page.profile_image %}
+          {% image page.profile_image original as profile_image %}
+<link rel='shortcut icon' href="{{ profile_image.url }}" />
+        {% else %} -->
+<link rel='shortcut icon' href="{% static 'freelancer/img/profile.png' %}" />
+<!--         {% endif %}
+ -->{% endblock %}
