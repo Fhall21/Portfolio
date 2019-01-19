@@ -35,9 +35,16 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    {% if self.extra_head_tags %}
-        {{ self.extra_head_tags }}
-    {% endif %}
+    {# icon stuff #}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'freelancer/img/favicon_package/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'freelancer/img/favicon_package/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'freelancer/img/favicon_package/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'freelancer/img/favicon_package/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'freelancer/img/favicon_package/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="Felix Hall - Freelance Django Web App Developer">
+    <meta name="application-name" content="Felix Hall - Freelance Django Web App Developer">
+    <meta name="msapplication-TileColor" content="#00a300">
+    <meta name="theme-color" content="#ffffff">
 
 </head>
 
