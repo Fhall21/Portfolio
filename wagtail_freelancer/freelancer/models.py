@@ -29,13 +29,7 @@ class FreelancerFormField(AbstractFormField):
 
 class FreelancerPage(AbstractForm):
     subtitle = models.CharField(max_length=100, blank=True)
-    website_icon = models.ForeignKey(
-        'wagtailimages.Image',
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='logo'
-        )
+
     profile_image = models.ForeignKey(
         'wagtailimages.Image',
         blank=True,
@@ -62,7 +56,6 @@ class FreelancerPage(AbstractForm):
         StreamFieldPanel('extra_head_tags'),
         MultiFieldPanel([
             FieldPanel('subtitle'),
-            ImageChooserPanel('website_icon'),
             ImageChooserPanel('profile_image'),
         ], "Hero"),
         StreamFieldPanel('title_roles'),
