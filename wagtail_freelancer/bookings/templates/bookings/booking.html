@@ -63,6 +63,11 @@ align-items: center;
   <p>I'll get back to you shortly. Can't wait to see what we can do together!</p>
 </div>
 </div>
+<div ng-if='error_message!==undefined' class="alert alert-alert">
+  <h2>Oh no!</h2>
+  <p>An error occured while trying to submit the data. Please try again with a different day/time or please come back later.</p>
+</div>
+</div>
   <blockquote>
 		
 		<i><h1 style="text-align: center;"> "Coming together is a beginning, staying together is progress, and working together is success." – Henry Ford</h1></i>

@@ -53,7 +53,7 @@ app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN
 
 
     }, function errorCallback(response) {
-       var patch_error = 'Yikes'
+       $rootScope.error_message= 'Error';
 
 });
 	}
