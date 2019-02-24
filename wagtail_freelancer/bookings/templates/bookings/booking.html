@@ -45,7 +45,9 @@ body {
 
 {% block content %}
 <div style="  background-color: #18BC9C !important;" ng-app="bookings" ng-controller="bookingsController">
-<p style="font-size: 5rem"></p>
+
+<p style="font-size: 5rem; margin-bottom: 5rem;"></p>
+
 <div class="container" style="
 position: relative;
 width: 90%;
@@ -55,8 +57,9 @@ align-items: center;
 ">
 <br>
 <div>
-  
-<form ng-submit="bookingAdd()" style="position: absolute; vertical-align: middle; top: 20vh; width: 80%; left: 10%">
+  <div style="position: absolute; vertical-align: middle; top: 30vh; width: 80%; left: 10%">
+    
+<form ng-submit="bookingAdd()" >
 
 <div ng-if='success_message!==undefined' class="alert alert-primary">
   <h2>Success!</h2>
@@ -127,6 +130,7 @@ align-items: center;
 		
 	</div>
 </div>
+  </div>
 </div>
 <br><br>
 {% endblock %}
