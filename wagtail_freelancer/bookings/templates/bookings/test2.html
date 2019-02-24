@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    {% load staticfiles %}
+    {% load static %}
+    {% load i18n %}
+{# JQuery #}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+		<!-- Bootstrap stuff -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <!-- XDSoft DateTimePicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.14/jquery.timepicker.css">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/timepicker@1.11.14/jquery.timepicker.js"></script>
+
+    {# other #}
+    
+{{ form.media }}
+
+
+		<!-- Responsive meta tag -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    </style>
+
+		<title>Base</title>
+	</head>
+<body>
+  <input id="0">
+  <input id="1">
+</body>
+<br><br>
+
+<!-- {% block footer %}
+<footer class="footer" style="background-color: ghostwhite">
+      <div class="container-fluid">
+        <span class="text-muted">A website for the ease of scouting.</span>
+      </div>
+    </footer>
+    {% endblock %} -->
+
+
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script>
+  $(function(){
+    $('#1').hide();
+    $("#0").datetimepicker({
+    minTime: '07:00',
+    maxTime: '18:00',
+    allowTimes: ['07:00', '8:00', '16:00', '17:00'],
+    format: 'd/m/Y',
+    allowDates: ['2010/02/02', '2019/02/02'],
+    timepicker: false,
+    onSelectDate:function(ct,$i) {
+          $('#1').show()
+          $('#1').timepicker({
+            disableTimeRanges: [['9:00am', '3:30pm'], ['12:00am', '7:00am'], ['6:00pm', '11:45pm']],
+          });
+          /*
+          $("#1").datetimepicker({
+              minTime: '07:00',
+              maxTime: '18:00',
+              allowTimes: ['07:00', '8:00', '16:00', '17:00'],
+              format: 'h:i',
+              allowDates: ['2010/02/02'],
+              datepicker: false,
+           });*/
+      
+     },
+
+    
+  });
+});
+</script>
+	</body>
+</html>

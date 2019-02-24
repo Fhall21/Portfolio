@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+{% load static staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" media="screen" type="text/css" href="{% static 'datepicker/css/datepicker.css' %}" />
+
+<script type="text/javascript" src="{% static 'datepicker/js/datepicker.js' %}"></script>
+
+
+
+</head>
+<!-- <body ng-app="meeting" ng-controller="meetingController"> -->
+<body>
+<div class="container">
+<input />
+</div>
+
+<script type="text/javascript">
+$(function() {
+   $('input').DatePicker(options);
+
+});
+</script>
+</body>
+</html>

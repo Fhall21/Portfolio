@@ -1,0 +1,285 @@
+{% extends 'freelancer/base.html' %}
+
+{% block _page_title %}
+Felix Hall Catchup
+{% endblock %}
+
+{% block navbar_el %}
+<li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#portfolio">Portfolio</a>
+</li>
+<li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#about">About</a>
+</li>
+<li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#contact">Contact</a>
+</li>
+{% endblock %}
+
+{% block extra_links %}
+{% load static %}
+{# JQuery #}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+		<!-- Bootstrap stuff -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <!-- XDSoft DateTimePicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.14/jquery.timepicker.css">
+<style type="text/css">
+
+body {
+	  background-color: #18BC9C !important;
+}
+	
+</style>
+
+{% endblock %}
+    
+
+
+{% block content %}
+<div style="  background-color: #18BC9C !important;" ng-app="bookings" ng-controller="bookingsController">
+<p style="font-size: 5rem"></p>
+<div class="container" style="
+position: relative;
+width: 90%;
+height: 100%;
+align-items: center;
+  background-color: #18BC9C !important;
+">
+<br>
+<form ng-submit="bookingAdd()" style="position: absolute; vertical-align: middle; top: 20vh; width: 80%; left: 10%">
+
+	<blockquote>
+		
+		<i><h1 style="text-align: center;"> "Coming together is a beginning, staying together is progress, and working together is success." – Henry Ford</h1></i>
+	</blockquote> 
+	<h4>
+		
+	<div class="form-group">
+
+			<div class="row">
+				<div class="col">
+					<label for="first_name">Personal details</label>
+				</div>
+			</div>
+		<div class="row">
+		    <div class="col">
+		      <input ng-model='first_name' id="first_name" type="text" class="form-control" placeholder="First name">
+		    </div>
+		    <div class="col">
+		      <input ng-model='last_name' type="text" class="form-control" placeholder="Last name">
+		    </div>
+		</div>
+
+		 <div class="row">
+		 	<div class="col">
+			    <input ng-model='email' type="email" class="form-control" id="email" placeholder="email address">
+			</div>
+			<div class="col">
+		        <input ng-model='phone_number'class="form-control" type="tel" value="555-555-5555" id="phone_number" placeholder="Phone number">
+
+			</div>
+		</div>
+		  </div>
+	<div class="row">
+		<div class="col">
+			<label ng-model='date' for="datepicker">Date</label>
+			<input class="datetime form-control" id="datepicker" ng-model="date">
+		</div>
+		<div class="col">
+			<label ng-model='time' for="datepicker" class="timepicker">Time</label>
+			<input class="datetime timepicker form-control" id="timepicker" ng-model="time">
+		</div>
+	</div>
+  <input type="hidden" ng-model='date_id' name="id" id='id'>
+	</h4>
+	
+<button class="btn btn-success btn-block btn-lg" type="submit" ng-click="saveBooking()"><strong>Let's do something great!</strong></button>
+	
+</div>
+</form>
+	<div id='datatable'>
+	<div ng-repeat='date in datesList'> 
+		{# ng-repeat is like a for loop #}
+		{# date is a disctionary and date. is the key #}
+		<p style="display: none" class="data" ng-bind='date.meetingDay_Time_id'></p>
+
+	</div>
+		
+	</div>
+</div>
+</div>
+<br><br>
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/timepicker@1.11.14/jquery.timepicker.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="{% static 'bookings/js/data_manipulator.js' %}"></script>
+<!-- {% block footer %}
+<footer class="footer" style="background-color: ghostwhite">
+      <div class="container-fluid">
+        <span class="text-muted">A website for the ease of scouting.</span>
+      </div>
+    </footer>
+    {% endblock %} -->
+
+
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+
+ 
+
+<script>
+  angular.module("bookings").constant('CSRF_TOKEN', '{{ csrf_token }}')
+</script>
+
+ <script>
+
+$(function(){
+    $('.timepicker').hide();
+	//setTimeout(loadPickers, 1000);
+	// The node to be monitored
+var target = $( "#datatable" )[0];
+
+// Create an observer instance
+var observer = new MutationObserver(function( mutations ) {
+  mutations.forEach(function( mutation ) {
+    var newNodes = mutation.addedNodes; // DOM NodeList
+    if( newNodes !== null ) { // If there are new nodes added
+    	var $nodes = $( newNodes ); // jQuery set
+    	$nodes.each(function() {
+    		var $node = $( this );
+    		if( $node.hasClass( "ng-scope" ) ) {
+    			loadPickers(observer)
+    		}
+    	});
+    }
+  });    
+});
+
+// Configuration of the observer:
+var config = { 
+	attributes: true, 
+	childList: true, 
+	characterData: true 
+};
+ 
+// Pass in the target node, as well as the observer options
+observer.observe(target, config);
+ 
+
+})
+
+
+function loadPickers(observer){
+	// Later, you can stop observing
+	observer.disconnect();
+//    var street_name = $('[ng-controller="add"]').scope().streetName;
+//var streetName = $('#data').data('street');
+	var datesTimesList = [];
+
+	$('.data').each(function( index, obj ){
+		datesTimesList.push($(this).text())
+	});
+
+  	var oldDatesList = [];
+  	var datesDict = {};
+  	var oldTimesList = [];
+    var idList = [];
+
+  	//splitting the date and time
+  	for (var index = 0; index < datesTimesList.length; index++){
+  		var splitDateTime = datesTimesList[index].split("T");
+  		oldDatesList.push(splitDateTime[0]);
+  		oldTimesList.push(splitDateTime[1]);
+      idList.push(splitDateTime[2]);
+  	}
+
+  	//changing format of the time
+  	var formatedTimesList = []
+  	for (var index = 0; index < oldTimesList.length; index++){
+  		var formated_time_no_Z = oldTimesList[index].replace(/Z/g, "");
+  		var formated_time = formated_time_no_Z.replace(/T/g, "");
+/*  		// seeing if it's am or pm
+  		if (parseInt(formated_time_no_T) > 12){
+  			var formated_time_period = formated_time_no_T + 'pm';
+  		} else{
+   			var formated_time_period = formated_time_no_T + 'am';
+ 			
+  		}
+
+  		// removing initial 0
+  		if (formated_time_period.charAt(0) == '0'){
+  			var formated_time_no_0 = formated_time_period.substring(1);
+  		} else{
+  			var formated_time_no_0 = formated_time_period;
+  		}*/
+  		formatedTimesList.push(formated_time);
+  	}
+  	
+  	//changing the format of the date
+  	var formatedDatesList = [];
+  	for (var index = 0; index < oldDatesList.length; index++){
+  		var formated_date = oldDatesList[index].replace(/-/g, "/");
+  		formatedDatesList.push(formated_date);
+  		datesDict[formated_date] = {'times':[], 'id':[]};
+
+  		datesDict[formated_date]['times'].push(formatedTimesList[index]);
+      datesDict[formated_date]['id'].push(idList[index]);
+  	}
+
+    $("#datepicker").datetimepicker({
+    minTime: '07:00',
+    maxTime: '18:00',
+    format: 'Y/m/d',
+    allowDates: formatedDatesList,
+    timepicker: false,
+    onSelectDate:function(ct,$i) {
+        var user_date = $('#datepicker').val();
+          $('#id').val(datesDict[user_date]['id']);
+          window._date_id = datesDict[user_date]['id'];
+          console.log($('#id').val());
+    	  
+          $('.timepicker').show();
+          $('#timepicker').datetimepicker({
+
+              minTime: '07:00',
+              maxTime: '18:00',
+              allowTimes: datesDict[user_date]['times'],
+              format: 'h:i',
+              datepicker: false,
+          });
+          /*
+          $("#1").datetimepicker({
+              minTime: '07:00',
+              maxTime: '18:00',
+              allowTimes: ['07:00', '8:00', '16:00', '17:00'],
+              format: 'h:i',
+              allowDates: ['2010/02/02'],
+              datepicker: false,
+           });*/
+      
+     },
+
+    
+  });
+};
+
+
+</script>
+{% endblock %}
+</html>
