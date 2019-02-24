@@ -1,10 +1,11 @@
 import os
 
 from .base import *
+from decouple import config
 
 env = os.environ.copy()
 
-DEBUG = False
+DEBUG = config('DEBUG', True, cast=bool)
 
 SECRET_KEY = env['SECRET_KEY']
 
