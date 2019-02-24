@@ -54,9 +54,16 @@ align-items: center;
   background-color: #18BC9C !important;
 ">
 <br>
+<div>
+  
 <form ng-submit="bookingAdd()" style="position: absolute; vertical-align: middle; top: 20vh; width: 80%; left: 10%">
 
-	<blockquote>
+<div ng-if='success_message!==undefined' class="alert alert-primary">
+  <h2>Success!</h2>
+  <p>I'll get back to you shortly. Can't wait to see what we can do together!</p>
+</div>
+</div>
+  <blockquote>
 		
 		<i><h1 style="text-align: center;"> "Coming together is a beginning, staying together is progress, and working together is success." – Henry Ford</h1></i>
 	</blockquote> 

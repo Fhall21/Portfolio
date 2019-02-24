@@ -5,7 +5,7 @@ var app = angular.module('bookings', []).config(function($httpProvider){
 
 
 
-app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN){
+app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN, $rootScope){
 	$http.get('/meeting/api/meeting//').then(function(response){
 		$scope.datesList = [];
 		for (var index = 0; index < response.data.length; index++){
@@ -47,9 +47,17 @@ app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN
 	    	'Content-Type': 'application/x-www-form-urlencoded',
 	    	'X-CSRFToken' : CSRF_TOKEN,
 	    }
-		});
-		console.log('done!');
+		}).then(function successCallback(response) {
+       		$rootScope.success_message= 'Success'; 
+            //$location.path('YourRoute');
+
+
+    }, function errorCallback(response) {
+       var patch_error = 'Yikes'
+
+});
 	}
 
 	});
+	
 });
