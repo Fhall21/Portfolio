@@ -254,9 +254,15 @@ function loadPickers(observer){
   		formatedDatesList.push(formated_date);
   		datesDict[formated_date] = {'times':[], 'id':[]};
 
-  		datesDict[formated_date]['times'].push(formatedTimesList[index]);
-      datesDict[formated_date]['id'].push(idList[index]);
-  	}
+    }
+    for (var dates_index = 0; dates_index < formatedDatesList.length; dates_index++){
+      current_loop_date = formatedDatesList[dates_index]; 
+      datesDict[current_loop_date]['times'].push(formatedTimesList[dates_index]);
+      datesDict[current_loop_date]['id'].push(idList[dates_index]);
+      
+    }
+    console.log(datesDict);
+
 
     $("#datepicker").datetimepicker({
     minTime: '07:00',
