@@ -57,7 +57,7 @@ align-items: center;
 ">
 <br>
 <div>
-  <div style="position: absolute; vertical-align: middle; top: 30vh; width: 80%; left: 10%">
+  <div style="position: absolute; vertical-align: middle; top: 25vh; width: 80%; left: 10%">
     
 <form ng-submit="bookingAdd()" >
 
@@ -65,11 +65,9 @@ align-items: center;
   <h2>Success!</h2>
   <p>I'll get back to you shortly. Can't wait to see what we can do together!</p>
 </div>
-</div>
-<div ng-if='error_message!==undefined' class="alert alert-alert">
+<div ng-if='error_message!==undefined && success_message==undefined' class="alert alert-alert">
   <h2>Oh no!</h2>
   <p>An error occured while trying to submit the data. Please try again with a different day/time or please come back later.</p>
-</div>
 </div>
   <blockquote>
 		
