@@ -58,7 +58,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
 				subject='New Meeting Details with Felix Hall',
 				body=msg,
 				from_email='info@felix-hall.com',
-				to=query_data['email'],
+				to=list([query_data['email']]),
 				bcc=list(['felix.p.hall@gmail.com']),
 				reply_to=list(['felix.p.hall@gmail.com']),
 				headers={'Content-Type': 'text/plain'})
