@@ -57,7 +57,7 @@ align-items: center;
 ">
 <br>
 <div>
-  <div style="position: absolute; vertical-align: middle; top: 25vh; width: 80%; left: 10%">
+  <div style="position: absolute; vertical-align: middle; top: 20vh; width: 80%; left: 10%">
     
 <form ng-submit="bookingAdd()" >
 
@@ -271,8 +271,7 @@ function loadPickers(observer){
     onSelectDate:function(ct,$i) {
         var user_date = $('#datepicker').val();
           $('#id').val(datesDict[user_date]['id']);
-          window._date_id = datesDict[user_date]['id'];
-          console.log($('#id').val());
+          
     	  
           $('.timepicker').show();
           $('#timepicker').datetimepicker({
@@ -280,8 +279,23 @@ function loadPickers(observer){
               minTime: '07:00',
               maxTime: '18:00',
               allowTimes: datesDict[user_date]['times'],
-              format: 'h:i',
+              format: 'H:m',
               datepicker: false,
+              onSelectTime:function(ct,$i) {
+                hours = ct.getHours();
+                minutes = ct.getMinutes();
+                if (minutes == "0"){
+                  minutes += "0"
+                }
+                selected_time = hours + ":" + minutes
+                $('#timepicker').val(selected_time);
+                //$i.val(selected_time);
+
+                var times_val = String(selected_time) + ':00';
+                //console.log(times_val);
+                //(datesDict[user_date]['times'].indexOf(times_val));
+                window._date_id = datesDict[user_date]['id'][datesDict[user_date]['times'].indexOf(times_val)];
+              }
           });
           /*
           $("#1").datetimepicker({
