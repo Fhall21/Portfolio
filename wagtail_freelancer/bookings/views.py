@@ -39,6 +39,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
 		#print ('json: ' + type(json_data))
 		del query_data["id"]
 		del query_data['csrfmiddlewaretoken']
+		print(query_data)
 		model_object = Meeting.objects.get(id=kwargs['pk'])
 		serializer = MeetingSerializer(model_object, data=query_data, partial=True)
 		#print (serializer)
@@ -47,9 +48,9 @@ class MeetingViewSet(viewsets.ModelViewSet):
 			serializer.save(id=kwargs['pk'], **serializer.validated_data)
 			date = model_object.day_time.strftime("%d/%m/%y %H:%M")
 			line1 = "Hey {}!\nThank you wanting to create something incredible.".format(query_data['name'])
-			line2 = " I cannot to see what we can achieve together."
+			line2 = " I cannot wait to see what we can achieve together."
 			line3 = " Here's a summary of what you've told me:"
-			line4 = "\nemail: {}\nphone number: {}\nMeetin day: {}".format(
+			line4 = "\nEmail: {}\nPhone number: {}\nMeeting day: {}".format(
 				query_data['email'], query_data['phone_number'], date)
 			line5 = "\nIf something comes up and for some reason you cannot make it, "
 			line6 = "please email me directly by replying to this email.\n\nLooking forwards to making something great!\nRegards,\nFelix Hall"

@@ -124,7 +124,6 @@ align-items: center;
 		{# ng-repeat is like a for loop #}
 		{# date is a disctionary and date. is the key #}
 		<p style="display: none" class="data" ng-bind='date.meetingDay_Time_id'></p>
-
 	</div>
 		
 	</div>
@@ -206,9 +205,9 @@ function loadPickers(observer){
 //var streetName = $('#data').data('street');
 	var datesTimesList = [];
 
-	$('.data').each(function( index, obj ){
-		datesTimesList.push($(this).text())
-	});
+  $('.data').each(function( index, obj ){
+    datesTimesList.push($(this).text())
+  });
 
   	var oldDatesList = [];
   	var datesDict = {};

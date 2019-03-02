@@ -18,9 +18,11 @@ app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN
 			meeting.meetingDay_Time = response.data[index].day_time;
 			meeting.id = response.data[index].id;
 			meeting.meetingDay_Time_id = response.data[index].day_time + "T" + (response.data[index].id)
-			$scope.datesList.push(meeting)
+			if (!(meeting.meetingEmai || meeting.meetingName || meeting.meetingPhone_Number)){
+				$scope.datesList.push(meeting)
+			}
 		}
-		console.log($scope.datesList);
+		//console.log($scope.datesList);
 
 
 	$scope.saveBooking = function(){
