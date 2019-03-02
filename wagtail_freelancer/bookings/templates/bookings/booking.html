@@ -104,7 +104,7 @@ align-items: center;
 	<div class="row">
 		<div class="col">
 			<label ng-model='date' for="datepicker">Date</label>
-			<input class="datetime form-control" id="datepicker" ng-model="date">
+			<input onfocus="blur();" class="datetime form-control" id="datepicker" ng-model="date">
 		</div>
 		<div class="col">
 			<label ng-model='time' for="datepicker" class="timepicker">Time</label>
@@ -259,21 +259,45 @@ function loadPickers(observer){
       datesDict[current_loop_date]['id'].push(idList[dates_index]);
       
     }
-    console.log(datesDict);
 
-
-    $("#datepicker").datetimepicker({
+    /*var datepicker_options = {
     minTime: '07:00',
     maxTime: '18:00',
     format: 'Y/m/d',
     minDate: 0,
     allowDates: formatedDatesList,
     timepicker: false,
-    onSelectDate:function(ct,$i) {
+    //closeOnWithoutClick: false,
+    };
+    */
+
+    //if (navigator.userAgent.match(/Mobile/)) {
+      //datepicker_options[closeOnWithoutClick] = false;
+    //}
+
+    //var datepicker_selected = {}
+      
+     //var final_datepicker_options = Object.assign({}, datepicker_options, datepicker_selected);
+     //alert(final_datepicker_options);
+     //console.log(final_datepicker_options);
+    $("#datepicker").datetimepicker({
+      /*
+      onGenerate:function(current_time,$input){
+
+      },
+      */
+      minTime: '07:00',
+      maxTime: '18:00',
+      format: 'Y/m/d',
+      minDate: 0,
+      allowDates: formatedDatesList,
+      timepicker: false,
+      closeOnWithoutClick: true,
+     onSelectDate:function(ct,$i) {
         var user_date = $('#datepicker').val();
           $('#id').val(datesDict[user_date]['id']);
           
-    	  
+        
           $('.timepicker').show();
           $('#timepicker').datetimepicker({
 
@@ -282,6 +306,7 @@ function loadPickers(observer){
               allowTimes: datesDict[user_date]['times'],
               format: 'H:m',
               datepicker: false,
+              validateOnBlur: false,
               onSelectTime:function(ct,$i) {
                 hours = ct.getHours();
                 minutes = ct.getMinutes();
@@ -310,8 +335,7 @@ function loadPickers(observer){
       
      },
 
-    
-  });
+    });
 };
 
 
