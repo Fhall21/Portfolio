@@ -54,7 +54,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
 			line5 = "\nIf something comes up and for some reason you cannot make it, "
 			line6 = "please email me directly by replying to this email.\n\nLooking forwards to making something great!\nRegards,\nFelix Hall"
 			msg = line1 + line2 + line3 + line4 + line5 + line6 
-			email = EmailMultiAlternatives (
+			email = EmailMessage (
 				subject='New Meeting Details with Felix Hall',
 				body=msg,
 				from_email='info@felix-hall.com',
