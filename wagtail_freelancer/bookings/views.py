@@ -39,18 +39,17 @@ class MeetingViewSet(viewsets.ModelViewSet):
 		#print ('json: ' + type(json_data))
 		del query_data["id"]
 		del query_data['csrfmiddlewaretoken']
-		print(query_data)
+		#print(query_data)
 		model_object = Meeting.objects.get(id=kwargs['pk'])
 		serializer = MeetingSerializer(model_object, data=query_data, partial=True)
 		#print (serializer)
-		print (query_data)
+		#print (query_data)
 		if serializer.is_valid(raise_exception=True):
 			serializer.save(id=kwargs['pk'], **serializer.validated_data)
 
 			date = model_object.day_time.strftime("%d/%m/%y %H:%M")
 			query_data['date'] = date
 			r = requests.post('https://hooks.zapier.com/hooks/catch/2174411/pxh2rt/', data=query_data)
-			print (r.status_code)
 			# line1 = "Hey {}!\nThank you wanting to create something incredible.".format(query_data['name'])
 			# line2 = " I cannot wait to see what we can achieve together."
 			# line3 = " Here's a summary of what you've told me:"
