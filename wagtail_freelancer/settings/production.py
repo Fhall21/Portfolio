@@ -7,7 +7,7 @@ env = os.environ.copy()
 
 DEBUG = config('DEBUG', True, cast=bool)
 
-SECRET_KEY = env['SECRET_KEY']
+SECRET_KEY = config('SECRET_KEY')
 
 #ALLOWED_HOSTS = env['ALLOWED_HOSTS'].split(',')
 
