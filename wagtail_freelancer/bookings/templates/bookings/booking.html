@@ -319,7 +319,9 @@ function loadPickers(observer){
                 var times_val = String(selected_time) + ':00';
                 //console.log(times_val);
                 //(datesDict[user_date]['times'].indexOf(times_val));
-                window._date_id = datesDict[user_date]['id'][datesDict[user_date]['times'].indexOf(times_val)];
+                var submition_id = datesDict[user_date]['id'][datesDict[user_date]['times'].indexOf(times_val)];
+                console.log(submition_id);
+                window._date_id = submition_id;
               }
           });
           /*
