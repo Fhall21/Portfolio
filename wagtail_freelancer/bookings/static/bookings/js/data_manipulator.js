@@ -5,7 +5,7 @@ var app = angular.module('bookings', []).config(function($httpProvider){
 
 function allLetters(word){
 	var letters = /^[A-Za-z]+$/;
-	if(word.value.match(letters)){
+	if(word.match(letters)){
 		return true;
 	}else {
 		return false;
@@ -81,7 +81,7 @@ function validator($scope, $rootScope){
 	}else{
 		if (!(phonenumber(phone_number))){
 			validationArray.push(
-				"Terribly sorry, but my program only accepts the following formats: XXXXXXXXXX or XXXX XXX XXX. Would you mind double checking what you gave me? It also helps if a phone number is made up of numbers.")
+				"Terribly sorry, but my program only accepts the following phone number formats: XXXXXXXXXX or XXXX XXX XXX. Would you mind double checking what you gave me? It also helps if a phone number is made up of numbers.")
 		}
 	}
 	if (validationArray!=0){
