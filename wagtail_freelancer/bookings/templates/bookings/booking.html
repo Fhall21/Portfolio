@@ -67,7 +67,13 @@ align-items: center;
 </div>
 <div ng-if='error_message!==undefined && success_message==undefined' class="alert alert-danger">
   <h2>Oh no!</h2>
-  <p>An error occured while trying to submit the data. Please try again with a different day/time or please come back later.</p>
+  <p>An error occured while trying to submit the data. Please review the errors below. If there are none please try again at a later time.</p>
+  <ul>
+  <div ng-repeat='error in error_array'> 
+      <li ng-bind="error">
+      </li>
+  </div>
+  </ul>
 </div>
   <blockquote>
 		

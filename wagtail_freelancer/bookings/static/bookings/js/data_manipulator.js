@@ -7,25 +7,18 @@ function allLetters(word){
 	var letters = /^[A-Za-z]+$/;
 	if(word.value.match(letters)){
 		return true;
-	}
-	else{
-		alert("message");
+	}else {
 		return false;
 	}
 }
 
 function ValidateEmail(inputText){
 	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-	if(inputText.value.match(mailformat)){
-		return true;
-	}else{
-		return false;
-	}
+	if(inputText.value.match(mailformat)){return true;}else{return false;}
 }
 
 
-function phonenumber(inputtxt)
-{
+function phonenumber(inputtxt){
 	if (inputtxt.length==10){
 		var phoneno = /^\(?([0-9]{10})\)?/
 		if((inputtxt.value.match(phoneno))){
@@ -45,7 +38,7 @@ function phonenumber(inputtxt)
 	    }
 }
 
-function validator($scope){
+function validator($scope, $rootScope){
 	var validationArray = [];
 	var valid;
 	first_name = $scope.first_name;
@@ -53,38 +46,51 @@ function validator($scope){
 	email = $scope.email;
 	phone_number = $scope.phone_number;
 
-	//checking if a field is empy
-	var inputArray = [first_name, last_name, email, phone_number]
-
-	for (i = 0; i < inputArray.length; i++){
-		if (!(inputArray[i])){
-			validationArray.pop(
-				'You forgot to fill in your ' + inputArray[i])
-		}
-	} else{
-	//if they are not empty:
-		//checking if name fields are only letters
+	//first name
+	if (!(first_name)){
+		validationArray.push('Could I ask that you please fill in your first name?');
+	}else{
 		if (!(allLetters(first_name))){
-				validationArray.pop(
-					'Please make sure your first name is made up of letters only.')
+				validationArray.push(
+					"Please make sure your first name is made up of letters only. Robots haven't quite taken over yet...")
 			}
+	}
+	//last name
+	if (!(last_name)){
+		validationArray.push('Could I ask that you please fill in your last name? Thanks!');
+	}else{
 		if (!(allLetters(last_name))){
-				validationArray.pop(
-					'Please make sure your last name is made up of letters only.')
+				validationArray.push(
+					"Please make sure your last name is made up of letters only. We're not all robots yet...")
 			}
-		if (!(ValidateEmail(email))){
-			validationArray.pop('Please double check your email.')
-		}
-
-		if (!(phonenumber(phone_number))){
-			validationArray.pop(
-				'Please double check your email. Accepted formats are XXXXXXXXXX or XXXX XXX XXX')
-		}
-
-
 	}
 
+	//email
+	if (!(email)){
+		validationArray.push("Could I ask that you please fill in your email address? My telepathic skils aren't up to sratch and I'd love to follow up.");
+	}else{
+		if (!(ValidateEmail(email))){
+			validationArray.push("Please double check your email, I'd hate to be contacting the wrong person.")
+		}
+	}
 
+	//phone number
+	if (!(phone_number)){
+		validationArray.push("Could I ask that you please fill in your phone number? I find it just makes it easier if all goes horribly and quick communication is needed.");
+	
+	}else{
+		if (!(phonenumber(phone_number))){
+			validationArray.push(
+				"Terribly sorry, but my program only accepts the following formats: XXXXXXXXXX or XXXX XXX XXX. Would you mind double checking what you gave me? It also helps if a phone number is made up of numbers.")
+		}
+	}
+	if (validationArray!=0){
+		$rootScope.error_array= validationArray;
+		console.log($rootScope.error_array);
+		return false;
+	}else{
+		return true;
+	}
 }
 
 
@@ -125,23 +131,28 @@ app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN
 		};
 		//console.log(data);
 		//${data.id};
-		$http({
-	    method: 'patch',
-	    url: '/meeting/api/meeting//' + String(id) + '/',
-	    data: data,
-	    headers: {
-	    	'Content-Type': 'application/x-www-form-urlencoded',
-	    	'X-CSRFToken' : CSRF_TOKEN,
-	    }
-		}).then(function successCallback(response) {
-       		$rootScope.success_message= 'Success'; 
-            //$location.path('YourRoute');
+		if (validator($scope, $rootScope)){
+			$http({
+		    method: 'patch',
+		    url: '/meeting/api/meeting//' + String(id) + '/',
+		    data: data,
+		    headers: {
+		    	'Content-Type': 'application/x-www-form-urlencoded',
+		    	'X-CSRFToken' : CSRF_TOKEN,
+		    }
+			}).then(function successCallback(response) {
+	       		$rootScope.success_message= 'Success'; 
+	            //$location.path('YourRoute');
+	    }, function errorCallback(response) {
+	       $rootScope.error_message= 'Error';
 
+	});
 
-    }, function errorCallback(response) {
-       $rootScope.error_message= 'Error';
+		}else{
+				$rootScope.error_message= 'Error';
 
-});
+		}
+
 	}
 
 	});
