@@ -59,21 +59,37 @@ align-items: center;
 <div>
   <div style="position: absolute; vertical-align: middle; top: 15vh; width: 90%; left: 10%">
     
-<form ng-submit="bookingAdd()" >
+<form ng-submit="bookingAdd()" name="bookingForm" id="bookingForm">
+<div id="messages" style="display: none;">
+  <div class="message-loop"> 
 
-<div ng-if='success_message!==undefined' class="alert alert-primary">
-  <h2>Success!</h2>
-  <p>I'll get back to you shortly. Can't wait to see what we can do together!</p>
-</div>
-<div ng-if='error_message!==undefined && success_message==undefined' class="alert alert-danger">
-  <h2>Oh no!</h2>
-  <p>An error occured while trying to submit the data. Please review the errors below. If there are none please try again at a later time.</p>
-  <ul>
-  <div ng-repeat='error in error_array'> 
-      <li ng-bind="error">
-      </li>
+  <div ng-repeat='message in messageList'> 
+    {# ng-repeat is like a for loop #}
+    {# date is a disctionary and date. is the key #}
+    <p style="display: none" class="message-data" ng-bind='message'></p>
   </div>
-  </ul>
+  
+</div>
+    
+  
+  <div id="success-message">
+  <div class="alert alert-primary">
+    <h2>Success!</h2>
+    <p>I'll get back to you shortly. Can't wait to see what we can do together!</p>
+  </div>
+    
+  </div>
+  <div class="alert alert-danger" id='error-message'>
+    <h2>Oh no!</h2>
+    <p>An error occured while trying to submit the data. Please review the errors below. If there are none please try again at a later time.</p>
+    <ul>
+    <div ng-repeat='error in error_array'> 
+        <li ng-bind="error">
+        </li>
+    </div>
+    </ul>
+  </div>
+
 </div>
   <blockquote>
 		
@@ -93,7 +109,7 @@ align-items: center;
 		      <input ng-model='first_name' id="first_name" type="text" class="form-control" placeholder="First name">
 		    </div>
 		    <div class="col">
-		      <input ng-model='last_name' type="text" class="form-control" placeholder="Last name">
+		      <input ng-model='last_name' id='last_name' type="text" class="form-control" placeholder="Last name">
 		    </div>
 		</div>
 
@@ -172,10 +188,10 @@ $(function(){
     $('.timepicker').hide();
 	//setTimeout(loadPickers, 1000);
 	// The node to be monitored
-var target = $( "#datatable" )[0];
+var time_observer_target = $( "#datatable" )[0];
 
 // Create an observer instance
-var observer = new MutationObserver(function( mutations ) {
+var time_observer = new MutationObserver(function( mutations ) {
   mutations.forEach(function( mutation ) {
     var newNodes = mutation.addedNodes; // DOM NodeList
     if( newNodes !== null ) { // If there are new nodes added
@@ -183,30 +199,89 @@ var observer = new MutationObserver(function( mutations ) {
     	$nodes.each(function() {
     		var $node = $( this );
     		if( $node.hasClass( "ng-scope" ) ) {
-    			loadPickers(observer)
+    			loadPickers(time_observer)
     		}
     	});
     }
   });    
 });
+var success_target = $(".message-loop")[0];
+alert(success_target.innerHTML);
+
+
+// Create an observer instance for the success dive
+var success_observer = new MutationObserver(function( mutations ) {
+  mutations.forEach(function( mutation ) {
+    var newNodes = mutation.addedNodes; // DOM NodeList
+    if( newNodes !== null ) { // If there are new nodes added
+      var $nodes = $( newNodes ); // jQuery set
+      $nodes.each(function() {
+        var $node = $( this );
+        if( $node.hasClass( "ng-scope" ) ) {
+          emptyData(success_observer)
+        }
+      });
+    }
+  });    
+});
 
 // Configuration of the observer:
-var config = { 
+var observer_config = { 
 	attributes: true, 
 	childList: true, 
 	characterData: true 
 };
  
 // Pass in the target node, as well as the observer options
-observer.observe(target, config);
+time_observer.observe(time_observer_target, observer_config);
  
+success_observer.observe(success_target, observer_config);
 
 })
 
+//clearing form
+function emptyData(observer){
+  observer.disconnect();
+  var income_message = $('.message-data')[0].innerHTML;
+  console.log(income_message);
+
+  if (income_message == 'success'){
+    $('#first_name').val('');
+    $('#last_name').val('');
+    $('#email').val('');
+    $('#phone_number').val('');
+    $('#datepicker').val('');
+    $('#timepicker').val('');
+    $('.timepicker').hide();
+    console.log('1');
+
+    $('#success-message').show()
+  }else if(income_message == 'Validation error'){
+    console.log('2');
+    
+    $('#error-message').show()
+  }else{
+    console.log('3');
+
+    $('#error-message').show()    
+  }
+
+
+}
 
 function loadPickers(observer){
+
 	// Later, you can stop observing
 	observer.disconnect();
+  var hey = '{{rootScope}}';
+  console.log(hey);
+
+  $('#success-message').hide()
+  $('#error-message').hide()
+  //since angular has finished loading the error messages will be re-added
+  $('#messages').css('display', 'block');
+
+
 //    var street_name = $('[ng-controller="add"]').scope().streetName;
 //var streetName = $('#data').data('street');
 	var datesTimesList = [];
@@ -329,6 +404,7 @@ function loadPickers(observer){
                 var submition_id = datesDict[user_date]['id'][datesDict[user_date]['times'].indexOf(times_val)];
                 //console.log(submition_id);
                 window._date_id = submition_id;
+
               }
           });
           /*

@@ -97,7 +97,10 @@ function validator($scope, $rootScope){
 
 app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN, $rootScope){
 	$http.get('/meeting/api/meeting//').then(function(response){
+		$rootScope.new_var = 'HEY';
+
 		$scope.datesList = [];
+		$scope.messageList = [];
 		for (var index = 0; index < response.data.length; index++){
 			// creating a new dictionary for each object in the data set
 			var meeting = {};
@@ -141,15 +144,24 @@ app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN
 		    	'X-CSRFToken' : CSRF_TOKEN,
 		    }
 			}).then(function successCallback(response) {
-	       		$rootScope.success_message= 'Success'; 
-	            //$location.path('YourRoute');
+				console.log('success 2');
+				$scope.messageList.push('success');
+
+	       		$scope.bookingForm.$setPristine();
+	       		$scope.bookingForm.$setSubmitted();
+	       		$rootScope.new_var = 'HEY';
+	       		$rootScope.$broadcast('success');
+	       		//$location.path('YourRoute');
 	    }, function errorCallback(response) {
-	       $rootScope.error_message= 'Error';
+   				$scope.messageList.push('submition error');
+
+
 
 	});
 
 		}else{
-				$rootScope.error_message= 'Error';
+   			$scope.messageList.push('Validation error');
+   			console.log('validation error');
 
 		}
 
