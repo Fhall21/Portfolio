@@ -14,21 +14,21 @@ function allLetters(word){
 
 function ValidateEmail(inputText){
 	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-	if(inputText.value.match(mailformat)){return true;}else{return false;}
+	if(inputText.match(mailformat)){return true;}else{return false;}
 }
 
 
 function phonenumber(inputtxt){
 	if (inputtxt.length==10){
 		var phoneno = /^\(?([0-9]{10})\)?/
-		if((inputtxt.value.match(phoneno))){
+		if((inputtxt.match(phoneno))){
 	      return true;
 		} else{
 			return false;
 		}
 	} else if (inputtxt.length == 13){
 	  var phoneno = /^\(?([0-9]{4})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$/;
-	  if((inputtxt.value.match(phoneno))){
+	  if((inputtxt.match(phoneno))){
 	      return true;
 	        } else{
 	        return false;
