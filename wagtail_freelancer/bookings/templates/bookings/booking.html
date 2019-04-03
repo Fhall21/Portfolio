@@ -63,7 +63,7 @@ align-items: center;
 <div id="messages" style="display: none;">
   <div class="message-loop"> 
 
-  <div ng-repeat='message in messageList'> 
+  <div ng-repeat='message in messageList track by $index'> 
     {# ng-repeat is like a for loop #}
     {# date is a disctionary and date. is the key #}
     <p style="display: none" class="message-data" ng-bind='message'></p>
@@ -240,7 +240,6 @@ success_observer.observe(success_target, observer_config);
 
 //clearing form
 function emptyData(observer){
-  observer.disconnect();
   var income_message = $('.message-data')[0].innerHTML;
   console.log(income_message);
 
@@ -254,6 +253,7 @@ function emptyData(observer){
     $('.timepicker').hide();
     console.log('1');
 
+    $('#error-message').remove()
     $('#success-message').show()
   }else if(income_message == 'Validation error'){
     console.log('2');

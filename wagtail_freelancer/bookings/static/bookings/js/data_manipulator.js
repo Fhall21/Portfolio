@@ -145,7 +145,8 @@ app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN
 		    }
 			}).then(function successCallback(response) {
 				console.log('success 2');
-				$scope.messageList.push('success');
+				$scope.messageList.unshift('success');
+				console.log($scope.messageList);
 
 	       		$scope.bookingForm.$setPristine();
 	       		$scope.bookingForm.$setSubmitted();
@@ -153,15 +154,16 @@ app.controller('bookingsController', function($scope, $http, $window, CSRF_TOKEN
 	       		$rootScope.$broadcast('success');
 	       		//$location.path('YourRoute');
 	    }, function errorCallback(response) {
-   				$scope.messageList.push('submition error');
+   				$scope.messageList.unshift('submition error');
 
 
 
 	});
 
 		}else{
-   			$scope.messageList.push('Validation error');
+   			$scope.messageList.unshift('Validation error');
    			console.log('validation error');
+			console.log($scope.messageList);
 
 		}
 
