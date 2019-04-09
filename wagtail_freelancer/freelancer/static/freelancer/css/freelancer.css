@@ -4,6 +4,7 @@
   */
   --theme-colour: #54dcf4;
   --font-colour-on-theme: #2c2424;
+  --colour-dark: #2c2424;
   --font-family: 'Lato';
 }
 
@@ -61,9 +62,6 @@ hr.star-dark:after {
   background-color: white;
 }
 
-.txt-dark{
-  color: #2c2424;
-}
 
 section {
   padding: 6rem 0;
@@ -81,6 +79,15 @@ section h2 {
     font-size: 3rem;
     line-height: 2.5rem;
   }
+}
+
+.txt-dark{
+  color: var(--colour-dark);
+}
+
+.txt-lead{
+  font-size: 1.25rem;
+  font-weight: 400;
 }
 
 .btn-xl {
