@@ -23,8 +23,7 @@ Felix Hall Catchup
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
-		<!-- Bootstrap stuff -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
  <!-- XDSoft DateTimePicker -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
 
@@ -34,7 +33,7 @@ Felix Hall Catchup
 <style type="text/css">
 
 body {
-	  background-color: #18BC9C !important;
+    background-color: var(--theme-colour);
 }
 	
 </style>
@@ -44,7 +43,7 @@ body {
 
 
 {% block content %}
-<div style="  background-color: #18BC9C !important;" ng-app="bookings" ng-controller="bookingsController">
+<div ng-app="bookings" ng-controller="bookingsController">
 
 <p style="font-size: 5rem; margin-bottom: 5rem;"></p>
 
@@ -53,11 +52,10 @@ position: relative;
 width: 90%;
 height: 100%;
 align-items: center;
-  background-color: #18BC9C !important;
 ">
 <br>
 <div>
-  <div style="position: absolute; vertical-align: middle; top: 15vh; width: 90%; left: 10%">
+  <div style="position: absolute; vertical-align: middle; top: 15vh; width: 90%; left: 10%; background-color: var(--theme-colour);">
     
 <form ng-submit="bookingAdd()" name="bookingForm" id="bookingForm">
 <div id="messages" style="display: none;">

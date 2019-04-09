@@ -47,7 +47,7 @@
     <meta name="apple-mobile-web-app-title" content="Felix Hall - Freelance Django Web App Developer">
     <meta name="application-name" content="Felix Hall - Freelance Django Web App Developer">
     <meta name="msapplication-TileColor" content="#00a300">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#4e8efc">
 {% block extra_links %}
 {% endblock %}
 
@@ -61,7 +61,7 @@
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top" id="navbarBrand">{% block _page_title %}{{ page.title }}{% endblock %}</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary txt-dark rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fa fa-bars"></i>
         </button>
@@ -86,7 +86,7 @@
 {% block content %}
 
 <!-- Header -->
-<header class="masthead text-white text-center">
+<header class="masthead txt-dark text-center">
     <div class="container">
 
         {% if page.profile_image %}
@@ -176,10 +176,10 @@
 {# About Section #}
 <section class="bg-primary mb-0" id="about">
     <div class="container">
-        <h2 class="text-center text-uppercase text-white">About</h2>
+        <h2 class="text-center text-uppercase txt-dark">About</h2>
         <hr class="star-light mb-5">
         <div class="row">
-            <div class="col-lg-6 offset-lg-3 lead text-white">
+            <div class="col-lg-6 offset-lg-3 lead txt-dark">
                 {{ self.about_text|richtext }}
             </div>
         </div>
