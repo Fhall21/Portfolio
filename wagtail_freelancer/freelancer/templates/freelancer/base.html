@@ -240,8 +240,32 @@
 {% endblock %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-{% block extra_js %}
-<!-- Slick --->
+<div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <p class="m-0 text-center text-white">Made with <span class='text-success'>simplicity for impact</span> by <a href="#">Felix Hall</a></p>
+    </div>
+</div>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.9/jquery.jcarousel-autoscroll.js"></script> -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'freelancer/vendor/jquery/jquery.min.js' %}" ></script>
+<script src="{% static 'freelancer/vendor/bootstrap/js/bootstrap.bundle.min.js' %}" ></script>
+
+<!-- Plugin JavaScript -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ -->
+<script src="{% static 'freelancer/vendor/jquery-easing/jquery.easing.min.js' %}" ></script>
+<script src="{% static 'freelancer/vendor/magnific-popup/jquery.magnific-popup.min.js' %}" ></script>
+
+<!-- Slick -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
 <!-- Custom scripts for this template -->
 <script src="{% static 'freelancer/js/freelancer.js' %}" ></script>
@@ -279,6 +303,7 @@ $(function(){
 
 </script>
 
+{% block extra_js %}
 {% endblock %}
 
 </body>
