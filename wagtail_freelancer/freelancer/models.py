@@ -20,6 +20,7 @@ from freelancer.blocks import (
     ExtraHeadTagBlock, MissionBlock, TestimonialBlock)
 from modelcluster.fields import ParentalKey
 
+from wagtailcaptcha.models import WagtailCaptchaForm
 
 class FreelancerFormField(AbstractFormField):
     page = ParentalKey('FreelancerPage', related_name='form_fields')
@@ -27,7 +28,7 @@ class FreelancerFormField(AbstractFormField):
 #class ProgrammingToolsFormField(AbstractFormField):
 #    page = ParentalKey('FreelancerPage', related_name='programming_tools')
 
-class FreelancerPage(AbstractForm):
+class FreelancerPage(WagtailCaptchaForm):
     subtitle = models.CharField(max_length=100, blank=True)
 
     profile_image = models.ForeignKey(
@@ -84,4 +85,7 @@ BlockQuoteBlock
 wagtail.core.blocks.BlockQuoteBlock
 
 A text field, the contents of which will be wrapped in an HTML <blockquote> tag pair. The keyword arguments required (default: True), max_length, min_length and help_text are accepted.
+'''
+'''
+class ContactPage(WagtailCaptchaEmailForm)
 '''

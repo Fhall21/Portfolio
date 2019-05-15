@@ -57,6 +57,8 @@ THIRD_PARTY_APPS = [
     'storages',
     'django_filters',
     'rest_framework',
+    'captcha', # comes from django-captcha
+    'wagtailcaptcha',
 
 ]
 
@@ -230,3 +232,9 @@ EMAIL_PORT = 587
 EMAIL_USE_SSL = False
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+#RECAPTCHA SETTINGS
+RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_SITE_KEY')
+RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_SECRET_KEY')
+NOCAPTCHA = True
