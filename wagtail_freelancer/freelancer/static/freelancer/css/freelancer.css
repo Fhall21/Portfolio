@@ -429,6 +429,10 @@ form .row:first-child .floating-label-form-group {
   padding-bottom: 5rem;
   background-color: #2C3E50;
   color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .copyright {
