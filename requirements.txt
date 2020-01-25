@@ -20,7 +20,7 @@ django-storages==1.7.1
 django-taggit==0.23.0
 django-treebeard==4.3
 django-widget-tweaks==1.4.3
-djangorestframework==3.9.0
+djangorestframework==3.9.1
 djangorestframework-filters==0.10.2.post0
 docutils==0.14
 draftjs-exporter==2.1.5
