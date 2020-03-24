@@ -17,6 +17,11 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 from decouple import config
 
+
+#Stripe settings
+STRIPE_SECRET_KEY = config('STRIPE_TEST_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_TEST_PUBLISHABLE_KEY')
+
 ALLOWED_HOSTS = ['*', 'felix-hall.com', '127.0.0.1', '138.68.255.50'] 
 
 # Quick-start development settings - unsuitable for production
@@ -240,7 +245,3 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_SITE_KEY')
 RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_SECRET_KEY')
 NOCAPTCHA = True
-
-#Stripe settings
-STRIPE_SECRET_KEY = config('STRIPE_TEST_SECRET_KEY')
-STRIPE_PUBLISHABLE_KEY = config('STRIPE_TEST_PUBLISHABLE_KEY')

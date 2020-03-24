@@ -17,6 +17,11 @@ Student Coding Course
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <!-- <script type="module" src="node_modules/spin.js/spin.js"></script> -->
+		<script src="{% static 'ladda-master/css/ladda-themed.scss' %}"></script>
+		<script src="{% static 'ladda-master/js/ladda.js' %}"></script>
 {% endblock %}
 
 
@@ -39,7 +44,8 @@ Student Coding Course
 <form method="post" id="StripeForm">
 	    {% include 'bf_forms.html' with form=form %}
         {% csrf_token %}
-        <button class="btn btn-primary btn-lg" id="stripe-button">Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
+        <button class="btn btn-primary btn-lg" id="stripe_button"
+        >Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
 
     </form>
 
@@ -48,27 +54,34 @@ Student Coding Course
 $(function(){
 	$('#id_is_student, #id_student_keen').removeClass("form-control")
 	$('#id_is_student, #id_student_keen div').css({'justify-self': 'center'});
-	console.log($('#id_amount_paid').val())
+	console.log($('#id_amount_paid').val());
 
 	//replaceWith(function(){
 	});
 
-$('#stripe-button').click(function(){
+$('#stripe_button').click(function(){
 	var token = function(res){
 		var $id = $('<input type=hidden name=stripeToken />').val(res.id);
 		var $email = $('<input type=hidden name=stripeEmail />').val(res.email);
-		$('form').append($id).append($email).submit();
+		$('a').bind("click", function() { return false; });
+	    $('button').addClass('disabled');
+	    handler.open({closed : function(){$('#stripe_button').html('loading')}})
+	// alert('here')
+		$('#StripeForm').append($id).append($email).submit();
 	};
-	var amount = $('#id_amount_paid').val() + "0"
+	var amount = ($('#id_amount_paid').val() * 100) 
+		// alert(amount)
 	StripeCheckout.open({
 		key: '{{ key }}',
+		address: false,
 		amount: amount,
 		name: 'Coding Workshop',
 		description: 'Register to Coding Workshop',
-		panelLable: 'Checkout',
+		panelLabel: 'Checkout',
 		currency: 'AUD',
 		token: token
 	});
+	ladda_instance.stopAll()
 	return false;
 });
 
