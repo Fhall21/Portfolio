@@ -1,0 +1,45 @@
+{% load widget_tweaks %}
+
+{% for hidden_field in form.hidden_fields %}
+	{{ hidden_field}}
+{% endfor %}
+
+{# non field errors #}
+{% if form.non_field_errors %}
+	<div class="alert alert-danger" role="alert">
+		{% for error in form.non_field_errors %}
+			{{  error.as_p }}
+		{% endfor %}
+	</div>
+{% endif %}
+
+{# actual form #}
+{% for field in form.visible_fields %}
+<div class="form-group">
+	{{ field.label_tag }}
+
+	{# bound = has data #} 
+	{% if form.is_bound %}	}
+		{% if field.errors %}
+			{% render_field field class="form-control is-invalid" %}
+			{% for error in field.errors %}
+				<div class="invalid-feedback">
+					{{ error.as_p }}
+				</div>
+			{% endfor %}
+		{% else %}
+			{# else = form is valid -- show a green box #}
+			{% render_field field class="form-control is-valid" %}
+		{% endif %}
+	{% else %}
+		{# else to if field is bound #}
+		{% render_field field class="form-control" %}
+	{% endif %}
+
+{% if field.help_text %}
+	<small class="form-text text-muted">
+		{{ field.help_text.as_p }}
+	</small>
+	{% endif %}
+</div>
+{% endfor %}

@@ -13,6 +13,7 @@ urlpatterns = [
 
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
+    path('holiday-coding-course/', include('course.urls', namespace="course")),
     path('meeting/', include('bookings.urls', namespace="bookings")),
 
 

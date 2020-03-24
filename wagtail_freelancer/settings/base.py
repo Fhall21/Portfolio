@@ -59,12 +59,14 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'captcha', # comes from django-captcha
     'wagtailcaptcha',
+    'phonenumber_field',
 
 ]
 
 PERSONAL_APPS = [
     'freelancer',
     'bookings',
+    'course',
 
 ]
 
@@ -238,3 +240,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_SITE_KEY')
 RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_SECRET_KEY')
 NOCAPTCHA = True
+
+#Stripe settings
+STRIPE_SECRET_KEY = config('STRIPE_TEST_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_TEST_PUBLISHABLE_KEY')

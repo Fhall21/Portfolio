@@ -1,0 +1,76 @@
+{% extends "freelancer/base.html" %}
+{% load static %}
+
+<title>
+	{% block title %}
+	Student Holiday Course 
+	{% endblock %}
+</title>
+
+
+{% block _page_title %}
+Student Coding Course
+{% endblock %}
+
+{% block extra_links %}
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+{% endblock %}
+
+
+{% block navbar_el %}
+<li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#portfolio">Portfolio</a>
+</li>
+<li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#about">About</a>
+</li>
+<li class="nav-item mx-0 mx-lg-1">
+    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#contact">Contact</a>
+</li>
+{% endblock %}
+
+{# main content! #}
+{% block content %}
+<p style="font-size: 7rem; margin-bottom: 7rem;"></p>
+
+<form method="post" id="StripeForm">
+	    {% include 'bf_forms.html' with form=form %}
+        {% csrf_token %}
+        <button class="btn btn-primary btn-lg" id="stripe-button">Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
+
+    </form>
+
+
+<script type="text/javascript">
+$(function(){
+	$('#id_is_student, #id_student_keen').removeClass("form-control")
+	$('#id_is_student, #id_student_keen div').css({'justify-self': 'center'});
+	console.log($('#id_amount_paid').val())
+
+	//replaceWith(function(){
+	});
+
+$('#stripe-button').click(function(){
+	var token = function(res){
+		var $id = $('<input type=hidden name=stripeToken />').val(res.id);
+		var $email = $('<input type=hidden name=stripeEmail />').val(res.email);
+		$('form').append($id).append($email).submit();
+	};
+	var amount = $('#id_amount_paid').val() + "0"
+	StripeCheckout.open({
+		key: '{{ key }}',
+		amount: amount,
+		name: 'Coding Workshop',
+		description: 'Register to Coding Workshop',
+		panelLable: 'Checkout',
+		currency: 'AUD',
+		token: token
+	});
+	return false;
+});
+
+</script>
+{% endblock %}
