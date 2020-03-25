@@ -20,8 +20,14 @@ Student Coding Course
   <script src="https://js.stripe.com/v3/"></script>
   <script src="https://checkout.stripe.com/checkout.js"></script>
   <!-- <script type="module" src="node_modules/spin.js/spin.js"></script> -->
-		<script src="{% static 'ladda-master/css/ladda-themed.scss' %}"></script>
-		<script src="{% static 'ladda-master/js/ladda.js' %}"></script>
+<script src="{% static 'course/css/course.css' %}"></script>
+<script src="{% static 'course/js/course.js' %}"></script>
+
+<script src="{% static 'course/js/freelancer.js' %}"></script>
+<script src="{% static 'course/css/freelancer.css' %}"></script>
+
+
+
 {% endblock %}
 
 
@@ -41,49 +47,138 @@ Student Coding Course
 {% block content %}
 <p style="font-size: 7rem; margin-bottom: 7rem;"></p>
 
-<form method="post" id="StripeForm">
-	    {% include 'bf_forms.html' with form=form %}
-        {% csrf_token %}
-        <button class="btn btn-primary btn-lg" id="stripe_button"
-        >Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
+<div class="container">
+<section class="pyBenefits" id="pyBenefits">
+	<div class="row" style="justify-content: center;">
+	<div class="col-sm-3 align-self-center mx-4" style="text-align: center;">
+		<div class="mission_icon">
+			<i class="fa fa-heart" ></i>
+		</div>
+		<div class="mission_txt">
+		<strong>Most loved programming language.</strong> It's neateness, ability to write powerful code simply makes it THE most loved programming language as of 2020! (CondinGame, 2020)
+		</div>
+	</div>
+	<div class="col-sm-3 align-self-center mx-4" style="text-align: center;">
+		<div class="mission_icon">
+			<i class="fa fa-line-chart" ></i>
+		</div>
+		<div class="mission_txt">
+		<strong>Fastest growing language.</strong> It's beauty and efficiency has lead to more and more companies chosing python over other languages. (Stackoverflow, 2019)
+		</div>
+	</div>
+	<div class="col-sm-3 align-self-center mx-4" style="text-align: center;">
+		<div class="mission_icon">
+			<i class="fa fa-space-shuttle" ></i>
+		</div>
+		<div class="mission_txt">
+		<strong>Incredibly useful.</strong> Regardless of the field. Python is used for healthcare, media, education, aerospace, finance, real estate, beauty and construction. (CodinGame, 2020)  
+		</div>
+	</div>
+	</div>
+</section>
 
-    </form>
+<section class="coding" style="justify-content: center;">
+	<div class="row">
+
+		{# quotes #}
+		<div class="col-sm-7 align-self-right mx-3" style="text-align: left;">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<br>
+
+				{# Wrapper for slides #}
+				<div class="slick-carousel">
+
+				<div class="item active">
+					<div>
+					<blockquote class="blockquote_styling">
+					Everybody should learn how to program a computer because it teaches you how to think.
+					<br>
+					-Steve Jobs
+					</blockquote>
+					</div>
+				</div>
+
+				<div class="item">
+					<div>
+					<blockquote class="blockquote_styling">
+					Whether you want to uncover the secrets of the universe, or you want to pursue a career in the 21st century, basic computer programming is an essential skill to learn.
+					<br>
+					-Stephen Hawking
+					</blockquote>
+					</div>
+				</div>
+				<div class="item">
+					<div>
+					<blockquote class="blockquote_styling">
+					All of my friends who have younger siblings who are going to college or high school - my number one piece of advice is: You should learn how to program.
+					<br>
+					-Mark Zuckerberg
+					</blockquote>
+					</div>
+				</div>
+
+				</div>
+				{# Left and right controls #}
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+				</a>
+			</div>
+
+		</div>
+
+		{# python picture #}
+		<div class="col-sm-2 align-self-left mx-3" style="text-align: right;">
+			<img class="img-fluid d-block mx-auto" src="{% static 'course/img/Cropped-podium.png' %}" alt="" style="width: 100%; align-self: right">
+		</div>
+		
+	</div>
+</section>
+
+<section class="course-outline">
+	<div class="row">
+
+	{# python video? #}
+	<div class="col-sm-3 align-self-left mx-4" style="text-align: right;">
+			
+		</div>
+
+	{# course outline #}
+	<div class="col-sm-6 align-self-right mx-4" style="text-align: right;">
+		<h2>Course outline:</h2>
+	</div>
+
+		
+	</div>
+</section>
+
+<div class="row">
+	<div class="col-sm-6">
+		<form method="post" id="StripeForm" role="form">
+			    {% include 'bf_forms.html' with form=form %}
+		        {% csrf_token %}
+		        <p id="payment_breakdown">That's roughly: $10/hr. Excluding private one-on-one time, the invaluable support network and connections.</p>
+		        <input id="hourly_rate" type="hidden"></input>
+		        <button class="btn btn-primary btn-lg" id="stripe_button"
+		        >Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
+
+		    </form>
+	</div>
+	<div class="col-sm-6">
+		<h1 class="overview">Here's stuff</h1>
+	</div>
+	
+</div>
+</div>
+
 
 
 <script type="text/javascript">
-$(function(){
-	$('#id_is_student, #id_student_keen').removeClass("form-control")
-	$('#id_is_student, #id_student_keen div').css({'justify-self': 'center'});
-	console.log($('#id_amount_paid').val());
 
-	//replaceWith(function(){
-	});
-
-$('#stripe_button').click(function(){
-	var token = function(res){
-		var $id = $('<input type=hidden name=stripeToken />').val(res.id);
-		var $email = $('<input type=hidden name=stripeEmail />').val(res.email);
-		$('a').bind("click", function() { return false; });
-	    $('button').addClass('disabled');
-	    handler.open({closed : function(){$('#stripe_button').html('loading')}})
-	// alert('here')
-		$('#StripeForm').append($id).append($email).submit();
-	};
-	var amount = ($('#id_amount_paid').val() * 100) 
-		// alert(amount)
-	StripeCheckout.open({
-		key: '{{ key }}',
-		address: false,
-		amount: amount,
-		name: 'Coding Workshop',
-		description: 'Register to Coding Workshop',
-		panelLabel: 'Checkout',
-		currency: 'AUD',
-		token: token
-	});
-	ladda_instance.stopAll()
-	return false;
-});
 
 </script>
 {% endblock %}

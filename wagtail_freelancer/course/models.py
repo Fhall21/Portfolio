@@ -23,4 +23,4 @@ class HolidayCourseContacts(models.Model):
 
 	paid = models.BooleanField()
 	amount_paid = models.DecimalField(
-		validators=[MinValueValidator(10.00)], default=80.00, max_digits=6, decimal_places=2,)
+		validators=[MinValueValidator(20.00)], default=120.00, max_digits=6, decimal_places=2,)
