@@ -19,12 +19,13 @@ Student Coding Course
   crossorigin="anonymous"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script src="https://checkout.stripe.com/checkout.js"></script>
-  <!-- <script type="module" src="node_modules/spin.js/spin.js"></script> -->
-<script src="{% static 'course/css/course.css' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'freelancer/css/freelancer.css' %}">
+<script src="{% static 'freelancer/js/freelancer.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'course/css/course.css' %}">
 <script src="{% static 'course/js/course.js' %}"></script>
 
-<script src="{% static 'course/js/freelancer.js' %}"></script>
-<script src="{% static 'course/css/freelancer.css' %}"></script>
 
 
 
@@ -47,9 +48,8 @@ Student Coding Course
 {% block content %}
 <p style="font-size: 7rem; margin-bottom: 7rem;"></p>
 
-<div class="container">
-<section class="pyBenefits" id="pyBenefits">
-	<div class="row" style="justify-content: center;">
+<section class="pyBenefits container" id="pyBenefits">
+	<div class="row container" style="justify-content: center;">
 	<div class="col-sm-3 align-self-center mx-4" style="text-align: center;">
 		<div class="mission_icon">
 			<i class="fa fa-heart" ></i>
@@ -78,10 +78,10 @@ Student Coding Course
 </section>
 
 <section class="coding" style="justify-content: center;">
-	<div class="row">
+	<div class="row align-items-center">
 
 		{# quotes #}
-		<div class="col-sm-7 align-self-right mx-3" style="text-align: left;">
+		<div class="col-sm-7 align-self-right mx-3 quotes bg-primary border-primary-angle-right" style="text-align: left;">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<br>
 
@@ -132,8 +132,8 @@ Student Coding Course
 		</div>
 
 		{# python picture #}
-		<div class="col-sm-2 align-self-left mx-3" style="text-align: right;">
-			<img class="img-fluid d-block mx-auto" src="{% static 'course/img/Cropped-podium.png' %}" alt="" style="width: 100%; align-self: right">
+		<div class="col-sm-2 align-self-left" style="text-align: right;">
+			<img class="img-fluid d-block mx-auto" src="{% static 'course/img/Cropped-podium.png' %}" alt="" style="width: 30vw;">
 		</div>
 		
 	</div>
@@ -143,36 +143,38 @@ Student Coding Course
 	<div class="row">
 
 	{# python video? #}
-	<div class="col-sm-3 align-self-left mx-4" style="text-align: right;">
+	<div class="col-sm-3 align-self-left" style="text-align: right;">
 			
 		</div>
 
 	{# course outline #}
-	<div class="col-sm-6 align-self-right mx-4" style="text-align: right;">
+	{# https://freefrontend.com/css-text-animations/ #}
+	<div class="col-sm-8 align-self-right bg-primary border-primary-angle-right" style="text-align: left;">
 		<h2>Course details:</h2>
 		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
 		<p>Still confused? Well here's the plan:</p>
 		<h3>Day 1:</h3>
-		<li>
-			<ul>Start: What in the world is Python?</ul>
-			<ul>Finish: Writing cool graphics based on user input.</ul>
-		</li>
+		<ul>
+			<li>Start: What in the world is Python?</li>
+			<li>Finish: Writing cool graphics based on user input.</li>
+		</ul>
 		<h3>Day 2:</h3>
-		<li>
-			<ul>Start: Intermediate python concepts - object oriented programming.</ul>
-			<ul>Finish: Writing automated scripts that can get data from the web, edit files or control your computer's mouse!</ul>
-		</li>
+		<ul>
+			<li>Start: Intermediate python concepts - object oriented programming.</li>
+			<li>Finish: Writing automated scripts that can get data from the web, edit files or control your computer's mouse!</li>
+		</ul>
 		<h3>Day 3:</h3>
-		<li>
-			<ul>Start: What have we just achieved? Quetions time.</ul>
-			<ul>Finish: Setting up a proper coding environment, feeling comfortable with the command line and packaging scripts (so you can show it off to all your friends!)</ul>
-		</li>
+		<ul>
+			<li>Start: What have we just achieved? Quetions time.</li>
+			<li>Finish: Setting up a proper coding environment, feeling comfortable with the command line and packaging scripts (so you can show it off to all your friends!)</li>
+		</ul>
 	</div>
 
 		
 	</div>
 </section>
 
+<section class="container">	
 <div class="row">
 	<div class="col-sm-6">
 		<form method="post" id="StripeForm" role="form">
@@ -188,9 +190,9 @@ Student Coding Course
 	<div class="col-sm-6">
 		<h1 class="overview">Here's stuff</h1>
 	</div>
-	
 </div>
-</div>
+
+</section>
 
 
 

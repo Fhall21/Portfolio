@@ -1,6 +1,13 @@
-body {
-    background-color: var(--theme-colour);
+:root {
+  /*
+  --theme-colour: #4e8efc;
+  */
+  --theme-colour: #54dcf4;
+  --font-colour-on-theme: #2c2424;
+  --colour-dark: #2c2424;
+  --font-family: 'Lato';
 }
+
 
 .GridBox {
 	box-sizing: border-box;
@@ -38,4 +45,30 @@ body {
 .col2{
 	grid-column: 2 / span 1;
 
+}
+
+.quotes{
+    border: var(--theme-colour);
+    border-bottom-style: groove;
+    border-top-style: groove;
+    border-radius: 50px 20px;
+}
+
+.course_outline{
+    border: var(--theme-colour);
+    border-bottom-style: groove;
+    border-top-style: groove;
+    border-radius: 20px 50px;
+}
+
+.border-primary-angle-right{
+	border-bottom-style: groove;
+    border-top-style: groove;
+	border: var(--theme-colour);
+    border-radius: 50px 20px;
+}
+
+.rectangle-dark{
+	transform: skew(-20deg);
+	background: var(--colour-dark);
 }
