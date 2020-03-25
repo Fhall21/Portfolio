@@ -48,8 +48,9 @@ Student Coding Course
 {% block content %}
 <p style="font-size: 7rem; margin-bottom: 7rem;"></p>
 
-<section class="pyBenefits container" id="pyBenefits">
-	<div class="row container" style="justify-content: center;">
+<div class ="container">
+<section class="pyBenefits" id="pyBenefits">
+	<div class="row" style="justify-content: center;">
 	<div class="col-sm-3 align-self-center mx-4" style="text-align: center;">
 		<div class="mission_icon">
 			<i class="fa fa-heart" ></i>
@@ -78,10 +79,10 @@ Student Coding Course
 </section>
 
 <section class="coding" style="justify-content: center;">
-	<div class="row align-items-center">
+	<div class="row align-items-center" >
 
 		{# quotes #}
-		<div class="col-sm-7 align-self-right mx-3 quotes bg-primary border-primary-angle-right" style="text-align: left;">
+		<div class="col-sm-7 quotes bg-primary border-primary-angle-right" style="text-align: left;">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<br>
 
@@ -132,7 +133,7 @@ Student Coding Course
 		</div>
 
 		{# python picture #}
-		<div class="col-sm-2 align-self-left" style="text-align: right;">
+		<div class="col-sm-2 align-self-center" style="text-align: center;">
 			<img class="img-fluid d-block mx-auto" src="{% static 'course/img/Cropped-podium.png' %}" alt="" style="width: 30vw;">
 		</div>
 		
@@ -141,14 +142,69 @@ Student Coding Course
 
 <section class="course-outline">
 	<div class="row">
+	
+	<div class="col-sm-3 align-self-left" style="text-align: center;">
+		<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 30vw; height: auto;">
+		{# COURSE BENEFITS #}
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="align-self: center;">
+				<br>
 
-	{# python video? #}
-	<div class="col-sm-3 align-self-left" style="text-align: right;">
-			
+				{# Wrapper for slides #}
+				<div class="slick-carousel">
+
+				<div class="item active">
+					<div class="mission_icon">
+					<i class="fa fa-clock-o" ></i>
+					</div>
+					<div class="mission_txt">
+						<strong>Industry experience.</strong>
+					</div>
+					
+				</div>
+
+				<div class="item">
+				<div class="mission_icon">
+					<i class="fa fa-pencil" ></i>
+					</div>
+					<div class="mission_txt">
+						<strong>Visual Learning through Turtle.</strong>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="mission_icon">
+					<i class="fa fa-comments-o" ></i>
+					</div>
+					<div class="mission_txt">
+						<strong>Can relate to difficulties.</strong>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="mission_icon">
+					<i class="fa fa-users" ></i>
+					</div>
+					<div class="mission_txt">
+						<strong>Strong accessible support network.</strong>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="mission_icon">
+					<i class="fa fa-terminal" ></i>
+					</div>
+					<div class="mission_txt">
+						<strong>Real coding, real projects.</strong>
+					</div>
+				</div>
+
+				</div>
+			</div>
+
 		</div>
 
 	{# course outline #}
-	{# https://freefrontend.com/css-text-animations/ #}
+	{# https://freefrontend.com/css-text-animations #}
 	<div class="col-sm-8 align-self-right bg-primary border-primary-angle-right" style="text-align: left;">
 		<h2>Course details:</h2>
 		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
@@ -194,7 +250,7 @@ Student Coding Course
 
 </section>
 
-
+</div>
 
 <script type="text/javascript">
 
