@@ -14,7 +14,6 @@
     margin-top: -10px; }
     /* line 13, wagtail_freelancer/course/static/course/css/word_swipe.scss */
     .wordCarousel div li {
-      font-family: Serif;
       color: var(--font-colour-on-dark);
       font-weight: 700;
       padding: 0 10px;
@@ -22,15 +21,15 @@
       margin-bottom: 45px;
       display: block; }
 
-/* line 25, wagtail_freelancer/course/static/course/css/word_swipe.scss */
+/* line 24, wagtail_freelancer/course/static/course/css/word_swipe.scss */
 .flip2 {
   animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
 
-/* line 26, wagtail_freelancer/course/static/course/css/word_swipe.scss */
+/* line 25, wagtail_freelancer/course/static/course/css/word_swipe.scss */
 .flip3 {
   animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
 
-/* line 27, wagtail_freelancer/course/static/course/css/word_swipe.scss */
+/* line 26, wagtail_freelancer/course/static/course/css/word_swipe.scss */
 .flip4 {
   animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
 
@@ -88,7 +87,7 @@
   100% {
     margin-top: -270px; } }
 
-/* line 65, wagtail_freelancer/course/static/course/css/word_swipe.scss */
+/* line 64, wagtail_freelancer/course/static/course/css/word_swipe.scss */
 .wordCarousel {
   width: 100%;
   height: 100%;
@@ -96,7 +95,7 @@
   padding: 0;
   overflow: hidden; }
 
-/* line 73, wagtail_freelancer/course/static/course/css/word_swipe.scss */
+/* line 72, wagtail_freelancer/course/static/course/css/word_swipe.scss */
 .wordCarousel {
   font-family: "Roboto Condensed", cursive;
   display: flex;

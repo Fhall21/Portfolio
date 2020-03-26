@@ -29,10 +29,6 @@ Student Coding Course
 <link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/word_swipe.scss' %}">
 
 {% endcompress %}
-<script src="{% static 'course/js/course.js' %}"></script>
-
-
-
 
 {% endblock %}
 
@@ -55,7 +51,12 @@ Student Coding Course
 {# main content! #}
 {% block content %}
 <p id="top_spacer"></p>
-
+<div id="payment_success_banner" class="alert alert-success vanished" role="alert" style="margin-bottom: 0;">
+	<br>
+	<br>
+  <h4 class="alert-heading">Yeha things worked!</h4>
+  <p>I'm so excited to meet you! Check your emails, and let's get things started!</p>
+</div>
 {% include 'course/floating_code_island.html' %}
 
 
@@ -121,7 +122,7 @@ Student Coding Course
 
 				<div class="item active">
 					<div>
-					<blockquote class="blockquote_styling">
+					<blockquote class="blockquote_styling coding_quotes">
 					Everybody should learn how to program a computer because it teaches you how to think.
 					<br>
 					-Steve Jobs
@@ -286,7 +287,7 @@ Student Coding Course
 		<h1 class="overview" style="text-align: left;">But who am I?</h1>
 
 		<div class="align-items-center" style="text-align: left;">	
-			<img class="img-fluid mb-5 mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 10vw; height: auto;">
+			<img class="img-fluid mb-5 mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 40%; height: auto;">
 			<p>(Me 2yrs ago)</p>
 		</div>
 
@@ -302,6 +303,7 @@ Student Coding Course
 	</div>
 	<div class="col-sm-6 cl-white">
 		<h3>Keen?</h3>
+        <p hidden id="stripe_pk">{{ stripe_public_key }}</p>
 		<form method="post" id="StripeForm" role="form">
 			    {% include 'bf_forms.html' with form=form %}
 		        {% csrf_token %}
@@ -309,7 +311,6 @@ Student Coding Course
 		        <input id="hourly_rate" type="hidden"></input>
 		        <button class="btn btn-primary btn-lg" id="stripe_button"
 		        >Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
-
 		    </form>
 	</div>
 </div>
@@ -319,8 +320,8 @@ Student Coding Course
 {# containers #}
 </div>
 </div>
-<script type="text/javascript">
+
+<script src="{% static 'course/js/course.js' %}"></script>
 
 
-</script>
 {% endblock %}

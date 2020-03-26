@@ -206,28 +206,28 @@ DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'personal-portfolio-static-aws'
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME = 'personal-portfolio-static-aws'
 
-AWS_DEFAULT_ACL = 'public-read'
+# AWS_DEFAULT_ACL = 'public-read'
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
 
-AWS_STATIC_LOCATION = 'static'
-STATICFILES_STORAGE = 'wagtail_freelancer.storage_backends.StaticStorage'
-#STATIC_URL = '/static/'
-STATIC_URL = config(STATIC_URL, "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION))
+# AWS_STATIC_LOCATION = 'static'
+# STATICFILES_STORAGE = 'wagtail_freelancer.storage_backends.StaticStorage'
+# #STATIC_URL = '/static/'
+# STATIC_URL = config(STATIC_URL, "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION))
 
-AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
-DEFAULT_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PublicMediaStorage'
+# AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
+# DEFAULT_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PublicMediaStorage'
 
-AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
-PRIVATE_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PrivateMediaStorage'
+# AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
+# PRIVATE_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PrivateMediaStorage'
 
 #finish setting up email
 
@@ -254,3 +254,6 @@ NOCAPTCHA = True
 #Stripe settings
 STRIPE_SECRET_KEY = config('STRIPE_TEST_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_TEST_PUBLISHABLE_KEY')
+
+#Zapier
+ZAPIER_COURSE_HOOK = config("ZAPIER_COURSE_HOOK")
