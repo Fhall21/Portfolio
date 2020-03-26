@@ -48,8 +48,8 @@ class CourseLandingPageView(TemplateView):
 			# print (form_info)
 			# print (amount_paid)
 			# print (request.POST)
-			stripe_token = request.POST['stripeToken']
-			email  = request.POST['stripeEmail']
+			stripe_token = request.POST.get('stripeToken', '')
+			email  = request.POST.get('stripeEmail', '')
 			# stripe_sk = settings.STRIPE_SECRET_KEY
 
 			customer = stripe.Customer.create(
