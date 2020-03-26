@@ -50,9 +50,12 @@ Student Coding Course
 {% block content %}
 <p style="font-size: 7rem; margin-bottom: 7rem;"></p>
 
-<div class ="container">
-<section class="pyBenefits cl-dark" id="pyBenefits">
-	<div class="row has-animation animation-ltr" style="justify-content: center;" data-delay="100">
+<div class="container-fluid bg-secondary">
+	
+
+<div class ="container bg-secondary" style="padding-bottom: 0">
+<section class="pyBenefits" id="pyBenefits">
+	<div class="row has-animation animation-ltr cl-white" style="justify-content: center;" data-delay="100">
 	<div class="col-sm-3 align-self-center mx-4" style="text-align: center;">
 		<div class="mission_icon">
 			<i class="fa fa-heart" ></i>
@@ -87,7 +90,7 @@ Student Coding Course
 		</div>
 
 		{# quotes #}
-		<div class="col-sm-9 quotes bg-primary border-primary-angle-right" style="text-align: left;">
+		<div class="col-sm-9 quotes bg-primary border-dark border-angle-right cl-dark" style="text-align: left;">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<br>
 
@@ -142,7 +145,7 @@ Student Coding Course
 </section>
 
 
-<section class="course-outline">
+<section class="course-outline" style="padding-bottom: 0">
 	<div class="row">
 	
 
@@ -150,7 +153,7 @@ Student Coding Course
 	{# https://freefrontend.com/css-text-animations #}
 	<div class="
 	col-sm-8 align-self-right 
-	bg-primary border-primary-angle-right
+	bg-primary border-primary border-angle-right
 	has-animation animation-ltr" data-delay="500"
 	style="text-align: left; padding-top: 1rem;">
 	<div class="course_outline_details cl-dark">
@@ -177,10 +180,12 @@ Student Coding Course
 	</div>
 
 	{# current photo #}
-	<div class="col-sm-3 align-self-left" style="text-align: center;">
-		<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 30vw; height: auto;">
+	<div class="col-sm-4 align-self-left 
+	copyright border-dark border-angle-top" 
+	style="text-align: center; padding: 0;">
+		<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 30vw; height: auto; padding: 0.5rem;">
 		{# COURSE BENEFITS #}
-			<div id="myCarousel" class="carousel slide cl-dark" data-ride="carousel" style="align-self: center;">
+			<div id="myCarousel" class="carousel slide cl-white" data-ride="carousel" style="align-self: center;">
 				<br>
 
 				{# Wrapper for slides #}
@@ -239,8 +244,13 @@ Student Coding Course
 		
 	</div>
 </section>
+</div>
 
-<section class="container">	
+
+<div class="container copyright border-dark border-angle-left-top-only" style="padding-top: 0">
+		
+	
+<section style="padding-top: 1rem">	
 <div class="row">
 	<div class="col-sm-6  cl-white">
 		<h1 class="overview" style="text-align: left;">But who am I?</h1>
@@ -276,8 +286,9 @@ Student Coding Course
 
 </section>
 
+{# containers #}
 </div>
-
+</div>
 <script type="text/javascript">
 
 

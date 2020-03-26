@@ -1,9 +1,3 @@
-:root {
-  --theme-colour: #54dcf4;
-  --font-colour-on-theme: #2c2424;
-  --colour-dark: #2c2424;
-  --font-family: 'Lato';
-}
 
 .cl-dark{
 	color: var(--font-colour-on-theme);
@@ -65,16 +59,41 @@
     border-radius: 20px 50px;
 }
 
-.border-primary-angle-right{
+.border-primary{
+	border: var(--theme-colour);
+}
+.border-secondary{
+	border: var(--colour-dark);
+}
+
+.border-dark{
+	border: var(--colour-extra-dark);
+}
+
+.border-angle-right{
 	border-bottom-style: groove;
     border-top-style: groove;
-	border: var(--theme-colour);
     border-radius: 50px 20px;
+}
+.border-angle-top{
+	border-bottom-style: groove;
+    border-top-style: groove;
+    border-radius: 50px 50px 0 0;
+}
+
+.border-angle-left-top-only {
+	border-bottom-style: groove;
+    border-top-style: groove;
+    border-radius: 50px 0 30px 30px;
 }
 
 .rectangle-dark{
 	transform: skew(-20deg);
 	background: var(--colour-dark);
+}
+
+.bg_dark {
+  background-color: var(--colour-extra-dark) !important;
 }
 
 
@@ -170,3 +189,4 @@ $color-main-2: #54dcf4;
     opacity: 1;
   }
 }
+

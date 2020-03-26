@@ -6,6 +6,8 @@
   --font-colour-on-theme: #2c2424;
   --colour-dark: #2c2424;
   --font-family: 'Lato';
+  --colour-extra-dark: #1a252f;
+  --colour-green: #28a745;
 }
 
 body {
@@ -456,7 +458,10 @@ a:focus, a:hover, a:active {
 }
 
 .bg-secondary {
-  background-color: #2C3E50 !important;
+  background-color: var(--colour-dark) !important;
+}
+.bg_dark {
+  background-color: var(--colour-extra-dark) !important;
 }
 
 .text-primary {
