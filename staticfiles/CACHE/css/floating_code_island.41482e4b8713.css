@@ -15,7 +15,7 @@
   width: auto;
   height: 90%;
   margin: 0 auto;
-  top: 50%;
+  top: 10vh;
   transform: translateY(-50%); }
 
 /* line 25, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
@@ -29,103 +29,103 @@
 .number-one {
   transform: translateY(-10px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-10 3169ms ease-in-out infinite;
+  animation: fadeNumberDown-10 5334ms ease-in-out infinite;
   animation-fill-mode: forwards; }
 
 /* line 39, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-two {
   transform: translateY(-20px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-20 3278ms ease-in-out infinite;
-  animation-delay: 5257ms;
+  animation: fadeNumberDown-20 2609ms ease-in-out infinite;
+  animation-delay: 4167ms;
   animation-fill-mode: forwards; }
 
 /* line 47, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-three {
   transform: translateY(-30px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-30 3714ms ease-in-out infinite;
-  animation-delay: 3357ms;
+  animation: fadeNumberDown-30 5891ms ease-in-out infinite;
+  animation-delay: 2407ms;
   animation-fill-mode: forwards; }
 
 /* line 55, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-four {
   transform: translateY(-50px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-50 2170ms ease-in-out infinite;
-  animation-delay: 5585ms;
+  animation: fadeNumberDown-50 2293ms ease-in-out infinite;
+  animation-delay: 5547ms;
   animation-fill-mode: forwards; }
 
 /* line 63, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-five {
   transform: translateY(-60px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-60 5457ms ease-in-out infinite;
-  animation-delay: 2752ms;
+  animation: fadeNumberDown-60 5788ms ease-in-out infinite;
+  animation-delay: 4615ms;
   animation-fill-mode: forwards; }
 
 /* line 71, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-six {
   transform: translateY(-70px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-70 4401ms ease-in-out infinite;
-  animation-delay: 4541ms;
+  animation: fadeNumberDown-70 3615ms ease-in-out infinite;
+  animation-delay: 4331ms;
   animation-fill-mode: forwards; }
 
 /* line 79, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-seven {
   transform: translateY(-80px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-80 5570ms ease-in-out infinite;
-  animation-delay: 5635ms;
+  animation: fadeNumberDown-80 2291ms ease-in-out infinite;
+  animation-delay: 2644ms;
   animation-fill-mode: forwards; }
 
 /* line 87, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-eight {
   transform: translateY(-90px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-90 4154ms ease-in-out infinite;
-  animation-delay: 1748ms;
+  animation: fadeNumberDown-90 3363ms ease-in-out infinite;
+  animation-delay: 4438ms;
   animation-fill-mode: forwards; }
 
 /* line 95, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-nine {
   transform: translateY(-100px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-100 2126ms ease-in-out infinite;
-  animation-delay: 2509ms;
+  animation: fadeNumberDown-100 5695ms ease-in-out infinite;
+  animation-delay: 3821ms;
   animation-fill-mode: forwards; }
 
 /* line 103, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-ten {
   transform: translateY(-110px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-110 5370ms ease-in-out infinite;
-  animation-delay: 12ms;
+  animation: fadeNumberDown-110 5521ms ease-in-out infinite;
+  animation-delay: 52ms;
   animation-fill-mode: forwards; }
 
 /* line 111, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-eleven {
   transform: translateY(-120px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-120 2581ms ease-in-out infinite;
-  animation-delay: 1689ms;
+  animation: fadeNumberDown-120 3601ms ease-in-out infinite;
+  animation-delay: 5256ms;
   animation-fill-mode: forwards; }
 
 /* line 119, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-twelve {
   transform: translateY(-150px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-150 2469ms ease-in-out infinite;
-  animation-delay: 2432ms;
+  animation: fadeNumberDown-150 2926ms ease-in-out infinite;
+  animation-delay: 694ms;
   animation-fill-mode: forwards; }
 
 /* line 127, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
 .number-thirteen {
   transform: translateY(-160px) translateZ(0);
   opacity: 0;
-  animation: fadeNumberDown-160 5481ms ease-in-out infinite;
-  animation-delay: 5121ms;
+  animation: fadeNumberDown-160 2248ms ease-in-out infinite;
+  animation-delay: 1261ms;
   animation-fill-mode: forwards; }
 
 @keyframes hover {
