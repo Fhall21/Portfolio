@@ -1,12 +1,11 @@
-<h4 class="wordCarousel">    
-        <span>Word swipe animation: </span>  
+<h4 class="wordCarousel">
+        <span>{{ text }}: </span>  
         <div> 
 <!--        Use classes 2,3, or 4 to match the number of words --> 
-            <ul class="flip4"> 
-                <li>Oh My!</li>
-                <li>Swoosh</li>
-                <li>Cool</li> 
-                <li>Awesome</li>  
+            <ul class="flip{{ number_of_words }}"> 
+                {{% for word in words %}}
+                <li>{{ word }}</li>
+                {% endfor %}
             </ul>
         </div>  
     </h4>

@@ -25,6 +25,9 @@ Student Coding Course
 
 {% compress css %}
 <link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/course.scss' %}">
+<link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/floating_code_island.scss' %}">
+{#link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/word_swipe.scss' %}" #}
+
 {% endcompress %}
 <script src="{% static 'course/js/course.js' %}"></script>
 
@@ -51,10 +54,26 @@ Student Coding Course
 
 {# main content! #}
 {% block content %}
-<p style="font-size: 7rem; margin-bottom: 7rem;"></p>
+<p style="font-size: 7rem; margin-bottom: 4rem;"></p>
+
+{% include 'course/floating_code_island.html' %}
+
 
 <div class="container-fluid bg-secondary">
 	
+<h4 class="wordCarousel">
+        <span>These holidays: </span>  
+        <div> 
+<!--        Use classes 2,3, or 4 to match the number of words --> 
+            <ul class="flip4"> 
+                <li>Don't be bored</li>
+                <li>Have fun.</li>
+                <li>Learn something powerful.</li>
+                <li>Feel connected.</li>
+            </ul>
+        </div>  
+    </h4>
+
 
 <div class ="container bg-secondary" style="padding-bottom: 0">
 <section class="pyBenefits" id="pyBenefits">
