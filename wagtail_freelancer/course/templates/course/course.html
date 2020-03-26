@@ -1,5 +1,5 @@
 {% extends "freelancer/base.html" %}
-{% load static %}
+{% load static compress %}
 
 <title>
 	{% block title %}
@@ -23,7 +23,9 @@ Student Coding Course
 <link rel="stylesheet" type="text/css" href="{% static 'freelancer/css/freelancer.css' %}">
 <script src="{% static 'freelancer/js/freelancer.js' %}"></script>
 
-<link rel="stylesheet" type="text/css" href="{% static 'course/css/course.css' %}">
+{% compress css %}
+<link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/course.scss' %}">
+{% endcompress %}
 <script src="{% static 'course/js/course.js' %}"></script>
 
 
@@ -49,8 +51,8 @@ Student Coding Course
 <p style="font-size: 7rem; margin-bottom: 7rem;"></p>
 
 <div class ="container">
-<section class="pyBenefits" id="pyBenefits">
-	<div class="row" style="justify-content: center;">
+<section class="pyBenefits cl-dark" id="pyBenefits">
+	<div class="row has-animation animation-ltr" style="justify-content: center;" data-delay="100">
 	<div class="col-sm-3 align-self-center mx-4" style="text-align: center;">
 		<div class="mission_icon">
 			<i class="fa fa-heart" ></i>
@@ -76,13 +78,16 @@ Student Coding Course
 		</div>
 	</div>
 	</div>
-</section>
 
-<section class="coding" style="justify-content: center;">
-	<div class="row align-items-center" >
+	{# quotes and picture #}
+	<div class="row align-items-center coding has-animation animation-rtl" style="justify-content: center; padding-top: 4rem;" data-delay="100">
+		{# python picture #}
+		<div class="col-sm-2 align-self-center mx-3" style="text-align: center;">
+			<img class="img-fluid d-block mx-auto" src="{% static 'course/img/Cropped-podium.png' %}" alt="" style="width: 30vw;">
+		</div>
 
 		{# quotes #}
-		<div class="col-sm-7 quotes bg-primary border-primary-angle-right" style="text-align: left;">
+		<div class="col-sm-9 quotes bg-primary border-primary-angle-right" style="text-align: left;">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<br>
 
@@ -132,21 +137,50 @@ Student Coding Course
 
 		</div>
 
-		{# python picture #}
-		<div class="col-sm-2 align-self-center" style="text-align: center;">
-			<img class="img-fluid d-block mx-auto" src="{% static 'course/img/Cropped-podium.png' %}" alt="" style="width: 30vw;">
-		</div>
 		
-	</div>
+</div>
 </section>
+
 
 <section class="course-outline">
 	<div class="row">
 	
+
+	{# course outline #}
+	{# https://freefrontend.com/css-text-animations #}
+	<div class="
+	col-sm-8 align-self-right 
+	bg-primary border-primary-angle-right
+	has-animation animation-ltr" data-delay="500"
+	style="text-align: left; padding-top: 1rem;">
+	<div class="course_outline_details cl-dark">
+		
+		<h2>Course details:</h2>
+		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
+		<p>Still confused? Well here's the plan:</p>
+		<h3>Day 1:</h3>
+		<ul>
+			<li>Start: What in the world is Python?</li>
+			<li>Finish: Writing cool graphics based on user input.</li>
+		</ul>
+		<h3>Day 2:</h3>
+		<ul>
+			<li>Start: Intermediate python concepts - object oriented programming.</li>
+			<li>Finish: Writing automated scripts that can get data from the web, edit files or control your computer's mouse!</li>
+		</ul>
+		<h3>Day 3:</h3>
+		<ul>
+			<li>Start: What have we just achieved? Quetions time.</li>
+			<li>Finish: Setting up a proper coding environment, feeling comfortable with the command line and packaging scripts (so you can show it off to all your friends!)</li>
+		</ul>
+	</div>
+	</div>
+
+	{# current photo #}
 	<div class="col-sm-3 align-self-left" style="text-align: center;">
-		<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 30vw; height: auto;">
+		<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 30vw; height: auto;">
 		{# COURSE BENEFITS #}
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="align-self: center;">
+			<div id="myCarousel" class="carousel slide cl-dark" data-ride="carousel" style="align-self: center;">
 				<br>
 
 				{# Wrapper for slides #}
@@ -202,37 +236,32 @@ Student Coding Course
 			</div>
 
 		</div>
-
-	{# course outline #}
-	{# https://freefrontend.com/css-text-animations #}
-	<div class="col-sm-8 align-self-right bg-primary border-primary-angle-right" style="text-align: left;">
-		<h2>Course details:</h2>
-		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
-		<p>Still confused? Well here's the plan:</p>
-		<h3>Day 1:</h3>
-		<ul>
-			<li>Start: What in the world is Python?</li>
-			<li>Finish: Writing cool graphics based on user input.</li>
-		</ul>
-		<h3>Day 2:</h3>
-		<ul>
-			<li>Start: Intermediate python concepts - object oriented programming.</li>
-			<li>Finish: Writing automated scripts that can get data from the web, edit files or control your computer's mouse!</li>
-		</ul>
-		<h3>Day 3:</h3>
-		<ul>
-			<li>Start: What have we just achieved? Quetions time.</li>
-			<li>Finish: Setting up a proper coding environment, feeling comfortable with the command line and packaging scripts (so you can show it off to all your friends!)</li>
-		</ul>
-	</div>
-
 		
 	</div>
 </section>
 
 <section class="container">	
 <div class="row">
+	<div class="col-sm-6  cl-white">
+		<h1 class="overview" style="text-align: left;">But who am I?</h1>
+
+		<div class="align-items-center" style="text-align: left;">	
+			<img class="img-fluid mb-5 mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 10vw; height: auto;">
+			<p>(Me 2yrs ago)</p>
+		</div>
+
+		<h3>Experiences:</h3>
+		<ul>
+			<li>2yrs solving problems onlines <u>with python</u>,</li>
+			<li>2yrs helping manage a scout troup,</li>
+			<li>2yrs coaching high school robotics,</li>
+			<li>Self taught.</li>
+		</ul>
+		<h3>Want to <a href="/#contact">get in touch?</a></h3>
+
+	</div>
 	<div class="col-sm-6">
+		<h3>Keen?</h3>
 		<form method="post" id="StripeForm" role="form">
 			    {% include 'bf_forms.html' with form=form %}
 		        {% csrf_token %}
@@ -242,9 +271,6 @@ Student Coding Course
 		        >Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
 
 		    </form>
-	</div>
-	<div class="col-sm-6">
-		<h1 class="overview">Here's stuff</h1>
 	</div>
 </div>
 
