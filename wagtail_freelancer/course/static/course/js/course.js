@@ -12,12 +12,34 @@ $(function(){
     pauseOnHover: false,
     });
 
+	$('.slick-carousel-words').slick({
+	arrows: false,
+	swipe: false,
+    slidesToShow: 1,
+    slidesToScroll:1,
+    // fade: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+    });
+
+    $('.slick-carousel-icons').slick({
+	arrows: false,
+    slidesToShow: 1,
+    slidesToScroll:1,
+    // fade: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: false,
+    });
+
+
 	var stripe_pk = $('#stripe_pk').text()
 	if (!(stripe_pk)){
 		$('#stripe_button').addClass('disabled');
 		$('#stripe_button').addClass('bg-secondary');
 		$('#stripe_button').text('Please refresh the page')
-		$('#payment_success_banner').removeClass('vanished');
+		// $('#payment_success_banner').removeClass('vanished');
 
 	}
 	
