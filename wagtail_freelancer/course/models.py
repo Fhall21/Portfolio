@@ -8,7 +8,7 @@ from django.core.validators import RegexValidator, MinValueValidator
 
 # Create your models here.
 
-class HolidayCourseContacts(models.Model):
+class HolidayCourseContact(models.Model):
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=50)
 	student_keen = models.BooleanField(default=True)
@@ -21,6 +21,9 @@ class HolidayCourseContacts(models.Model):
 	# phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
 	email = models.EmailField(unique=False, null=True, max_length=250)
 
-	paid = models.BooleanField()
+	paid = models.BooleanField(default=False)
 	amount_paid = models.DecimalField(
 		validators=[MinValueValidator(20.00)], default=120.00, max_digits=6, decimal_places=2,)
+
+	def __str__(self):
+		return '{}'.format(self.first_name)

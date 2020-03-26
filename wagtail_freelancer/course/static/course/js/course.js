@@ -71,7 +71,7 @@ $('#stripe_button').click(function(){
 		$('a').bind("click", function() { return false; });
 	    $('button').addClass('disabled');
 		$('#stripe_button').addClass('bg-secondary');
-		$('#stripe_button').text('Please refresh the page');
+		$('#stripe_button').text('Please wait');
 	    // handler.open({closed : function(){$('#stripe_button').html('loading')}})
 		$('#StripeForm').append($id).append($email).submit();
 	};

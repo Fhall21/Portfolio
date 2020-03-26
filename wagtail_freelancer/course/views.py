@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 # from django.contrib.auth.models import User
 
-from course.models import HolidayCourseContacts
+from course.models import HolidayCourseContact
 from course.forms import HolidayCoursePaymentForm
 
 class CourseLandingPageView(TemplateView):
@@ -39,12 +39,15 @@ class CourseLandingPageView(TemplateView):
 
 		form_info = HolidayCoursePaymentForm(request.POST)
 		if form_info.is_valid():
+			new_form = form_info.save(commit=False)
 			# plan = stripe.Plan.retrieve("stripe Plan")
-			first_name = form_info.cleaned_data['first_name']
-			last_name = form_info.cleaned_data['last_name']
-			amount_paid = int(form_info.cleaned_data['amount_paid']) *100
-			student_keen = form_info.cleaned_data['student_keen']
-			is_student = form_info.cleaned_data['is_student']
+			first_name = form_info.cleaned_data.get('first_name', None)
+			last_name = form_info.cleaned_data.get('last_name', None)
+			amount_paid = int(form_info.cleaned_data.get('amount_paid', '00')) *100
+			student_keen = form_info.cleaned_data.get('student_keen', True)
+			is_student = form_info.cleaned_data.get('is_student', True)
+
+
 			# print (form_info)
 			# print (amount_paid)
 			# print (request.POST)
@@ -52,40 +55,44 @@ class CourseLandingPageView(TemplateView):
 			email  = request.POST.get('stripeEmail', '')
 			# stripe_sk = settings.STRIPE_SECRET_KEY
 
-			customer = stripe.Customer.create(
-				email=email,
-				source=stripe_token,
-				)
-			charge = stripe.Charge.create(
-				customer=customer.id,
-				description="Felix Hall Beginner Python Course",
-				amount=amount_paid,
-				currency='aud')
-			# print (request.POST['stripeToken'])
+			#if token or email not blank, then make the payment
+			paid = False
+			if not(stripe_token == '') and not(email == ''):
 
-			# subscription = stripe.Subscription.create(
-			# 	customer=customer.id,
-			# 	items=[
-			# 		{
-			# 	    "plan": plan,
-			# 	    },
-			# 	  ],
-			# 	)
 
-			zapier_hook = settings.ZAPIER_COURSE_HOOK
-			query_data={
-			'first_name': first_name,
-			'last_name': last_name,
-			'amount_paid': amount_paid,
-			'email': email,
-			# 'email': 'fhall21@eq.edu.au',
-			}
+				customer = stripe.Customer.create(
+					name=first_name,
+					email=email,
+					source=stripe_token,
+					)
+				charge = stripe.Charge.create(
+					customer=customer.id,
+					description="Felix Hall Beginner Python Course",
+					amount=amount_paid,
+					currency='aud')
+
+
+				#sending comfirmation email
+				zapier_hook = settings.ZAPIER_COURSE_HOOK
+				query_data={
+				'first_name': first_name,
+				'last_name': last_name,
+				'amount_paid': amount_paid,
+				'email': email,
+				# 'email': 'fhall21@eq.edu.au',
+				}
+				r = requests.post(zapier_hook, data=query_data)
+
+				paid = charge['paid']
+				args['success'] = paid
+
+				new_form.paid = paid
+				new_form.email = email
+				new_form.save()
+			else:
+				args['error'] = paid
+
 			
-			# r = requests.post(zapier_hook, data=query_data)
 
-
-
-			print ('DONE!')
-
-
+		print (args)
 		return render(request, self.template_name, args)
