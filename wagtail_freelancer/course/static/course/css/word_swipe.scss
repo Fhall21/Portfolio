@@ -1,13 +1,13 @@
 
 .wordCarousel {
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: 100;
     color: #939393;
     div {
         overflow: hidden;
         position: relative;
         float: right;
-        height: 65px;
+        height: 4rem;
         padding-top: 10px;
         margin-top: -10px;
         li {
@@ -15,7 +15,7 @@
             color: var(--font-colour-on-dark);
             font-weight: 700;
             padding: 0 10px;
-            height: 45px;
+            height: 3rem;
             margin-bottom: 45px;
             display: block;
         }

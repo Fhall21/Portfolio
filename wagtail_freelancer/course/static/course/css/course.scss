@@ -1,12 +1,21 @@
 .course_title{
 	position: absolute;
-	left: 40vw;
+	left: 3vw;
+}
+
+#top_spacer{
+	font-size: 7rem; 
+	margin-bottom: 4rem;
 }
 @media (max-width: 750px) {
   .course_title{
 	position: absolute;
-	bottom: 2vh;
-}
+	top: -4rem;
+	}
+	#top_spacer{
+	font-size: 5rem; 
+	margin-bottom: 3rem;
+	}
 }
 
 
@@ -91,9 +100,15 @@
 .border-angle-top{
     border-radius: 50px 50px 0 0;
 }
-
-.border-angle-left-top {
+.border-angle-left-top, #final_details {
     border-radius: 50px 0 30px 30px;
+}
+
+@media (max-width: 750px) {
+  #final_details{
+  	border-radius: 0px 0 30px 30px;
+  }
+	
 }
 
 .rectangle-dark{

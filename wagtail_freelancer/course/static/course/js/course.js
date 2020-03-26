@@ -11,6 +11,7 @@ $(function(){
     autoplaySpeed: 5000,
     pauseOnHover: false,
     });
+
 	
 	//replaceWith(function(){
 });
