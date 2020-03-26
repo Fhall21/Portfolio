@@ -26,7 +26,7 @@ Student Coding Course
 {% compress css %}
 <link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/course.scss' %}">
 <link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/floating_code_island.scss' %}">
-{#link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/word_swipe.scss' %}" #}
+<link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/word_swipe.scss' %}">
 
 {% endcompress %}
 <script src="{% static 'course/js/course.js' %}"></script>
@@ -66,7 +66,7 @@ Student Coding Course
         <div> 
 <!--        Use classes 2,3, or 4 to match the number of words --> 
             <ul class="flip4"> 
-                <li>Don't be bored</li>
+                <li>Forget boredom.</li>
                 <li>Have fun.</li>
                 <li>Learn something powerful.</li>
                 <li>Feel connected.</li>
@@ -112,7 +112,7 @@ Student Coding Course
 		</div>
 
 		{# quotes #}
-		<div class="col-sm-9 quotes bg-primary border-dark border-angle-right cl-dark" style="text-align: left;">
+		<div class="col-sm-9 quotes bg-primary border-dark border-angle-exclude-bl cl-dark" style="text-align: left;">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<br>
 
@@ -175,7 +175,7 @@ Student Coding Course
 	{# https://freefrontend.com/css-text-animations #}
 	<div class="
 	col-sm-8 align-self-right 
-	bg-primary border-primary border-angle-right
+	bg-primary border-primary border-angle-exclude-br
 	has-animation animation-ltr" data-delay="500"
 	style="text-align: left; padding-top: 1rem;">
 	<div class="course_outline_details cl-dark">
@@ -183,17 +183,24 @@ Student Coding Course
 		<h2>Course details:</h2>
 		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
 		<p>Still confused? Well here's the plan:</p>
-		<h3>Day 1:</h3>
+		<h3>Details:</h3>
+		<ul>
+			<li>Date: Mon 13th - Wed 15th of April</li>
+			<li>Time: 9-11am & 1-3pm</li>
+			<li>Location: Online</li>
+			<li>Included: online group video course, personal contact & group support platform.</li>
+		</ul>
+		<h4>Day 1:</h4>
 		<ul>
 			<li>Start: What in the world is Python?</li>
 			<li>Finish: Writing cool graphics based on user input.</li>
 		</ul>
-		<h3>Day 2:</h3>
+		<h4>Day 2:</h4>
 		<ul>
 			<li>Start: Intermediate python concepts - object oriented programming.</li>
 			<li>Finish: Writing automated scripts that can get data from the web, edit files or control your computer's mouse!</li>
 		</ul>
-		<h3>Day 3:</h3>
+		<h4>Day 3:</h4>
 		<ul>
 			<li>Start: What have we just achieved? Quetions time.</li>
 			<li>Finish: Setting up a proper coding environment, feeling comfortable with the command line and packaging scripts (so you can show it off to all your friends!)</li>
@@ -202,8 +209,9 @@ Student Coding Course
 	</div>
 
 	{# current photo #}
+	{# footer background: .copyright #}
 	<div class="col-sm-4 align-self-left 
-	copyright border-dark border-angle-top" 
+	bg-success border-dark border-angle-top" 
 	style="text-align: center; padding: 0;">
 		<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 30vw; height: auto; padding: 0.5rem;">
 		{# COURSE BENEFITS #}
@@ -269,7 +277,7 @@ Student Coding Course
 </div>
 
 
-<div class="container copyright border-dark border-angle-left-top" style="padding-top: 0">
+<div class="container bg-success border-dark border-angle-left-top" style="padding-top: 0">
 		
 	
 <section style="padding-top: 1rem">	
@@ -292,7 +300,7 @@ Student Coding Course
 		<h3>Want to <a href="/#contact">get in touch?</a></h3>
 
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-6 cl-white">
 		<h3>Keen?</h3>
 		<form method="post" id="StripeForm" role="form">
 			    {% include 'bf_forms.html' with form=form %}

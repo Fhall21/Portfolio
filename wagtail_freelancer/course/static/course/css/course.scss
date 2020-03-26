@@ -1,9 +1,20 @@
+.course_title{
+	position: absolute;
+	left: 40vw;
+}
+@media (max-width: 750px) {
+  .course_title{
+	position: absolute;
+	bottom: 2vh;
+}
+}
+
 
 .cl-dark{
 	color: var(--font-colour-on-theme);
 }
 .cl-white{
-	color: white;
+	color: var(--font-colour-on-dark) ! important;
 }
 
 
@@ -70,9 +81,13 @@
 	border: var(--colour-extra-dark);
 }
 
-.border-angle-right{
-    border-radius: 50px 20px;
+.border-angle-exclude-bl{
+    border-radius: 50px 50px 50px 0 ;
 }
+.border-angle-exclude-br{
+    border-radius: 50px 50px 0px 50px ;
+}
+
 .border-angle-top{
     border-radius: 50px 50px 0 0;
 }
@@ -86,8 +101,8 @@
 	background: var(--colour-dark);
 }
 
-.bg_dark {
-  background-color: var(--colour-extra-dark) !important;
+.bg-success {
+  background-color: var(--colour-green) !important;
 }
 
 

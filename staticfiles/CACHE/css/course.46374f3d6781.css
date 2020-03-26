@@ -1,0 +1,164 @@
+/* line 1, wagtail_freelancer/course/static/course/css/course.scss */
+.course_title {
+  position: absolute;
+  left: 40vw; }
+
+@media (min-width: 750px) {
+  /* line 6, wagtail_freelancer/course/static/course/css/course.scss */
+  .course_title {
+    position: absolute;
+    bottom: 2vh; } }
+
+/* line 13, wagtail_freelancer/course/static/course/css/course.scss */
+.cl-dark {
+  color: var(--font-colour-on-theme); }
+
+/* line 16, wagtail_freelancer/course/static/course/css/course.scss */
+.cl-white {
+  color: var(--font-colour-on-dark) !important; }
+
+/* line 21, wagtail_freelancer/course/static/course/css/course.scss */
+.GridBox {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  grid-gap: 15px 10px;
+  width: 100%;
+  max-width: 100vw;
+  display: grid !important;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto;
+  grid-template-areas: "form" "overview"; }
+
+/* line 39, wagtail_freelancer/course/static/course/css/course.scss */
+.col1, .col2 {
+  width: 100%;
+  height: 100%;
+  display: grid !important;
+  grid-row: 1 / span 1; }
+
+/* line 48, wagtail_freelancer/course/static/course/css/course.scss */
+.col1 {
+  grid-area: form;
+  grid-column: 1 / span 1; }
+
+/* line 54, wagtail_freelancer/course/static/course/css/course.scss */
+.col2 {
+  grid-column: 2 / span 1; }
+
+/* line 59, wagtail_freelancer/course/static/course/css/course.scss */
+.quotes {
+  border: var(--theme-colour);
+  border-bottom-style: groove;
+  border-top-style: groove;
+  border-radius: 50px 20px; }
+
+/* line 66, wagtail_freelancer/course/static/course/css/course.scss */
+.course_outline {
+  border: var(--theme-colour);
+  border-bottom-style: groove;
+  border-top-style: groove;
+  border-radius: 20px 50px; }
+
+/* line 73, wagtail_freelancer/course/static/course/css/course.scss */
+.border-primary {
+  border: var(--theme-colour); }
+
+/* line 76, wagtail_freelancer/course/static/course/css/course.scss */
+.border-secondary {
+  border: var(--colour-dark); }
+
+/* line 80, wagtail_freelancer/course/static/course/css/course.scss */
+.border-dark {
+  border: var(--colour-extra-dark); }
+
+/* line 84, wagtail_freelancer/course/static/course/css/course.scss */
+.border-angle-exclude-bl {
+  border-radius: 50px 50px 50px 0; }
+
+/* line 87, wagtail_freelancer/course/static/course/css/course.scss */
+.border-angle-exclude-br {
+  border-radius: 50px 50px 0px 50px; }
+
+/* line 91, wagtail_freelancer/course/static/course/css/course.scss */
+.border-angle-top {
+  border-radius: 50px 50px 0 0; }
+
+/* line 95, wagtail_freelancer/course/static/course/css/course.scss */
+.border-angle-left-top {
+  border-radius: 50px 0 30px 30px; }
+
+/* line 99, wagtail_freelancer/course/static/course/css/course.scss */
+.rectangle-dark {
+  transform: skew(-20deg);
+  background: var(--colour-dark); }
+
+/* line 104, wagtail_freelancer/course/static/course/css/course.scss */
+.bg-success {
+  background-color: var(--colour-green) !important; }
+
+/* line 117, wagtail_freelancer/course/static/course/css/course.scss */
+.has-animation {
+  position: relative; }
+  /* line 119, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation p, .has-animation img, .has-animation .mission_txt, .has-animation .mission_icon, .has-animation .quotes, .has-animation .course_outline_details {
+    opacity: 0; }
+  /* line 123, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animate-in p, .has-animation.animate-in img, .has-animation.animate-in .mission_txt, .has-animation.animate-in .mission_icon, .has-animation.animate-in .quotes, .has-animation.animate-in .course_outline_details {
+    animation: textHidden 0.1s 1.1s forwards; }
+  /* line 126, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animate-in:before, .has-animation.animate-in:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 10; }
+  /* line 134, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animate-in:before {
+    background-color: #2c2424; }
+  /* line 137, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animate-in:after {
+    background-color: #54dcf4;
+    animation-delay: .5s; }
+  /* line 143, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animation-ltr.animate-in:before {
+    animation: revealLTR 1.8s ease; }
+  /* line 146, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animation-ltr.animate-in:after {
+    animation: revealLTR 1s .6s ease; }
+  /* line 151, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animation-rtl.animate-in:before {
+    animation: revealRTL 1.8s ease; }
+  /* line 154, wagtail_freelancer/course/static/course/css/course.scss */
+  .has-animation.animation-rtl.animate-in:after {
+    animation: revealRTL 1s .6s ease; }
+
+@keyframes revealRTL {
+  0% {
+    width: 0;
+    right: 0; }
+  65% {
+    width: 100%;
+    right: 0; }
+  100% {
+    width: 0;
+    right: 100%; } }
+
+@keyframes revealLTR {
+  0% {
+    width: 0;
+    left: 0; }
+  65% {
+    width: 100%;
+    left: 0; }
+  100% {
+    width: 0;
+    left: 100%; } }
+
+@keyframes textHidden {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }

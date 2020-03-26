@@ -1,0 +1,301 @@
+/* line 1, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.course_title {
+  position: absolute;
+  text-align: right;
+  padding: 0 5vw; }
+
+/* line 7, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.landing_screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+/* line 13, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.landing_screen-background {
+  background-image: linear-gradient(#000203 0%, #00345E 85%, #004D89 100%); }
+
+/* line 21, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.landing_screen-illustration {
+  display: block;
+  position: relative;
+  width: auto;
+  height: 90%;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%); }
+
+/* line 31, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.landing_screen-hover {
+  width: 100%;
+  height: 100%;
+  animation: hover 5s ease-in-out infinite;
+  animation-fill-mode: forwards; }
+
+/* line 38, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-one {
+  transform: translateY(-10px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-10 3587ms ease-in-out infinite;
+  animation-fill-mode: forwards; }
+
+/* line 45, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-two {
+  transform: translateY(-20px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-20 2376ms ease-in-out infinite;
+  animation-delay: 2938ms;
+  animation-fill-mode: forwards; }
+
+/* line 53, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-three {
+  transform: translateY(-30px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-30 2715ms ease-in-out infinite;
+  animation-delay: 4278ms;
+  animation-fill-mode: forwards; }
+
+/* line 61, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-four {
+  transform: translateY(-50px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-50 5819ms ease-in-out infinite;
+  animation-delay: 957ms;
+  animation-fill-mode: forwards; }
+
+/* line 69, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-five {
+  transform: translateY(-60px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-60 2974ms ease-in-out infinite;
+  animation-delay: 5458ms;
+  animation-fill-mode: forwards; }
+
+/* line 77, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-six {
+  transform: translateY(-70px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-70 2497ms ease-in-out infinite;
+  animation-delay: 2932ms;
+  animation-fill-mode: forwards; }
+
+/* line 85, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-seven {
+  transform: translateY(-80px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-80 4946ms ease-in-out infinite;
+  animation-delay: 1647ms;
+  animation-fill-mode: forwards; }
+
+/* line 93, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-eight {
+  transform: translateY(-90px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-90 2643ms ease-in-out infinite;
+  animation-delay: 5374ms;
+  animation-fill-mode: forwards; }
+
+/* line 101, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-nine {
+  transform: translateY(-100px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-100 3339ms ease-in-out infinite;
+  animation-delay: 3395ms;
+  animation-fill-mode: forwards; }
+
+/* line 109, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-ten {
+  transform: translateY(-110px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-110 2457ms ease-in-out infinite;
+  animation-delay: 5772ms;
+  animation-fill-mode: forwards; }
+
+/* line 117, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-eleven {
+  transform: translateY(-120px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-120 3951ms ease-in-out infinite;
+  animation-delay: 5427ms;
+  animation-fill-mode: forwards; }
+
+/* line 125, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-twelve {
+  transform: translateY(-150px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-150 2130ms ease-in-out infinite;
+  animation-delay: 208ms;
+  animation-fill-mode: forwards; }
+
+/* line 133, wagtail_freelancer/course/static/course/css/floating_code_island.scss */
+.number-thirteen {
+  transform: translateY(-160px) translateZ(0);
+  opacity: 0;
+  animation: fadeNumberDown-160 2781ms ease-in-out infinite;
+  animation-delay: 2872ms;
+  animation-fill-mode: forwards; }
+
+@keyframes hover {
+  0% {
+    transform: translateY(0); }
+  25% {
+    transform: translateY(-3px); }
+  75% {
+    transform: translateY(3px); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes fadeNumberDown-10 {
+  0% {
+    transform: translateY(-10px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(140px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-20 {
+  0% {
+    transform: translateY(-20px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(140px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-30 {
+  0% {
+    transform: translateY(-30px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(130px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-50 {
+  0% {
+    transform: translateY(-50px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(110px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-60 {
+  0% {
+    transform: translateY(-60px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(90px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-70 {
+  0% {
+    transform: translateY(-70px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(80px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-80 {
+  0% {
+    transform: translateY(-80px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(80px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-90 {
+  0% {
+    transform: translateY(-90px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(60px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-100 {
+  0% {
+    transform: translateY(-100px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(60px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-110 {
+  0% {
+    transform: translateY(-110px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(30px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-120 {
+  0% {
+    transform: translateY(-120px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(20px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-150 {
+  0% {
+    transform: translateY(-150px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(10px) translateZ(0);
+    opacity: 0; } }
+
+@keyframes fadeNumberDown-160 {
+  0% {
+    transform: translateY(-160px) translateZ(0);
+    opacity: 0; }
+  40% {
+    opacity: 0.4; }
+  60% {
+    opacity: 0.4; }
+  100% {
+    transform: translateY(10px) translateZ(0);
+    opacity: 0; } }
