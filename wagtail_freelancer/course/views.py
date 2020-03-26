@@ -77,8 +77,8 @@ class CourseLandingPageView(TemplateView):
 			'first_name': first_name,
 			'last_name': last_name,
 			'amount_paid': amount_paid,
-			# 'email': email,
-			'email': 'fhall21@eq.edu.au',
+			'email': email,
+			# 'email': 'fhall21@eq.edu.au',
 			}
 			
 			# r = requests.post(zapier_hook, data=query_data)
