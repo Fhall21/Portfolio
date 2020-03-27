@@ -39,6 +39,7 @@ class CourseLandingPageView(TemplateView):
 
 		form_info = HolidayCoursePaymentForm(request.POST)
 		if form_info.is_valid():
+			print('form is valid')
 			new_form = form_info.save(commit=False)
 			# plan = stripe.Plan.retrieve("stripe Plan")
 			first_name = form_info.cleaned_data.get('first_name', None)

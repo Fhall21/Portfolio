@@ -20,6 +20,7 @@ Student Coding Course
   <script src="https://js.stripe.com/v3/"></script>
   <script src="https://checkout.stripe.com/checkout.js"></script>
 
+
 <link rel="stylesheet" type="text/css" href="{% static 'freelancer/css/freelancer.css' %}">
 <script src="{% static 'freelancer/js/freelancer.js' %}"></script>
 
@@ -29,6 +30,12 @@ Student Coding Course
 <link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/word_swipe.scss' %}">
 
 {% endcompress %}
+
+{# jquery validate #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js" integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI=" crossorigin="anonymous"></script>
+
+{# reCaptcha #}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 {% endblock %}
 
@@ -75,7 +82,8 @@ Student Coding Course
 <!--        Use classes 2,3, or 4 to match the number of words --> 
             <div><h4>Forget boredom.</h4></div> 
             <div><h4>Have fun.</h4></div> 
-            <div><h4>Real projects.</h4></div> 
+            <div><h4>Feel fulfilled.</h4></div> 
+            <div><h4>Feel satisfied.</h4></div> 
             <div><h4>Feel connected.</h4></div> 
         </div>  
 		
@@ -316,8 +324,12 @@ Student Coding Course
 		        {% csrf_token %}
 		        <p id="payment_breakdown">That's roughly: $10/hr. Excluding private one-on-one time, the invaluable support network and connections.</p>
 		        <input id="hourly_rate" type="hidden"></input>
+	              <div class="g-recaptcha" data-sitekey="6LeCo6MUAAAAAPU33gX1-SSwJqhc3R9FxRYpmx8f"></div>
+
 		        <button class="btn btn-primary btn-lg" id="stripe_button"
-		        >Let's do this! <span class="glyphicon glyphicon-shopping-cart"></span></button>
+		        >Finalise Payment<span class="glyphicon glyphicon-shopping-cart"></span></button>
+		        <h3 id="name_review_comment">Please fill out your name...</h3>
+		        <h3 id="price_review_comment">Please review your price...</h3>
 		    </form>
 	</div>
 </div>

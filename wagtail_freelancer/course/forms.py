@@ -15,10 +15,16 @@ class HolidayCoursePaymentForm(forms.ModelForm):
 		'last_name': _('Last Name'),
 		'student_keen': _('Are you keen??'),
 		'is_student': _('Is the participant a student?'),
-		'amount_paid': _('Name your price (these are tough times, I want to help)'),
+		'amount_paid': _("Name your price (these are tough times, I want to help. Just don't pass the minimum!"),
 		}
 
 		widgets = {
-		'amount_paid': forms.NumberInput(attrs={'step': 0.5}),
+		'amount_paid': forms.NumberInput(attrs={
+			'step': 0.5,
+			'data-content':'psst... minimum of $20.',
+			'data-placement': 'top',
+			'data-container': 'body',
+			'data-toggle': 'popover',
+			}),
 		}
 
