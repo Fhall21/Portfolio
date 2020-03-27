@@ -23,7 +23,7 @@ class HolidayCourseContact(models.Model):
 
 	paid = models.BooleanField(default=False)
 	amount_paid = models.DecimalField(
-		validators=[MinValueValidator(20.00)], default=120.00, max_digits=6, decimal_places=2,)
+		validators=[MinValueValidator(60.00)], default=120.00, max_digits=6, decimal_places=2,)
 
 	def __str__(self):
 		return '{}'.format(self.first_name)
