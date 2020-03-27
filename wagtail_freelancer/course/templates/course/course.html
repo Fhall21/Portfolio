@@ -31,11 +31,18 @@ Student Coding Course
 
 {% endcompress %}
 
+{# more icons?? possibly swap out #}
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
+{# program styling, funky accordion #}
+<link rel="stylesheet" type="text/css" href="{% static 'course/css/funky_accordion.css' %}">
+
 {# jquery validate #}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js" integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI=" crossorigin="anonymous"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js" integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI=" crossorigin="anonymous"></script> -->
 
 {# reCaptcha #}
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 
 {% endblock %}
 
@@ -165,15 +172,6 @@ Student Coding Course
 				</div>
 
 				</div>
-				{# Left and right controls #}
-				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-				<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-				<span class="sr-only">Next</span>
-				</a>
 			</div>
 
 		</div>
@@ -227,9 +225,11 @@ Student Coding Course
 	{# current photo #}
 	{# footer background: .copyright #}
 	<div class="col-sm-4 align-self-left 
-	bg-success border-dark border-angle-top" 
+	bg-theme-darkened border-dark border-angle-top" 
 	style="text-align: center; padding: 0;">
-		<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 30vw; height: auto; padding: 0.5rem;">
+
+	{% include 'course/funky_accordion.html' %}
+		
 		{# COURSE BENEFITS #}
 			<div class="cl-white" data-ride="carousel" style="align-self: center;">
 				<br>
@@ -293,7 +293,7 @@ Student Coding Course
 </div>
 
 
-<div class="container bg-success border-dark" id="final_details" style="padding-top: 0">
+<div class="container bg-theme-darkened border-dark" id="final_details" style="padding-top: 0">
 		
 	
 <section style="padding-top: 1rem">	
@@ -302,8 +302,9 @@ Student Coding Course
 		<h1 class="overview" style="text-align: left;">But who am I?</h1>
 
 		<div class="align-items-center" style="text-align: left;">	
-			<img class="img-fluid mb-5 mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 40%; height: auto;">
-			<p>(Me 2yrs ago)</p>
+			<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 30vw; height: auto; padding: 0.5rem;">
+			<!-- <img class="img-fluid mb-5 mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 40%; height: auto;">
+			<p>(Me 2yrs ago)</p> -->
 		</div>
 
 		<h3>Experiences:</h3>
@@ -340,7 +341,13 @@ Student Coding Course
 </div>
 </div>
 
+{# scripts #}
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src="{% static 'course/js/course.js' %}"></script>
 
+{% endblock %}
+
+{% block extra_js %}
 
 {% endblock %}

@@ -1,3 +1,8 @@
+:root{
+  --theme-colour-darkened: #086778;
+
+}
+
 .course_title{
 	position: absolute;
 	left: 3vw;
@@ -26,6 +31,13 @@
 	color: var(--font-colour-on-dark) ! important;
 }
 
+.bg-success {
+  background-color: var(--colour-green) !important;
+}
+
+.bg-theme-darkened {
+  background-color: var(--theme-colour-darkened);
+}
 
 .GridBox {
 	box-sizing: border-box;
@@ -123,9 +135,6 @@
 	background: var(--colour-dark);
 }
 
-.bg-success {
-  background-color: var(--colour-green) !important;
-}
 
 
 // Animation
