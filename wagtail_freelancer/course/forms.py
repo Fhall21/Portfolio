@@ -21,7 +21,7 @@ class HolidayCoursePaymentForm(forms.ModelForm):
 		widgets = {
 		'amount_paid': forms.NumberInput(attrs={
 			'step': 0.5,
-			'data-content':'psst... minimum of $20.',
+			'data-content':'psst... minimum of $60.',
 			'data-placement': 'top',
 			'data-container': 'body',
 			'data-toggle': 'popover',
