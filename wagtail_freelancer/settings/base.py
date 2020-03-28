@@ -226,8 +226,8 @@ STATIC_URL = config(STATIC_URL, "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_ST
 AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
 DEFAULT_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PublicMediaStorage'
 
-# AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
-# PRIVATE_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PrivateMediaStorage'
+AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
+PRIVATE_FILE_STORAGE = 'wagtail_freelancer.storage_backends.PrivateMediaStorage'
 
 #finish setting up email
 
