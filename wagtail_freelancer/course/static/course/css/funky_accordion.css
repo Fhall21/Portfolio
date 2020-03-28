@@ -9,9 +9,9 @@
 
 .program_app {
   border-radius: 10px;
-  width: 340px;
+  width: 100%;
   margin: 0 auto;
-  height: 414px;
+  /*height: 414px;*/
   position: absolute;
   left: 0;
   top: 50%;
@@ -22,7 +22,6 @@
           transform: translateY(-50%) scale(0) rotateX(10deg) rotateY(10deg) rotateZ(10deg);
   margin: auto;
   overflow: hidden;
-  font-family: 'Roboto Condensed', sans-serif;
 }
 .program_app_inner {
   position: relative;
@@ -31,7 +30,7 @@
   display: none;
 }
 .program_app_inner input[type="radio"]:checked + label .program_app_inner__tab {
-  height: 175px;
+  height: 30vh;
 }
 .program_app_inner input[type="radio"]:checked + label .program_app_inner__tab .tab_right {
   top: 39px;
@@ -120,6 +119,12 @@
 .program_app_inner label:nth-of-type(4) .program_app_inner__tab .tab_left__image {
   background: #F4837D;
 }
+.program_app_inner label:nth-of-type(5) .program_app_inner__tab .tab_left__image {
+  background: #F4837D;
+}
+.program_app_inner label:nth-of-type(6) .program_app_inner__tab .tab_left__image {
+  background: #F4837D;
+}
 .program_app_inner__tab {
   width: 100%;
   height: 80px;
@@ -175,7 +180,6 @@
   border-radius: 5px;
   padding: 6px 20px;
   cursor: pointer;
-  font-family: 'Roboto Condensed', sans-serif;
   outline: none;
   font-size: 11px;
   color: white;
