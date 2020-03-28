@@ -75,57 +75,73 @@
   width: 100%;
 }
 .program_app_inner label:nth-of-type(1) .program_app_inner__tab {
-  background: #99b998;
+  background: #5bd778;
   height: 200px;
 }
 .program_app_inner label:nth-of-type(1) .program_app_inner__tab:hover {
   -webkit-transition: all .2s;
   transition: all .2s;
-  background: #8db18c;
+  background: #32cd56;
 }
 .program_app_inner label:nth-of-type(1) .program_app_inner__tab .tab_left__image {
-  background: #EA495F;
+  background: #097c90;
 }
 .program_app_inner label:nth-of-type(2) .program_app_inner__tab {
-  background: #E4B794;
+  background: #5bd778;
 }
 .program_app_inner label:nth-of-type(2) .program_app_inner__tab:hover {
   -webkit-transition: all .2s;
   transition: all .2s;
-  background: #e0ac84;
+  background: #32cd56;
 }
 .program_app_inner label:nth-of-type(2) .program_app_inner__tab .tab_left__image {
-  background: #99B998;
+  background: #0b90a8;
 }
 .program_app_inner label:nth-of-type(3) .program_app_inner__tab {
-  background: #f4837d;
+  background: #2db94d;
 }
 .program_app_inner label:nth-of-type(3) .program_app_inner__tab:hover {
   -webkit-transition: all .2s;
   transition: all .2s;
-  background: #f2716a;
+  background: #28a445;
 }
 .program_app_inner label:nth-of-type(3) .program_app_inner__tab .tab_left__image {
-  background: #E4B794;
+  background: #0eb9d8;
 }
 .program_app_inner label:nth-of-type(4) .program_app_inner__tab {
-  background: #ea495f;
+  background: #2db94d;
 }
 .program_app_inner label:nth-of-type(4) .program_app_inner__tab:hover {
   -webkit-transition: all .2s;
   transition: all .2s;
-  background: #e8374f;
+  background: #28a445;
 }
 .program_app_inner label:nth-of-type(4) .program_app_inner__tab .tab_left__image {
-  background: #F4837D;
+  background: #0fcef0;
+}
+.program_app_inner label:nth-of-type(5) .program_app_inner__tab {
+  background: #23903c;
+}
+.program_app_inner label:nth-of-type(5) .program_app_inner__tab:hover {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  background: #19672b;
 }
 .program_app_inner label:nth-of-type(5) .program_app_inner__tab .tab_left__image {
-  background: #F4837D;
+  background: #3fd8f3;
+}
+
+.program_app_inner label:nth-of-type(6) .program_app_inner__tab {
+  background: #23903c;
+}
+.program_app_inner label:nth-of-type(6) .program_app_inner__tab:hover {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  background: #19672b;
 }
 .program_app_inner label:nth-of-type(6) .program_app_inner__tab .tab_left__image {
-  background: #F4837D;
-}
-.program_app_inner__tab {
+  background: #54dcf4;
+}.program_app_inner__tab {
   width: 100%;
   height: 80px;
   background: red;
