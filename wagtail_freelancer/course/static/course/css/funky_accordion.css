@@ -30,7 +30,8 @@
   display: none;
 }
 .program_app_inner input[type="radio"]:checked + label .program_app_inner__tab {
-  height: 30vh;
+  height: 100%;
+  padding-bottom: 5vh;
 }
 .program_app_inner input[type="radio"]:checked + label .program_app_inner__tab .tab_right {
   top: 39px;
@@ -225,7 +226,7 @@
   top: -100px;
   text-align: center;
   background: white;
-  left: 47px;
+  left: 15%;
   border-radius: 20px;
   width: 80px;
   height: 80px;
