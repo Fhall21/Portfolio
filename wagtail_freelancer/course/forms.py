@@ -13,7 +13,7 @@ class HolidayCoursePaymentForm(forms.ModelForm):
 		labels = {
 		'first_name': _('First Name'),
 		'last_name': _('Last Name'),
-		'student_keen': _('Are you keen??'),
+		'student_keen': _('Are you keen?'),
 		'is_student': _('Is the participant a student?'),
 		'amount_paid': _("Name your price (these are tough times, I want to help. Just don't pass the minimum!"),
 		}
