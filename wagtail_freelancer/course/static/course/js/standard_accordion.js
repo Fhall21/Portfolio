@@ -1,52 +1,19 @@
-var accordion = (function(){
+$(function(){
+	var allPanels = $('.accordion > dd').hide();
   
-  var $accordion = $('.js-accordion');
-  var $accordion_header = $accordion.find('.js-accordion-header');
-  var $accordion_item = $('.js-accordion-item');
- 
-  // default settings 
-  var settings = {
-    // animation speed
-    speed: 400,
     
-    // close all other accordion items if true
-    oneOpen: false
-  };
+  $('.accordion > dt > a').click(function() {
+      $this = $(this);
+      $target =  $this.parent().next();
+      
     
-  return {
-    // pass configurable object literal
-    init: function($settings) {
-      $accordion_header.on('click', function() {
-        accordion.toggle($(this));
-      });
-      
-      $.extend(settings, $settings); 
-      
-      // ensure only one accordion is active if oneOpen is true
-      if(settings.oneOpen && $('.js-accordion-item.active').length > 1) {
-        $('.js-accordion-item.active:not(:first)').removeClass('active');
+      if($target.hasClass('active')){
+        $target.removeClass('active').slideUp(); 
+      }else{
+        allPanels.removeClass('active').slideUp();
+        $target.addClass('active').slideDown();
       }
       
-      // reveal the active accordion bodies
-      $('.js-accordion-item.active').find('> .js-accordion-body').show();
-    },
-    toggle: function($this) {
-            
-      if(settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
-        $this.closest('.js-accordion')
-               .find('> .js-accordion-item') 
-               .removeClass('active')
-               .find('.js-accordion-body')
-               .slideUp()
-      }
-      
-      // show/hide the clicked accordion item
-      $this.closest('.js-accordion-item').toggleClass('active');
-      $this.next().stop().slideToggle(settings.speed);
-    }
-  }
-})();
-
-$(document).ready(function(){
-  accordion.init({ speed: 300, oneOpen: true });
+    return false;
+	});
 });

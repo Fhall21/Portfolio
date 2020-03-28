@@ -61,7 +61,7 @@ THIRD_PARTY_APPS = [
     'captcha', # comes from django-captcha
     'wagtailcaptcha',
     'phonenumber_field',
-    'compressor',
+    # 'compressor',
 
 ]
 
@@ -172,13 +172,13 @@ USE_TZ = True
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    # 'compressor.finders.CompressorFinder',
 ]
 
 #for SASS
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-    )
+# COMPRESS_PRECOMPILERS = (
+#     ('text/x-scss', 'django_libsass.SassCompiler'),
+#     )
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),

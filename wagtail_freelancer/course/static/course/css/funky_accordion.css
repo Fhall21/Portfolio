@@ -307,21 +307,21 @@
 }
 @-webkit-keyframes intro {
   0% {
-    -webkit-transform: translateY(-50%) scale(0) rotateX(10deg) rotateY(10deg) rotateZ(40deg);
-            transform: translateY(-50%) scale(0) rotateX(10deg) rotateY(10deg) rotateZ(40deg);
+    -webkit-transform: translateX(-100%) translateY(-50%) scale(0);
+            transform: translateX(-100%) translateY(-50%) scale(0);
   }
   100% {
-    -webkit-transform: translateY(-50%) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-            transform: translateY(-50%) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -webkit-transform:  translateX(0%) translateY(-50%) scale(1);
+            transform:  translateX(0%) translateY(-50%) scale(1);
   }
 }
 @keyframes intro {
   0% {
-    -webkit-transform: translateY(-50%) scale(0) rotateX(10deg) rotateY(10deg) rotateZ(40deg);
-            transform: translateY(-50%) scale(0) rotateX(10deg) rotateY(10deg) rotateZ(40deg);
+    -webkit-transform: translateX(-100%) translateY(-50%) scale(0);
+            transform: translateX(-100%) translateY(-50%) scale(0);
   }
   100% {
-    -webkit-transform: translateY(-50%) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-            transform: translateY(-50%) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -webkit-transform:  translateX(0%) translateY(-50%) scale(1);
+            transform:  translateX(0%) translateY(-50%) scale(1);
   }
 }

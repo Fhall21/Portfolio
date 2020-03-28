@@ -15,6 +15,8 @@ class CourseLandingPageView(TemplateView):
 	template_name = 'course/course.html'
 
 	def get(self, request):
+		number_of_applicants = len(HolidayCourseContact.objects.all())
+		spots_left_num = 100 - number_of_applicants
 		form = HolidayCoursePaymentForm()
 		# intent = stripe.PaymentIntent.create(
 		# 	amount=12000,
@@ -27,18 +29,24 @@ class CourseLandingPageView(TemplateView):
 		args = {
 		'form': form,
 		'stripe_public_key': stripe_pk,
+		'spots_left_num': spots_left_num,
 		}
 		return render(request, self.template_name, args)
 	def post(self, request):
-		stripe.api_key = settings.STRIPE_SECRET_KEY
+		umber_of_applicants = len(HolidayCourseContact.objects.all())
+		spots_left_num = 100 - number_of_applicants
+
 		
 		form = HolidayCoursePaymentForm()
 		args = {'form': form,
-				'key': settings.STRIPE_PUBLISHABLE_KEY
+				'key': settings.STRIPE_PUBLISHABLE_KEY,
+				'spots_left_num': spots_left_num,
+
 		}
 
 		form_info = HolidayCoursePaymentForm(request.POST)
 		if form_info.is_valid():
+			
 			print('form is valid')
 			new_form = form_info.save(commit=False)
 			# plan = stripe.Plan.retrieve("stripe Plan")
@@ -60,6 +68,7 @@ class CourseLandingPageView(TemplateView):
 			paid = False
 			if not(stripe_token == '') and not(email == ''):
 
+				stripe.api_key = settings.STRIPE_SECRET_KEY
 
 				customer = stripe.Customer.create(
 					name=first_name,

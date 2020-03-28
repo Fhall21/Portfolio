@@ -1,5 +1,5 @@
 {% extends "freelancer/base.html" %}
-{% load static compress %}
+{% load static %}
 
 <title>
 	{% block title %}
@@ -24,18 +24,17 @@ Student Coding Course
 <link rel="stylesheet" type="text/css" href="{% static 'freelancer/css/freelancer.css' %}">
 <script src="{% static 'freelancer/js/freelancer.js' %}"></script>
 
-{% compress css %}
-<link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/course.scss' %}">
-<link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/floating_code_island.scss' %}">
-<link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/word_swipe.scss' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'course/css/course.css' %}">
+<!-- link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/floating_code_island.scss' %}"link rel="stylesheet" type="text/x-scss" href="{% static 'course/css/word_swipe.scss' %}" -->
 
-{% endcompress %}
 
 {# more icons?? possibly swap out #}
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 {# program styling, funky accordion #}
 <link rel="stylesheet" type="text/css" href="{% static 'course/css/funky_accordion.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'course/css/standard_accordion.css' %}">
+{# link rel="stylesheet" type="text/css" href="{% static 'course/css/standard_accordion.css' % #}
+<link rel="stylesheet" type="text/css" href="{% static 'course/css/floating_code_island.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'course/css/accordion.css' %}">
 
 {# jquery validate #}
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js" integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI=" crossorigin="anonymous"></script> -->
@@ -199,40 +198,63 @@ Student Coding Course
 		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
 		<p>Still confused? Hopefully the following Q&A will help:</p>
 
-		<h4>How old do students need to be able to participate?</h4>
-		<p>High school students and above (yes adults too! I am focusing on __useful content__ that’s why it’s targeted to an older demographic). But also, this is just a recommendation, a grade 6 student should be able to follow just fine for example, and I’ll accomodate to the group demographic.</p>
+		<dl class="accordion">
+		  <dt class="accordion-titles"><a href="">How old do students need to be able to participate?</a></dt>
+		  <dd class="accordion-content">High school students and above (yes adults too! I am focusing on <u>useful content</u> that’s why it’s targeted to an older demographic). But also, this is just a recommendation, a grade 6 student should be able to follow just fine for example, and I’ll accomodate to the group demographic.</dd>
 
-		<h4>What tools do they need to participate (PC, tablet?, phone?, internet connection, do they need to download anything? Anything else)?</h4>
-		<ul>
-			<li>PC</li>
-			<li>Microphone</li>
-			<li>Stable internet connection</li>
-			<li>Python, installation procedures sent after registeration</li>
+		  <dt class="accordion-titles"><a href="">What tools do they need to participate ?</a></dt>
+		  <dd class="accordion-content">
+			<ul>
+				<li>PC</li>
+				<li>Microphone</li>
+				<li>Stable internet connection</li>
+				<li>Python, installation procedures sent after registeration</li>
+			</ul>
+		  </dd>
+		    <dt class="accordion-titles"><a href="">Is there an itinerary for each hour?</a></dt>
+		  <dd  class="accordion-content">
+			Yep, check it out to the right (computer) or below (mobile)
+		  </dd>
+
+		  <dt class="accordion-titles"><a href="">
+		Is there a limit to attendees?
+		  </a></dt>
+		  <dd  class="accordion-content">
+		Kinda...
+		Currently there are: {{ spots_left_num }} spots left. But! If there is more interest I am happy to offer more session, I want to help as many people discover something new, learn a skill that can really help them... whilst helping parents feel confident.
+		  </dd>
+
+		<dt class="accordion-titles"><a href="">
+		Is there an assumed knowledge needed before participating?
 		</ul>
 
-		<h3>Is there an itinerary for each hour?</h3>
-		<p>Yep, check it out to the right (computer) or below (mobile)</p>
-
-		<h4>Is there a limit?</h4>
-		<p>Kinda...</p>
-		<p>Currently there are: {{ spots_left_num }} spots left. But! If there is more interest I am happy to offer more session, I want to help as many people discover something new, learn a skill that can really help them... whilst helping parents feel confident.</p>
-
-		<h3>Is there an assumed knowledge needed before participating?</h3>
+		  </a></dt>
+		 <dd  class="accordion-content">
 		<ul>
 			<li>How to use a computer,</li>
 			<li>Installing software, at least following instructions for it,</li>
 			<li>How to be a good human on social channels  (don't mind the memes, but anything inappropriate would see one removed at one's own expense).</li>
-		</ul>
+		 </dd>
+		  
 
-		<h4>Will you be connected to the students through video the whole time or able to answer their questions someway?</h4>
-		<p>I will be connected the whole time during each session,</p>
-		<p>Students will be provided a digital platform to communicate directly with me or someone else who can help. Preferably, communication between those taking the course would happen as connection and making new connection is crucial within these times. So fostering and maintaining this would also be covered.</p>
+		<dt class="accordion-titles"><a href="">
+		Will you be connected to the students through video the whole time or able to answer their questions someway?
+		  </a></dt>
+		 <dd  class="accordion-content">
+		I will be connected the whole time during each session.
+		Students will be provided a digital platform to communicate directly with me or someone else who can help. Preferably, communication between those taking the course would happen as connection and making new connection is crucial within these times. So fostering and maintaining this would also be covered.
 
-		<h4>Are there examples of things they could create?</h4>
-		<p>What can be done with python and turtle? (First thing covered), practically? <a href="http://www.grantjenks.com/docs/freegames/">Here are some fun examples:</a> </p>
-		<p>
+		 </dd>
+
+		<dt class="accordion-titles"><a href="">
+		Are there examples of things they could create?
+
+		  </a></dt>
+		 <dd  class="accordion-content">
+			What can be done with python and turtle? (First thing covered), practically? <a href="http://www.grantjenks.com/docs/freegames/">Here are some fun examples:</a> 
+		
 			Some examples of what would be covered in day 2 and 3 that I've used:
-		</p>
+		
 			<ul>
 				<li>Formatting hundred of slides in PowerPoint,</li>
 				<li>
@@ -241,24 +263,43 @@ Student Coding Course
 				<li>Downloading school textbooks, music online, or even predicting future movies that haven’t even been published on most sites.</li>
 				<li>Donating over 10,000 grains of rice without doing anything within 4 days!</li>
 			</ul>
-		</p>
+		 </dd>
 
-		<h4>Why python?</h4>
-		<p>Some examples of apps that use python:</p>
-		<p>Amazon shopping, Dropbox, Netflix, Facebook, Instagram, Spotify... Get the gist? (For the gamemakers out there, Disney's pirate of the Caribbean was also done in python!)</p>
-		<p>
+		<dt class="accordion-titles"><a href="">
+		Why python?
+
+		  </a></dt>
+		 <dd  class="accordion-content">
+		 	<div>
+		Some examples of apps that use python:
+		 	</div>
+		 	<div>
+		Amazon shopping, Dropbox, Netflix, Facebook, Instagram, Spotify... Get the gist? (For the gamemakers out there, Disney's pirate of the Caribbean was also done in python!)
+		 	</div>
+		 	<div>
 		Why? Because it's scalable, it's clean, it can do things fast! (Eg. Ever had to repeat the same action 3 times on a computer? Automate it!)
-		</p>
-		<p>
+		 	</div>
+		<div>
 		Why bother learning it? Most industries, ranging from agriculture to beauty are impacted by technology. Unfortunately those who understand it will be far better positioned to navigate themselves, communicate with those who can drive change and create their own paths.
-		</p>
+		</div>
+		
+		 </dd>
 
-		<h4>Experience with teens/children?</h4>
+		<dt class="accordion-titles"><a href="">
+		Experience with teens/children? Any industry experience?
+		  </a></dt>
+		 <dd  class="accordion-content">
 		<ul>
 			<li>Mentored over 100 students in robotics for 2 years, with one team being invited to compete internationally.</li>
 			<li>Run leadership courses for youth.</li>
 			<li>helped managed a scout troop for over 2 years.</li>
+			<li>2yrs solving industry problems <u>thanks to python</u></li>
 		</ul>
+		 </dd>
+
+		</dl>
+
+		
 	</div>
 	</div>
 
@@ -267,13 +308,35 @@ Student Coding Course
 	<div class="col-md-5 align-self-left 
 	bg-theme-darkened border-dark border-angle-top" 
 	style="text-align: center; padding: 0;">
-	<div>
+
 	{% include 'course/funky_accordion.html' %}
+	
 	</div>
 
 		
 		{# COURSE BENEFITS #}
-			<!-- <div class="cl-white" data-ride="carousel" style="align-self: center;">
+			<!--  -->
+
+		</div>
+		
+	</div>
+</section>
+</div>
+
+
+<div class="container bg-theme-darkened border-dark" id="final_details" style="padding-top: 0">
+		
+	
+<section style="padding-top: 1rem">	
+			<h2 class="cl-white" style="text-align: center;">Ready to feel productive?</h2>
+
+<div class="row">
+	<div class="col-sm-6  cl-white">
+		<!-- <h1 class="overview" style="text-align: left;">But who am I?</h1> -->
+
+		<div class="align-items-center" style="text-align: center;">	
+			<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 20vw; height: auto; padding: 0.5rem;">
+			<div class="cl-white" data-ride="carousel" style="align-self: center;">
 				<br>
 
 				{# Wrapper for slides #}
@@ -326,41 +389,14 @@ Student Coding Course
 				</div>
 
 				</div>
-			</div> -->
-
-		</div>
-		
-	</div>
-</section>
-</div>
-
-
-<div class="container bg-theme-darkened border-dark" id="final_details" style="padding-top: 0">
-		
-	
-<section style="padding-top: 1rem">	
-<div class="row">
-	<div class="col-sm-6  cl-white">
-		<h1 class="overview" style="text-align: left;">But who am I?</h1>
-
-		<div class="align-items-center" style="text-align: left;">	
-			<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 30vw; height: auto; padding: 0.5rem;">
+			</div>
 			<!-- <img class="img-fluid mb-5 mx-auto rounded-circle" src="{% static 'freelancer/img/profile.png' %}" alt="" style="width: 40%; height: auto;">
 			<p>(Me 2yrs ago)</p> -->
 		</div>
-
-		<h3>Experiences:</h3>
-		<ul>
-			<li>2yrs solving industry problems <u>with python</u>,</li>
-			<li>2yrs helping manage a scout troup,</li>
-			<li>2yrs coaching high school robotics,</li>
-			<li>Self taught.</li>
-		</ul>
 		<h3>Want to <a href="/#contact">get in touch?</a></h3>
 
 	</div>
 	<div class="col-sm-6 cl-white">
-		<h3>Keen?</h3>
         <p hidden id="stripe_pk">{{ stripe_public_key }}</p>
 		<form method="post" id="StripeForm" role="form">
 			    {% include 'bf_forms.html' with form=form %}
@@ -371,8 +407,8 @@ Student Coding Course
 
 		        <button class="btn btn-primary btn-lg" id="stripe_button"
 		        >Finalise Payment<span class="glyphicon glyphicon-shopping-cart"></span></button>
-		        <h3 id="name_review_comment">Please fill out your name...</h3>
-		        <h3 id="price_review_comment">Please review your price...</h3>
+		        <h4 id="name_review_comment">Sometimes, name helps with human connection...</h4>
+		        <h4 id="price_review_comment">Sometimes, a price tag needs to be double checked.</h4>
 		    </form>
 	</div>
 </div>
