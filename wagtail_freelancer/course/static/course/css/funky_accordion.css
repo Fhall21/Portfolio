@@ -179,12 +179,12 @@
 }
 .program_app_inner__tab .tab_right h3 {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.65);
+  font-weight: 500;
 }
 .program_app_inner__tab .tab_right h4 {
   font-size: 12px;
   margin: 4px 0px;
-  color: rgba(0, 0, 0, 0.33);
+  font-weight: 300;
 }
 .program_app_inner__tab .tab_right p {
   font-size: 11px;
