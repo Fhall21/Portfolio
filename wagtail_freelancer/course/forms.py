@@ -1,11 +1,11 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from course.models import HolidayCourseContact
+from course.models import HolidayCourseInterest
 
 class HolidayCoursePaymentForm(forms.ModelForm):
 	class Meta:
-		model = HolidayCourseContact
+		model = HolidayCourseInterest
 		fields = (
 			'first_name', 'last_name', 'student_keen', 'is_student', 
 			'amount_paid', 
@@ -21,7 +21,7 @@ class HolidayCoursePaymentForm(forms.ModelForm):
 		widgets = {
 		'amount_paid': forms.NumberInput(attrs={
 			'step': 0.5,
-			'data-content':'psst... minimum of $60.',
+			'data-content':'psst... minimum of $1.',
 			'data-placement': 'top',
 			'data-container': 'body',
 			'data-toggle': 'popover',

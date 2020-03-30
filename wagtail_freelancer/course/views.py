@@ -8,14 +8,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 # from django.contrib.auth.models import User
 
-from course.models import HolidayCourseContact
+from course.models import HolidayCourseInterest
 from course.forms import HolidayCoursePaymentForm
 
 class CourseLandingPageView(TemplateView):
 	template_name = 'course/course.html'
 
 	def get(self, request):
-		number_of_applicants = len(HolidayCourseContact.objects.all())
+		number_of_applicants = len(HolidayCourseInterest.objects.all())
 		spots_left_num = 100 - number_of_applicants
 		form = HolidayCoursePaymentForm()
 		# intent = stripe.PaymentIntent.create(
@@ -33,7 +33,7 @@ class CourseLandingPageView(TemplateView):
 		}
 		return render(request, self.template_name, args)
 	def post(self, request):
-		umber_of_applicants = len(HolidayCourseContact.objects.all())
+		umber_of_applicants = len(HolidayCourseInterest.objects.all())
 		spots_left_num = 100 - number_of_applicants
 
 		

@@ -1,10 +1,10 @@
 from django.contrib import admin
-from course.models import HolidayCourseContact
+from course.models import HolidayCourseInterest
 
-class HolidayCourseContactAdmin(admin.ModelAdmin):
+class HolidayCourseInterestAdmin(admin.ModelAdmin):
 	list_display = (
 		'first_name', 'last_name', 'amount_paid', 'paid', 'email', 'is_student',
 		)
 
-admin.site.register(HolidayCourseContact, HolidayCourseContactAdmin)
+admin.site.register(HolidayCourseInterest, HolidayCourseInterestAdmin)
 # Register your models here.
