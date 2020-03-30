@@ -392,11 +392,14 @@ Student Coding Course
 
 	</div>
 	<div class="col-sm-6 cl-white">
+		<h4>Interested?</h4>
+		<h5>Pay what you want for a trial with a recording of session 1, sign up for the full thing later!</h5>
+		<p>(quick note: python animation and recording did not seem to be optimal, but the content is still very beneficial. Why not try it out?)</p>
         <p hidden id="stripe_pk">{{ stripe_public_key }}</p>
 		<form method="post" id="StripeForm" role="form">
 			    {% include 'bf_forms.html' with form=form %}
 		        {% csrf_token %}
-		        <p id="payment_breakdown">That's roughly: $10/hr. Excluding private one-on-one time, the invaluable support network and connections.</p>
+		        <p hidden id="payment_breakdown">That's roughly: $10/hr. Excluding private one-on-one time, the invaluable support network and connections.</p>
 		        <input id="hourly_rate" type="hidden"></input>
 	              <div class="g-recaptcha" data-sitekey="6LeCo6MUAAAAAPU33gX1-SSwJqhc3R9FxRYpmx8f"></div>
 
