@@ -91,7 +91,7 @@ $('#id_amount_paid').change(function(){
 	var new_payment_breakdown_txt = $('#payment_breakdown').text().replace(old_hourly_rate, hourly_rate);
 	$('#payment_breakdown').text(new_payment_breakdown_txt);
 	$('#hourly_rate').val(hourly_rate);
-	if ($('#id_amount_paid').val() < 59.99){
+	if ($('#id_amount_paid').val() < 0.99){
 		// alert('yess!')
 		$('#id_amount_paid').popover("toggle");
 		$('#price_review_comment').show()
@@ -129,11 +129,11 @@ $('#id_first_name, #id_last_name').change(function(){
 })
 
 $('#stripe_button').click(function(){
-	if ($('#stripe_button').hasClass('disabled') && ($('#id_amount_paid').val() > 59.99)){
+	if ($('#stripe_button').hasClass('disabled') && ($('#id_amount_paid').val() > 0.99)){
 		window.location.href=window.location.href
 		// history.go(0)
 		// location.reload(true);
-	}else if ($('#id_amount_paid').val() < 59.99){
+	}else if ($('#id_amount_paid').val() < 0.99){
 		// alert('yess!'
 		$('#stripe_button').hide()
 		$('#stripe_button').off('click');
