@@ -33,7 +33,7 @@ class CourseLandingPageView(TemplateView):
 		}
 		return render(request, self.template_name, args)
 	def post(self, request):
-		umber_of_applicants = len(HolidayCourseInterest.objects.all())
+		number_of_applicants = len(HolidayCourseInterest.objects.all())
 		spots_left_num = 100 - number_of_applicants
 
 		
