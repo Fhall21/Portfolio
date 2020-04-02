@@ -8,14 +8,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 # from django.contrib.auth.models import User
 
-from course.models import HolidayCourseInterest
+from course.models import HolidayCourseInterestData
 from course.forms import HolidayCoursePaymentForm, HolidayRegisterationForm
 
 class CourseLandingPageView(TemplateView):
 	template_name = 'course/course.html'
 
-	def get(self, request):
-		number_of_applicants = len(HolidayCourseInterest.objects.all())
+	def get(self, request, referee=''):
+		print(referee)
+		number_of_applicants = len(HolidayCourseInterestData.objects.all())
 		spots_left_num = 100 - number_of_applicants
 		form = HolidayRegisterationForm()
 		# intent = stripe.PaymentIntent.create(
@@ -31,21 +32,23 @@ class CourseLandingPageView(TemplateView):
 		'spots_left_num': spots_left_num,
 		}
 		return render(request, self.template_name, args)
-	def post(self, request):
-		number_of_applicants = len(HolidayCourseInterest.objects.all())
+	def post(self, request, referee=''):
+
+		number_of_applicants = len(HolidayCourseInterestData.objects.all())
 		spots_left_num = 100 - number_of_applicants
 
 		
 		form = HolidayRegisterationForm()
 		args = {'form': form,
-				'key': settings.STRIPE_PUBLISHABLE_KEY,
 				'spots_left_num': spots_left_num,
 
 		}
 
 		form_info = HolidayRegisterationForm(request.POST)
 		if form_info.is_valid():
-			form_info.save()
+			editable_form = form_info.save(commit=False)
+			editable_form.referee = referee
+			editable_form.save()
 			first_name = form_info.cleaned_data.get('first_name', None)
 			last_name = form_info.cleaned_data.get('last_name', None)
 			email = form_info.cleaned_data.get('email', None)

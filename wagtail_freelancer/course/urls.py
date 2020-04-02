@@ -20,6 +20,7 @@ app_name="course"
 
 urlpatterns = [
     path('', CourseLandingPageView.as_view(template_name='course/course_landing.html'), name="python_course"),
+    path('<str:referee>', CourseLandingPageView.as_view(template_name='course/course_landing.html'), name="python_course"),
     # path('test/', TemplateView.as_view(template_name='bookings/test2.html'), name="test"),
     # path('api/', include(router.urls))
 ]

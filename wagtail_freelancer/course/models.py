@@ -8,7 +8,8 @@ from django.core.validators import RegexValidator, MinValueValidator
 
 # Create your models here.
 
-class HolidayCourseInterest(models.Model):
+class HolidayCourseInterestData(models.Model):
+	referee = models.CharField(max_length=200, default='')
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=50)
 	student_keen = models.BooleanField(default=True)

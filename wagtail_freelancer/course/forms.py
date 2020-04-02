@@ -1,11 +1,11 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from course.models import HolidayCourseInterest
+from course.models import HolidayCourseInterestData
 
 class HolidayRegisterationForm(forms.ModelForm):
 	class Meta:
-		model = HolidayCourseInterest
+		model = HolidayCourseInterestData
 		fields = (
 			'first_name', 'last_name', 'email', 'student_keen', 'is_student', 
 			)
@@ -21,7 +21,7 @@ class HolidayRegisterationForm(forms.ModelForm):
 
 class HolidayCoursePaymentForm(forms.ModelForm):
 	class Meta:
-		model = HolidayCourseInterest
+		model = HolidayCourseInterestData
 		fields = (
 			'first_name', 'last_name', 'student_keen', 'is_student', 
 			'amount_paid', 
