@@ -34,7 +34,7 @@ $(function(){
     });
 
     //countdown flipper
-  $('#myFlipper').flipper('init');
+  // $('#myFlipper').flipper('init');
 
 
 });
@@ -59,5 +59,7 @@ $(window).scroll(function() {
   		}   
 	});   
 });
+
+
 
 

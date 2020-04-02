@@ -24,6 +24,8 @@ Student Coding Course
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
 {# flipper #}
+script src="{% static 'course/js/jquery.flipper-responsive.js' %}"></script>
+
 
 {# stripe #}
   {# script src="https://js.stripe.com/v3/">/script
@@ -216,7 +218,7 @@ Student Coding Course
 	<div class="course_outline_details cl-dark">
 		
 		<h2>Course details:</h2>
-		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course <u>(13th-16th of April)</u> broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
+		<p>An exciting new course for prospect Pythonastias (python lovers)! Within a <strong>3 day</strong> course <u>(8th-9th of April or the 14th-17th of April)</u> broken up into <strong>4 hour chunks</strong>, I hope to see you go from 0... to <u>generating uniquely yet beautiful shapes on the fly</u>, to writing scripts that get into our local cinema website (cineplex.com.au) and <u>getting the next 500 movies that haven't even been listed yet!</u> To <u>getting your computer to type things out for you!</u> To feeling comfortable working within <u>professional coding environment</u>.</p>
 		<p>Still confused? Hopefully the following Q&A will help:</p>
 
 		<dl class="accordion">
@@ -351,15 +353,15 @@ Student Coding Course
 		<!-- <h1 class="overview" style="text-align: left;">But who am I?</h1> -->
 
 		<div class="align-items-center" style="text-align: center;">
-		<h5>Deadline in:</h5>
-		<div class="flipper" 
+		<h5>Deadline: <i>Sunday 5th April</i></h5>
+<!-- 		<div class="flipper" 
      data-datetime="2020-01-01 00:00:00" 
      data-template="ddd|HH|ii|ss" 
      data-labels="Days|Hours|Minutes|Seconds" 
      data-reverse="true"
      id="myFlipper"
-     >
 		</div>
+     > -->
 
 			<img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="{% static 'course/img/profile-2020.png' %}" alt="" style="width: 20vw; height: auto; padding: 0.5rem;">
 			<div class="cl-white" data-ride="carousel" style="align-self: center;">
@@ -445,9 +447,8 @@ Student Coding Course
 </div>
 
 <script>
-$(function(){
-  $('#myFlipper').flipper('init');
-});
+// $(function(){
+// });
 
 </script>
 
