@@ -9,10 +9,70 @@ from django.conf import settings
 # from django.contrib.auth.models import User
 
 from course.models import HolidayCourseInterest
-from course.forms import HolidayCoursePaymentForm
+from course.forms import HolidayCoursePaymentForm, HolidayRegisterationForm
 
 class CourseLandingPageView(TemplateView):
 	template_name = 'course/course.html'
+
+	def get(self, request):
+		number_of_applicants = len(HolidayCourseInterest.objects.all())
+		spots_left_num = 100 - number_of_applicants
+		form = HolidayRegisterationForm()
+		# intent = stripe.PaymentIntent.create(
+		# 	amount=12000,
+		# 	currency='aud',
+			# )
+		# stripe.setPublishableKey(stripe_pk)
+		# stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
+		# print ('pk {}'.format(stripe_pk))
+
+		args = {
+		'form': form,
+		'spots_left_num': spots_left_num,
+		}
+		return render(request, self.template_name, args)
+	def post(self, request):
+		number_of_applicants = len(HolidayCourseInterest.objects.all())
+		spots_left_num = 100 - number_of_applicants
+
+		
+		form = HolidayRegisterationForm()
+		args = {'form': form,
+				'key': settings.STRIPE_PUBLISHABLE_KEY,
+				'spots_left_num': spots_left_num,
+
+		}
+
+		form_info = HolidayRegisterationForm(request.POST)
+		if form_info.is_valid():
+			form_info.save()
+			first_name = form_info.cleaned_data.get('first_name', None)
+			last_name = form_info.cleaned_data.get('last_name', None)
+			email = form_info.cleaned_data.get('email', None)
+
+			if email and first_name and last_name:
+				#sending comfirmation email
+				zapier_hook = settings.ZAPIER_COURSE_HOOK
+				query_data={
+				'first_name': first_name,
+				'last_name': last_name,
+				'email': email,
+				# 'email': 'fhall21@eq.edu.au',
+				}
+				r = requests.post(zapier_hook, data=query_data)
+			
+				args['success'] = True
+			else:
+				args['error'] = True
+
+			
+
+		print (args)
+		return render(request, self.template_name, args)
+
+
+class CoursePaymentLandingPageView(TemplateView):
+	template_name = 'course/course_stripe.html'
 
 	def get(self, request):
 		number_of_applicants = len(HolidayCourseInterest.objects.all())
@@ -23,7 +83,7 @@ class CourseLandingPageView(TemplateView):
 		# 	currency='aud',
 			# )
 		# stripe.setPublishableKey(stripe_pk)
-		stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
+		# stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
 		# print ('pk {}'.format(stripe_pk))
 
 		args = {
@@ -83,6 +143,7 @@ class CourseLandingPageView(TemplateView):
 
 
 				#sending comfirmation email
+				# will need a new API!
 				zapier_hook = settings.ZAPIER_COURSE_HOOK
 				query_data={
 				'first_name': first_name,
