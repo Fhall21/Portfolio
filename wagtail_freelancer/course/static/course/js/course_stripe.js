@@ -101,11 +101,82 @@ $('#id_amount_paid').change(function(){
 });
 
 $('#id_family_members').change(function(){
+	//changing pricings
+
 	var old_total_price = $('#total_price').val()
 	var new_total_price =  String(amount_to_pay());
 	var new_total_price_txt = $('#stripe_button').text().replace(old_total_price, new_total_price);
 	$('#stripe_button').text(new_total_price_txt);
 	$('#total_price').val(new_total_price);
+
+	//adding fields now
+
+	//firstly check how many additional rows have to be added/removed
+	var num_existing_name_fields = $('.name_row').length
+
+	//desired number - how many are already there
+	var num_family_members = $('#id_family_members').val()
+	var desired_num = Number(num_family_members)
+	var dif_in_name_fields = desired_num - num_existing_name_fields
+
+	//if +ve add, if -ve remove
+	if (dif_in_name_fields > 0){
+		//add
+		for (var iteration = 1; iteration <= dif_in_name_fields; iteration+=1) {
+			console.log('iteration: ' + String(iteration))
+			console.log('num_existing_name_fields: ' + String(num_existing_name_fields))
+			var current_id_num = iteration + num_existing_name_fields
+			//first name and last name existing fields, cloned from the div above
+			//so to include the label
+			var original_first_name = $('#id_first_name').parent().clone()
+			var original_last_name = $('#id_last_name').parent().clone()
+			// alert(original_first_name.children('label').text())
+
+			console.log(current_id_num)
+			//creating a grid
+			var name_grid = '<div class="row name_row"><div class="col first_name_col"></div><div class="col last_name_col"></div></div>'
+			//with the new ids
+			var ided_name_grid = name_grid.replace(/name_col/g, 'name_col_' + String(current_id_num))
+
+			$(ided_name_grid).insertAfter('#id_family_members').parent();
+
+			//Adding a class around the new one
+			var new_first_name_with_class = original_first_name.addClass('additionalFamilyFirstName')
+			var new_last_name_with_class = original_last_name.addClass('additionalFamilyLastName')
+
+			//changing id of input
+			//new name too!
+			var new_first_name_new_input_id = new_first_name_with_class.children('input').prop(
+				'id', 'id_first_name_' + String(current_id_num)).prop(
+				'name', 'last_name_' + String(current_id_num))
+
+			var new_last_name_new_input_id = new_last_name_with_class.children('input').prop(
+				'id', 'id_last_name_' + String(current_id_num)).prop(
+				'name', 'last_name_' + String(current_id_num))
+
+
+
+
+			//changing the label text
+			var new_first_name_new_label = new_first_name_new_input_id.parent().children('label').text('First name:')
+			var new_last_name_new_label = new_last_name_new_input_id.parent().children('label').text('Last name:')
+
+
+
+			var new_first_name = new_first_name_new_label.parent();
+			var new_last_name = new_last_name_new_label.parent();
+
+			new_first_name.appendTo('.first_name_col_' + String(current_id_num))
+			new_last_name.appendTo('.last_name_col_' + String(current_id_num))
+			
+		}//for
+	} else if (dif_in_name_fields < 0){
+		//remove
+		for (var iteration =  0; iteration < Math.abs(dif_in_name_fields); iteration++) {
+				$('.name_row').last().remove()
+		}//for
+	}//if
+
 })
 
 
