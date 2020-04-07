@@ -16,6 +16,8 @@ class CourseLandingPageView(TemplateView):
 
 	def get(self, request, referee=''):
 		print(referee)
+		if referee:
+			request.session['referee'] = referee
 		number_of_applicants = len(HolidayCourseInterestData.objects.all())
 		spots_left_num = 40 - number_of_applicants
 		form = HolidayRegisterationForm()
@@ -47,7 +49,7 @@ class CourseLandingPageView(TemplateView):
 		form_info = HolidayRegisterationForm(request.POST)
 		if form_info.is_valid():
 			editable_form = form_info.save(commit=False)
-			editable_form.referee = referee
+			editable_form.referee = request.session.get('referee', '')
 			editable_form.save()
 			first_name = form_info.cleaned_data.get('first_name', None)
 			last_name = form_info.cleaned_data.get('last_name', None)
