@@ -140,17 +140,17 @@ $('#id_family_members').change(function(){
 
 			$(ided_name_grid).insertAfter('#id_family_members').parent();
 
-			//Adding a class around the new one
-			var new_first_name_with_class = original_first_name.addClass('additionalFamilyFirstName')
-			var new_last_name_with_class = original_last_name.addClass('additionalFamilyLastName')
+			//Adding a class around the new one - the input field
+			var new_first_name_with_class = original_first_name.children('input').addClass('additionalFamilyFirstName')
+			var new_last_name_with_class = original_last_name.children('input').addClass('additionalFamilyLastName')
 
 			//changing id of input
 			//new name too!
-			var new_first_name_new_input_id = new_first_name_with_class.children('input').prop(
+			var new_first_name_new_input_id = new_first_name_with_class.prop(
 				'id', 'id_first_name_' + String(current_id_num)).prop(
 				'name', 'last_name_' + String(current_id_num))
 
-			var new_last_name_new_input_id = new_last_name_with_class.children('input').prop(
+			var new_last_name_new_input_id = new_last_name_with_class.prop(
 				'id', 'id_last_name_' + String(current_id_num)).prop(
 				'name', 'last_name_' + String(current_id_num))
 

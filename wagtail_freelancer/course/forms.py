@@ -33,7 +33,7 @@ class HolidayCoursePaymentForm(forms.ModelForm):
 		'amount_paid': _("Name your price (these are tough times, I want to help. Just don't pass the minimum!)"),
 		}
 
-		family_members_choices = (('0','0'),('1','1'), ('2','2'), ('3','3'), ('4','4'),)
+		family_members_choices = (('0','0'),('1','1'), ('2','2'), ('3','3'),)
 
 		# choices = {
 		# 'family_members': family_members_choices,
