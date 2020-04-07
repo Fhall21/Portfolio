@@ -33,10 +33,13 @@ class HolidayCoursePaymentForm(forms.ModelForm):
 		'amount_paid': _("Name your price (these are tough times, I want to help. Just don't pass the minimum!)"),
 		}
 
+		family_members_choices = (('0','0'),('1','1'), ('2','2'), ('3','3'), ('4','4'),)
+
+		# choices = {
+		# 'family_members': family_members_choices,
+		# }
 		widgets = {
-		'family_members': forms.NumberInput(attrs={
-			'step': 1,
-			}),
+		'family_members': forms.Select(choices = family_members_choices),
 		'amount_paid': forms.NumberInput(attrs={
 			'step': 0.5,
 			'data-content':'psst... minimum of $30.',

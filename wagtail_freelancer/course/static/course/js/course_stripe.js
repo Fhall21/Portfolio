@@ -7,8 +7,31 @@ function display_stripe_btn() {
 		$('#stripe_button').hide();
 	}
 }
+
+function amount_to_pay(){
+	var num_family_members = $('#id_family_members').val()
+	var chosen_amount_paid = $('#id_amount_paid').val()
+
+	var total_price =  Number(Number(chosen_amount_paid) + Number(15* num_family_members));
+	return total_price
+}
+
 $(function(){
-	$('#hourly_rate').val('4');
+
+	//setting payment predefined holders
+	var chosen_amount_paid = $('#id_amount_paid').val()
+	var default_total_price =  String(amount_to_pay());
+	var default_hourly_rate =  Math.round((chosen_amount_paid/12)*2) /2;
+
+	//btn text
+	var default_button_price = '$' + default_total_price + ' Finalise Payment';
+
+	//setting the found values to their fields
+	$('#stripe_button').text(default_button_price);
+	$('#total_price').val(default_total_price);
+	$('#hourly_rate').val(default_hourly_rate);
+
+
 
 	//hiding the popover so it does not show every time you click on it
 	$('#id_amount_paid').popover('disable')
@@ -34,13 +57,18 @@ $(function(){
 	//replaceWith(function(){
 });
 
+//if the selected amount paid changes
 $('#id_amount_paid').change(function(){
 	var old_hourly_rate = $('#hourly_rate').val()
 	var hourly_rate =  Math.round(($('#id_amount_paid').val()/12)*2) /2
 	var new_payment_breakdown_txt = $('#payment_breakdown').text().replace(old_hourly_rate, hourly_rate);
 	$('#payment_breakdown').text(new_payment_breakdown_txt);
 	$('#hourly_rate').val(hourly_rate);
+
+
 	if ($('#id_amount_paid').val() < 29.99){
+
+
 		// alert('yess!')
 		$('#id_amount_paid').popover("enable");
 		$('#id_amount_paid').popover("toggle");
@@ -52,6 +80,13 @@ $('#id_amount_paid').change(function(){
 		// $('#stripe_button').text('Mm... please review your price.');
 
 	} else{
+		//change the price on the payment button
+		var old_total_price = $('#total_price').val();
+		var new_total_price =  String(amount_to_pay());
+		var new_total_price_txt = $('#stripe_button').text().replace(old_total_price, new_total_price);
+		$('#stripe_button').text(new_total_price_txt);
+		$('#total_price').val(new_total_price);
+
 		$('#id_amount_paid').popover("hide");
 
 		$('#price_review_comment').hide()
@@ -64,6 +99,14 @@ $('#id_amount_paid').change(function(){
 	display_stripe_btn();
 
 });
+
+$('#id_family_members').change(function(){
+	var old_total_price = $('#total_price').val()
+	var new_total_price =  String(amount_to_pay());
+	var new_total_price_txt = $('#stripe_button').text().replace(old_total_price, new_total_price);
+	$('#stripe_button').text(new_total_price_txt);
+	$('#total_price').val(new_total_price);
+})
 
 
 $('#id_first_name, #id_last_name').change(function(){
@@ -79,6 +122,10 @@ $('#id_first_name, #id_last_name').change(function(){
 	//check if both text revewers are hidden, alter stripe button
 	display_stripe_btn(); 
 })
+
+
+//if the family number changes
+
 
 $('#stripe_button').click(function(){
 	if ($('#stripe_button').hasClass('disabled') && ($('#id_amount_paid').val() > 29.99)){
@@ -107,7 +154,7 @@ $('#stripe_button').click(function(){
 		    // handler.open({closed : function(){$('#stripe_button').html('loading')}})
 			$('#StripeForm').append($id).append($email).submit();
 		};
-		var amount = ($('#id_amount_paid').val() * 100) 
+		var amount = amount_to_pay() *100
 			// alert(amount)
 		// Stripe.setPublishableKey(stripe_pk);
 		StripeCheckout.open({

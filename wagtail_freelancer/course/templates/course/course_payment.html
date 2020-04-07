@@ -37,10 +37,12 @@ Student Coding Course Payment
         {% csrf_token %}
         <p hidden id="payment_breakdown">That's roughly: $10/hr. Excluding private one-on-one time, the invaluable support network and connections.</p>
         <input id="hourly_rate" type="hidden"></input>
+        <input id="total_price" type="hidden"></input>
           <div class="g-recaptcha" data-sitekey="6LeCo6MUAAAAAPU33gX1-SSwJqhc3R9FxRYpmx8f"></div>
+		
 
         <button class="btn btn-primary btn-lg" id="stripe_button"
-        >Finalise Payment<span class="glyphicon glyphicon-shopping-cart"></span></button>
+        >$40 Finalise Payment<span class="glyphicon glyphicon-shopping-cart"></span></button>
         <h4 id="name_review_comment">Sometimes, name helps with human connection...</h4>
         <h4 id="price_review_comment">Sometimes, a price tag needs to be double checked.</h4>
     </form>
