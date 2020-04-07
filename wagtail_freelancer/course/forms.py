@@ -10,8 +10,8 @@ class HolidayRegisterationForm(forms.ModelForm):
 			'first_name', 'last_name', 'email', 'student_keen', 'is_student', 
 			)
 		labels = {
-		'first_name': _('First Name'),
-		'last_name': _('Last Name'),
+		'first_name': _('First name'),
+		'last_name': _('Last name'),
 		'email': _('Best email of contact'),
 		'student_keen': _('Are you keen?'),
 		'is_student': _('Is the participant a student?'),
@@ -23,21 +23,23 @@ class HolidayCoursePaymentForm(forms.ModelForm):
 	class Meta:
 		model = HolidayCourseInterestData
 		fields = (
-			'first_name', 'last_name', 'student_keen', 'is_student', 
+			'first_name', 'last_name', 'family_members', 
 			'amount_paid', 
 			)
 		labels = {
-		'first_name': _('First Name'),
-		'last_name': _('Last Name'),
-		'student_keen': _('Are you keen?'),
-		'is_student': _('Is the participant a student?'),
+		'first_name': _('First name (that you registered with)'),
+		'last_name': _('Last name (that you registered with)'),
+		'family_members': _('How many other family members would like to join?'),
 		'amount_paid': _("Name your price (these are tough times, I want to help. Just don't pass the minimum!)"),
 		}
 
 		widgets = {
+		'family_members': forms.NumberInput(attrs={
+			'step': 1,
+			}),
 		'amount_paid': forms.NumberInput(attrs={
 			'step': 0.5,
-			'data-content':'psst... minimum of $1.',
+			'data-content':'psst... minimum of $30.',
 			'data-placement': 'top',
 			'data-container': 'body',
 			'data-toggle': 'popover',

@@ -14,6 +14,9 @@ class HolidayCourseInterestData(models.Model):
 	last_name = models.CharField(max_length=50)
 	student_keen = models.BooleanField(default=True)
 	is_student = models.BooleanField(default=True)
+	
+	family_members = models.IntegerField(default=0)
+
 	# phone_regex = RegexValidator(
 	# 	regex=r'^\+?1?\d{9,15}$', 
 	# 	message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
@@ -24,7 +27,7 @@ class HolidayCourseInterestData(models.Model):
 
 	paid = models.BooleanField(default=False)
 	amount_paid = models.DecimalField(
-		validators=[MinValueValidator(1.00)], default=10.00, max_digits=6, decimal_places=2,)
+		validators=[MinValueValidator(30.00)], default=50.00, max_digits=6, decimal_places=2,)
 
 	def __str__(self):
 		return '{}'.format(self.first_name)

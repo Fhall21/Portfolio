@@ -12,12 +12,12 @@ from course.models import HolidayCourseInterestData
 from course.forms import HolidayCoursePaymentForm, HolidayRegisterationForm
 
 class CourseLandingPageView(TemplateView):
-	template_name = 'course/course.html'
+	template_name = 'course/course_landing.html'
 
 	def get(self, request, referee=''):
 		print(referee)
 		number_of_applicants = len(HolidayCourseInterestData.objects.all())
-		spots_left_num = 100 - number_of_applicants
+		spots_left_num = 40 - number_of_applicants
 		form = HolidayRegisterationForm()
 		# intent = stripe.PaymentIntent.create(
 		# 	amount=12000,
@@ -35,7 +35,7 @@ class CourseLandingPageView(TemplateView):
 	def post(self, request, referee=''):
 
 		number_of_applicants = len(HolidayCourseInterestData.objects.all())
-		spots_left_num = 100 - number_of_applicants
+		spots_left_num = 40 - number_of_applicants
 
 		
 		form = HolidayRegisterationForm()
@@ -74,19 +74,19 @@ class CourseLandingPageView(TemplateView):
 		return render(request, self.template_name, args)
 
 
-class CoursePaymentLandingPageView(TemplateView):
-	template_name = 'course/course_stripe.html'
+class CoursePaymentPageView(TemplateView):
+	template_name = 'course/course_payment.html'
 
 	def get(self, request):
-		number_of_applicants = len(HolidayCourseInterest.objects.all())
-		spots_left_num = 100 - number_of_applicants
+		number_of_applicants = len(HolidayCourseInterestData.objects.all())
+		spots_left_num = 40 - number_of_applicants
 		form = HolidayCoursePaymentForm()
 		# intent = stripe.PaymentIntent.create(
 		# 	amount=12000,
 		# 	currency='aud',
 			# )
 		# stripe.setPublishableKey(stripe_pk)
-		# stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
+		stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
 		# print ('pk {}'.format(stripe_pk))
 
 		args = {
@@ -96,35 +96,52 @@ class CoursePaymentLandingPageView(TemplateView):
 		}
 		return render(request, self.template_name, args)
 	def post(self, request):
-		number_of_applicants = len(HolidayCourseInterest.objects.all())
-		spots_left_num = 100 - number_of_applicants
+		number_of_applicants = len(HolidayCourseInterestData.objects.all())
+		spots_left_num = 40 - number_of_applicants
+		stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
 
 		
 		form = HolidayCoursePaymentForm()
 		args = {'form': form,
-				'key': settings.STRIPE_PUBLISHABLE_KEY,
+				'stripe_public_key': stripe_pk,
 				'spots_left_num': spots_left_num,
 
 		}
 
 		form_info = HolidayCoursePaymentForm(request.POST)
+		#checking if form is valid
 		if form_info.is_valid():
 			
 			print('form is valid')
-			new_form = form_info.save(commit=False)
+
+			#get form info 
+
 			# plan = stripe.Plan.retrieve("stripe Plan")
 			first_name = form_info.cleaned_data.get('first_name', None)
 			last_name = form_info.cleaned_data.get('last_name', None)
-			amount_paid = int(form_info.cleaned_data.get('amount_paid', '00')) *100
-			student_keen = form_info.cleaned_data.get('student_keen', True)
-			is_student = form_info.cleaned_data.get('is_student', True)
+			amount_chosen = int(form_info.cleaned_data.get('amount_paid', '00')) *100
+
+			family_members = int(form_info.cleaned_data.get('family_members', '0'))
+
+			amount_paid = amount_chosen + (15*family_members)
+
+			#let's check if this person is already in the databse
+			person, created = HolidayCourseInterestData.objects.get_or_create(
+				first_name=first_name,
+				last_name=last_name,
+				)
 
 
-			# print (form_info)
-			# print (amount_paid)
-			# print (request.POST)
+
+			# get other info from the stripe form
 			stripe_token = request.POST.get('stripeToken', '')
 			email  = request.POST.get('stripeEmail', '')
+
+			# just adding a bit of data in case person did not exist
+			if not(created):
+				person.referee = referee
+
+
 			# stripe_sk = settings.STRIPE_SECRET_KEY
 
 			#if token or email not blank, then make the payment
@@ -155,15 +172,19 @@ class CoursePaymentLandingPageView(TemplateView):
 				'email': email,
 				# 'email': 'fhall21@eq.edu.au',
 				}
-				r = requests.post(zapier_hook, data=query_data)
+				print (query_data)
+				# r = requests.post(zapier_hook, data=query_data)
 
 				paid = charge['paid']
 				args['success'] = paid
 
-				new_form.paid = paid
-				new_form.email = email
+				person.paid = paid
+				person.email = email
+				person.amount_paid = amount_paid
+				person.family_members = family_members
 				new_form.save()
 			else:
+				person.email = email
 				args['error'] = paid
 
 			
