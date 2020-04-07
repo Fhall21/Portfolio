@@ -122,8 +122,19 @@ class CoursePaymentPageView(TemplateView):
 			amount_chosen = int(form_info.cleaned_data.get('amount_paid', '00')) *100
 
 			family_members = int(form_info.cleaned_data.get('family_members', '0'))
+			extra_names_list = []
+			for extra_name_num in range(1,family_members+1):
+				retreval_tag_last_name = 'last_name_{}'.format(extra_name_num)
+				new_last_name = request.POST.get(retreval_tag_last_name, '')
+				retreval_tag_first_name = 'first_name_{}'.format(extra_name_num)
+				new_first_name = request.POST.get(retreval_tag_first_name, '')
+				print (new_first_name)
+				extra_names_list.append([new_first_name, new_last_name])
 
-			amount_paid = amount_chosen + (15*family_members)
+			print (extra_names_list)
+			print(request.POST)
+
+			amount_paid = amount_chosen + (1500*family_members)
 
 			#let's check if this person is already in the databse
 			person, created = HolidayCourseInterestData.objects.get_or_create(
@@ -136,6 +147,8 @@ class CoursePaymentPageView(TemplateView):
 			# get other info from the stripe form
 			stripe_token = request.POST.get('stripeToken', '')
 			email  = request.POST.get('stripeEmail', '')
+
+
 
 			# just adding a bit of data in case person did not exist
 			if not(created):
@@ -164,27 +177,65 @@ class CoursePaymentPageView(TemplateView):
 
 				#sending comfirmation email
 				# will need a new API!
-				zapier_hook = settings.ZAPIER_COURSE_HOOK
+				#two APIs?
+				zapier_hook = settings.ZAPIER_COURSE_PAYMENT_HOOK
+				family_confirmation = 'no other family members were added in the form.'
+				if extra_names_list:
+					family_confirmation = ''
+					for name in extra_names_list:
+						family_confirmation += "{}, ".format(name[0])
+					if len(name) == 1:
+						family_confirmation += 'is '
+					else:
+						family_confirmation += 'are '
+					family_confirmation += 'also joining in within the course! Woo whoo!'
 				query_data={
 				'first_name': first_name,
+				'family_confirmation': family_confirmation,
 				'last_name': last_name,
-				'amount_paid': amount_paid,
+				'amount_paid': (amount_paid/100),
 				'email': email,
 				# 'email': 'fhall21@eq.edu.au',
 				}
 				print (query_data)
-				# r = requests.post(zapier_hook, data=query_data)
+				r = requests.post(zapier_hook, data=query_data)
 
 				paid = charge['paid']
 				args['success'] = paid
 
 				person.paid = paid
 				person.email = email
-				person.amount_paid = amount_paid
+				person.amount_paid = (amount_paid/100)
 				person.family_members = family_members
-				new_form.save()
+				person.save()
+
+				# now for all the othere
+				for name in extra_names_list:
+					obj, created = HolidayCourseInterestData.objects.get_or_create(
+					first_name=name[0],
+					last_name=name[1],
+					)
+					obj.paid = paid
+					obj.email = email
+					obj.amount_paid = (amount_paid/100)
+					obj.family_members = family_members					
+					obj.save()
+
+					#send a zapier email too!
+				# new_form.save()
 			else:
 				person.email = email
+				person.save()
+				for name in extra_names_list:
+					obj, created = HolidayCourseInterestData.objects.get_or_create(
+					first_name=name[0],
+					last_name=name[1],
+					)
+					if created:
+						obj.email = email
+					obj.save()
+
+
 				args['error'] = paid
 
 			

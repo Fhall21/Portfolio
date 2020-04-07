@@ -148,7 +148,7 @@ $('#id_family_members').change(function(){
 			//new name too!
 			var new_first_name_new_input_id = new_first_name_with_class.prop(
 				'id', 'id_first_name_' + String(current_id_num)).prop(
-				'name', 'last_name_' + String(current_id_num))
+				'name', 'first_name_' + String(current_id_num))
 
 			var new_last_name_new_input_id = new_last_name_with_class.prop(
 				'id', 'id_last_name_' + String(current_id_num)).prop(
