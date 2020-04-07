@@ -27,6 +27,8 @@ Student Coding Course
 
 
 {# stripe #}
+{% block course_extra_link %}
+{% endblock %}
 
 
 <link rel="stylesheet" type="text/css" href="{% static 'freelancer/css/freelancer.css' %}">
@@ -250,6 +252,12 @@ Student Coding Course
 		  </dd>
 
 		<dt class="accordion-titles"><a href="">
+		I (or my kids) may now other people who could be interested, what's the ebst way to share?
+		  </a></dt>
+		  <dd  class="accordion-content">
+		That's incredible! I would love if you could spread the word. I actually appreciate it so much that I would be willing to PAY YOU $10/pp (who signs up to the full course). Just <a href="/#contact">shoot me a message</a> and I'll send you a personalised url that you could share! 
+		  </dd>
+		<dt class="accordion-titles"><a href="">
 		Is there an assumed knowledge needed before participating?
 		</ul>
 
@@ -355,8 +363,11 @@ Student Coding Course
 		<!-- <h1 class="overview" style="text-align: left;">But who am I?</h1> -->
 
 		<div class="align-items-center" style="text-align: center;">
+
+		{% block cutoff_details %}
 		<h5>Deadline: <i>Sunday 12th of April</i></h5>
 		<h5>Price: <i>$30-$80</i></h5>
+		{% endblock %}
 <!-- 		<div class="flipper" 
      data-datetime="2020-01-01 00:00:00" 
      data-template="ddd|HH|ii|ss" 
@@ -428,6 +439,7 @@ Student Coding Course
 
 	</div>
 	<div class="col-sm-6 cl-white">
+		{% block main_form %}
 		<h4>Interested?</h4>
 		<h5><i>Limited time only:</i> get a recording of the first session for free, sign up for the full thing later! That's almost 1hr of content avaliable.</h5>
 		<p>(If anything, enjoy the free stuff...)</p>
@@ -439,6 +451,8 @@ Student Coding Course
 		        <button class="btn btn-primary btn-lg"
 		        >Join the excitment!<span class="glyphicon glyphicon-shopping-cart"></span></button>
 		    </form>
+
+		    {% endblock %}
 	</div>
 </div>
 
@@ -459,6 +473,9 @@ Student Coding Course
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src="{% static 'course/js/course.js' %}"></script>
 <script src="{% static 'course/js/standard_accordion.js' %}"></script>
+
+{% block course_extra_js %}
+{% endblock %}
 
 {% endblock %}
 
