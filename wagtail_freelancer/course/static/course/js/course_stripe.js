@@ -8,7 +8,11 @@ function display_stripe_btn() {
 	}
 }
 $(function(){
-	$('#hourly_rate').val('10');
+	$('#hourly_rate').val('4');
+
+	//hiding the popover so it does not show every time you click on it
+	$('#id_amount_paid').popover('disable')
+	$('#id_amount_paid').off('click')
 
 
 	var stripe_pk = $('#stripe_pk').text()
@@ -36,8 +40,9 @@ $('#id_amount_paid').change(function(){
 	var new_payment_breakdown_txt = $('#payment_breakdown').text().replace(old_hourly_rate, hourly_rate);
 	$('#payment_breakdown').text(new_payment_breakdown_txt);
 	$('#hourly_rate').val(hourly_rate);
-	if ($('#id_amount_paid').val() < 0.99){
+	if ($('#id_amount_paid').val() < 29.99){
 		// alert('yess!')
+		$('#id_amount_paid').popover("enable");
 		$('#id_amount_paid').popover("toggle");
 		$('#price_review_comment').show()
 
@@ -47,6 +52,8 @@ $('#id_amount_paid').change(function(){
 		// $('#stripe_button').text('Mm... please review your price.');
 
 	} else{
+		$('#id_amount_paid').popover("hide");
+
 		$('#price_review_comment').hide()
 
 		// $('#stripe_button').on('click');
@@ -74,16 +81,18 @@ $('#id_first_name, #id_last_name').change(function(){
 })
 
 $('#stripe_button').click(function(){
-	if ($('#stripe_button').hasClass('disabled') && ($('#id_amount_paid').val() > 0.99)){
+	if ($('#stripe_button').hasClass('disabled') && ($('#id_amount_paid').val() > 29.99)){
 		window.location.href=window.location.href
 		// history.go(0)
 		// location.reload(true);
-	}else if ($('#id_amount_paid').val() < 0.99){
+	}else if ($('#id_amount_paid').val() < 29.99){
 		// alert('yess!'
 		$('#stripe_button').hide()
 		$('#stripe_button').off('click');
 		$('#stripe_button').addClass('bg-secondary');
 		$('#stripe_button').text('Mm... please review your price.');
+		$('#id_amount_paid').popover("enable");
+
 		$('#id_amount_paid').popover("toggle");
 	} else{
 	
