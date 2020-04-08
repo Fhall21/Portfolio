@@ -98,6 +98,7 @@ class CoursePaymentPageView(TemplateView):
 		}
 		return render(request, self.template_name, args)
 	def post(self, request):
+		print ('referee: ' + str(request.session.get('referee', '')))
 		number_of_applicants = len(HolidayCourseInterestData.objects.all())
 		spots_left_num = 40 - number_of_applicants
 		stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
@@ -153,8 +154,9 @@ class CoursePaymentPageView(TemplateView):
 
 
 			# just adding a bit of data in case person did not exist
-			if not(created):
-				person.referee = referee
+			if created:
+				person.referee = request.session.get('referee', '')
+				person.save()
 
 
 			# stripe_sk = settings.STRIPE_SECRET_KEY
