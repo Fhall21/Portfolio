@@ -197,7 +197,7 @@ $('#id_first_name, #id_last_name').change(function(){
 
 //if the family number changes
 
-
+// perhaps change to a form.onSubmit
 $('#stripe_button').click(function(){
 	if ($('#stripe_button').hasClass('disabled') && ($('#id_amount_paid').val() > 29.99)){
 		window.location.href=window.location.href

@@ -18,6 +18,7 @@ class CourseLandingPageView(TemplateView):
 		print(referee)
 		if referee:
 			request.session['referee'] = referee
+
 		number_of_applicants = len(HolidayCourseInterestData.objects.all())
 		spots_left_num = 40 - number_of_applicants
 		form = HolidayRegisterationForm()
@@ -33,7 +34,8 @@ class CourseLandingPageView(TemplateView):
 		'form': form,
 		'spots_left_num': spots_left_num,
 		}
-		return render(request, self.template_name, args)
+		return redirect('course:python_payment')
+		
 	def post(self, request, referee=''):
 
 		number_of_applicants = len(HolidayCourseInterestData.objects.all())
@@ -45,35 +47,37 @@ class CourseLandingPageView(TemplateView):
 				'spots_left_num': spots_left_num,
 
 		}
+		return redirect('course:python_payment')
 
-		form_info = HolidayRegisterationForm(request.POST)
-		if form_info.is_valid():
-			editable_form = form_info.save(commit=False)
-			editable_form.referee = request.session.get('referee', '')
-			editable_form.save()
-			first_name = form_info.cleaned_data.get('first_name', None)
-			last_name = form_info.cleaned_data.get('last_name', None)
-			email = form_info.cleaned_data.get('email', None)
 
-			if email and first_name and last_name:
-				#sending comfirmation email
-				zapier_hook = settings.ZAPIER_COURSE_HOOK
-				query_data={
-				'first_name': first_name,
-				'last_name': last_name,
-				'email': email,
-				# 'email': 'fhall21@eq.edu.au',
-				}
-				r = requests.post(zapier_hook, data=query_data)
+		# form_info = HolidayRegisterationForm(request.POST)
+		# if form_info.is_valid():
+		# 	editable_form = form_info.save(commit=False)
+		# 	editable_form.referee = request.session.get('referee', '')
+		# 	editable_form.save()
+		# 	first_name = form_info.cleaned_data.get('first_name', None)
+		# 	last_name = form_info.cleaned_data.get('last_name', None)
+		# 	email = form_info.cleaned_data.get('email', None)
+
+		# 	if email and first_name and last_name:
+		# 		#sending comfirmation email
+		# 		zapier_hook = settings.ZAPIER_COURSE_HOOK
+		# 		query_data={
+		# 		'first_name': first_name,
+		# 		'last_name': last_name,
+		# 		'email': email,
+		# 		# 'email': 'fhall21@eq.edu.au',
+		# 		}
+		# 		r = requests.post(zapier_hook, data=query_data)
 			
-				args['success'] = True
-			else:
-				args['error'] = True
+		# 		args['success'] = True
+		# 	else:
+		# 		args['error'] = True
 
 			
 
-		print (args)
-		return render(request, self.template_name, args)
+		# print (args)
+		# return render(request, self.template_name, args)
 
 
 class CoursePaymentPageView(TemplateView):
