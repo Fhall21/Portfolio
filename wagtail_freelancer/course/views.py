@@ -8,8 +8,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 # from django.contrib.auth.models import User
 
-from course.models import HolidayCourseInterestData
-from course.forms import HolidayCoursePaymentForm, HolidayRegisterationForm
+from course.models import JuneJulyHolidayCourseInterestData
+from course.forms import JuneJulyHolidayCoursePaymentForm, JuneJulyHolidayRegisterationForm
 
 class CourseLandingPageView(TemplateView):
 	template_name = 'course/course_landing.html'
@@ -19,9 +19,9 @@ class CourseLandingPageView(TemplateView):
 		if referee:
 			request.session['referee'] = referee
 
-		number_of_applicants = len(HolidayCourseInterestData.objects.all())
-		spots_left_num = 40 - number_of_applicants
-		form = HolidayRegisterationForm()
+		number_of_applicants = len(JuneJulyHolidayCourseInterestData.objects.all())
+		spots_left_num = 20 - number_of_applicants
+		form = JuneJulyHolidayRegisterationForm()
 		# intent = stripe.PaymentIntent.create(
 		# 	amount=12000,
 		# 	currency='aud',
@@ -34,59 +34,59 @@ class CourseLandingPageView(TemplateView):
 		'form': form,
 		'spots_left_num': spots_left_num,
 		}
-		return redirect('course:python_payment')
+		return render(request, self.template_name, args)
 		
 	def post(self, request, referee=''):
 
-		number_of_applicants = len(HolidayCourseInterestData.objects.all())
-		spots_left_num = 40 - number_of_applicants
+		number_of_applicants = len(JuneJulyHolidayCourseInterestData.objects.all())
+		spots_left_num = 20 - number_of_applicants
 
 		
-		form = HolidayRegisterationForm()
+		form = JuneJulyHolidayRegisterationForm()
 		args = {'form': form,
 				'spots_left_num': spots_left_num,
 
 		}
-		return redirect('course:python_payment')
+		# return redirect('course:python_payment')
 
 
-		# form_info = HolidayRegisterationForm(request.POST)
-		# if form_info.is_valid():
-		# 	editable_form = form_info.save(commit=False)
-		# 	editable_form.referee = request.session.get('referee', '')
-		# 	editable_form.save()
-		# 	first_name = form_info.cleaned_data.get('first_name', None)
-		# 	last_name = form_info.cleaned_data.get('last_name', None)
-		# 	email = form_info.cleaned_data.get('email', None)
+		form_info = JuneJulyHolidayRegisterationForm(request.POST)
+		if form_info.is_valid():
+			editable_form = form_info.save(commit=False)
+			editable_form.referee = request.session.get('referee', '')
+			editable_form.save()
+			first_name = form_info.cleaned_data.get('first_name', None)
+			last_name = form_info.cleaned_data.get('last_name', None)
+			email = form_info.cleaned_data.get('email', None)
 
-		# 	if email and first_name and last_name:
-		# 		#sending comfirmation email
-		# 		zapier_hook = settings.ZAPIER_COURSE_HOOK
-		# 		query_data={
-		# 		'first_name': first_name,
-		# 		'last_name': last_name,
-		# 		'email': email,
-		# 		# 'email': 'fhall21@eq.edu.au',
-		# 		}
-		# 		r = requests.post(zapier_hook, data=query_data)
+			if email and first_name and last_name:
+				#sending comfirmation email
+				zapier_hook = settings.ZAPIER_COURSE_HOOK
+				query_data={
+				'first_name': first_name,
+				'last_name': last_name,
+				'email': email,
+				# 'email': 'fhall21@eq.edu.au',
+				}
+				r = requests.post(zapier_hook, data=query_data)
 			
-		# 		args['success'] = True
-		# 	else:
-		# 		args['error'] = True
+				args['success'] = True
+			else:
+				args['error'] = True
 
 			
 
-		# print (args)
-		# return render(request, self.template_name, args)
+		print (args)
+		return render(request, self.template_name, args)
 
 
 class CoursePaymentPageView(TemplateView):
 	template_name = 'course/course_payment.html'
 
 	def get(self, request):
-		number_of_applicants = len(HolidayCourseInterestData.objects.all())
-		spots_left_num = 40 - number_of_applicants
-		form = HolidayCoursePaymentForm()
+		number_of_applicants = len(JuneJulyHolidayCourseInterestData.objects.all())
+		spots_left_num = 20 - number_of_applicants
+		form = JuneJulyHolidayCoursePaymentForm()
 		# intent = stripe.PaymentIntent.create(
 		# 	amount=12000,
 		# 	currency='aud',
@@ -103,19 +103,19 @@ class CoursePaymentPageView(TemplateView):
 		return render(request, self.template_name, args)
 	def post(self, request):
 		print ('referee: ' + str(request.session.get('referee', '')))
-		number_of_applicants = len(HolidayCourseInterestData.objects.all())
-		spots_left_num = 40 - number_of_applicants
+		number_of_applicants = len(JuneJulyHolidayCourseInterestData.objects.all())
+		spots_left_num = 20 - number_of_applicants
 		stripe_pk = settings.STRIPE_PUBLISHABLE_KEY
 
 		
-		form = HolidayCoursePaymentForm()
+		form = JuneJulyHolidayCoursePaymentForm()
 		args = {'form': form,
 				'stripe_public_key': stripe_pk,
 				'spots_left_num': spots_left_num,
 
 		}
 
-		form_info = HolidayCoursePaymentForm(request.POST)
+		form_info = JuneJulyHolidayCoursePaymentForm(request.POST)
 		#checking if form is valid
 		if form_info.is_valid():
 			
@@ -144,7 +144,7 @@ class CoursePaymentPageView(TemplateView):
 			amount_paid = amount_chosen + (1500*family_members)
 
 			#let's check if this person is already in the databse
-			person, created = HolidayCourseInterestData.objects.get_or_create(
+			person, created = JuneJulyHolidayCourseInterestData.objects.get_or_create(
 				first_name=first_name,
 				last_name=last_name,
 				)
@@ -219,7 +219,7 @@ class CoursePaymentPageView(TemplateView):
 
 				# now for all the othere
 				for name in extra_names_list:
-					obj, created = HolidayCourseInterestData.objects.get_or_create(
+					obj, created = JuneJulyHolidayCourseInterestData.objects.get_or_create(
 					first_name=name[0],
 					last_name=name[1],
 					)
@@ -235,7 +235,7 @@ class CoursePaymentPageView(TemplateView):
 				person.email = email
 				person.save()
 				for name in extra_names_list:
-					obj, created = HolidayCourseInterestData.objects.get_or_create(
+					obj, created = JuneJulyHolidayCourseInterestData.objects.get_or_create(
 					first_name=name[0],
 					last_name=name[1],
 					)

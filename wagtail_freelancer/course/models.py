@@ -7,27 +7,40 @@ from django.core.validators import RegexValidator, MinValueValidator
 
 
 # Create your models here.
+class ParentBaseHolidayCourseInterestData(models.Model):
+	referee = models.CharField(max_length=200, default='', null=True, blank=True)
+	first_name = models.CharField(max_length=50, default='')
+	last_name = models.CharField(max_length=50, default='')
+	student_keen = models.BooleanField(default=True)
+	is_student = models.BooleanField(default=True)
+	family_members = models.IntegerField(default=0)
+	email = models.EmailField(unique=False, null=True, max_length=250)
+	paid = models.BooleanField(default=False)
+	amount_paid = models.DecimalField(
+		validators=[MinValueValidator(30.00)], default=50.00, max_digits=6, decimal_places=2,)
 
-class HolidayCourseInterestData(models.Model):
+	class Meta:
+		abstract = True
+
+	def __str__(self):
+		return '{}'.format(self.first_name)
+
+
+
+class EasterHolidayCourseInterestData(models.Model):
 	referee = models.CharField(max_length=200, default='', null=True, blank=True)
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=50)
 	student_keen = models.BooleanField(default=True)
 	is_student = models.BooleanField(default=True)
-	
 	family_members = models.IntegerField(default=0)
-
-	# phone_regex = RegexValidator(
-	# 	regex=r'^\+?1?\d{9,15}$', 
-	# 	message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
-	# 	)
-
-	# phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
 	email = models.EmailField(unique=False, null=True, max_length=250)
-
 	paid = models.BooleanField(default=False)
 	amount_paid = models.DecimalField(
 		validators=[MinValueValidator(30.00)], default=50.00, max_digits=6, decimal_places=2,)
 
 	def __str__(self):
 		return '{}'.format(self.first_name)
+
+class JuneJulyHolidayCourseInterestData(ParentBaseHolidayCourseInterestData):
+	pass 
