@@ -11,6 +11,15 @@ from django.conf import settings
 from course.models import JuneJulyHolidayCourseInterestData
 from course.forms import JuneJulyHolidayCoursePaymentForm, JuneJulyHolidayRegisterationForm
 
+# class TestPage(TemplateView):
+# 	template_name = 'course/test_page.html'
+# 	def get(self, request):
+# 		return render(request, self.template_name)
+
+# 	def post(self, request):
+# 		return render(request, self.template_name)
+
+
 class CourseLandingPageView(TemplateView):
 	template_name = 'course/course_landing.html'
 
