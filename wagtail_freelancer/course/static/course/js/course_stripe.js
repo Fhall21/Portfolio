@@ -12,7 +12,7 @@ function amount_to_pay(){
 	var num_family_members = $('#id_family_members').val()
 	var chosen_amount_paid = $('#id_amount_paid').val()
 
-	var total_price =  Number(Number(chosen_amount_paid) + Number(15* num_family_members));
+	var total_price =  Number(Number(chosen_amount_paid) + Number(20* num_family_members));
 	return total_price
 }
 

@@ -32,7 +32,7 @@ HolidayCourseFormOptions= {
 			'first_name': _('First name (that you registered with)'),
 			'last_name': _('Last name (that you registered with)'),
 			'family_members': _('How many ADDITIONAL family members would like to join?'),
-			'amount_paid': _("Name your price (these are tough times, I want to help. Just don't pass the minimum!)"),
+			'amount_paid': _("Name your price (whatever you feel comfortable with). Just don't pass the minimum!)"),
 			},
 		'widgets': {
 			'family_members': forms.Select(choices = family_members_choices),

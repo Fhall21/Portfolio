@@ -17,7 +17,7 @@ class ParentBaseHolidayCourseInterestData(models.Model):
 	email = models.EmailField(unique=False, null=True, max_length=250)
 	paid = models.BooleanField(default=False)
 	amount_paid = models.DecimalField(
-		validators=[MinValueValidator(30.00)], default=50.00, max_digits=6, decimal_places=2,)
+		validators=[MinValueValidator(30.00)], default=80.00, max_digits=6, decimal_places=2,)
 
 	class Meta:
 		abstract = True
