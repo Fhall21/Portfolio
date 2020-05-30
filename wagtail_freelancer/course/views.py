@@ -29,7 +29,7 @@ class CourseLandingPageView(TemplateView):
 			request.session['referee'] = referee
 
 		number_of_applicants = len(JuneJulyHolidayCourseInterestData.objects.all())
-		spots_left_num = 20 - number_of_applicants
+		spots_left_num = 10 - number_of_applicants
 		form = JuneJulyHolidayRegisterationForm()
 		# intent = stripe.PaymentIntent.create(
 		# 	amount=12000,
@@ -48,7 +48,7 @@ class CourseLandingPageView(TemplateView):
 	def post(self, request, referee=''):
 
 		number_of_applicants = len(JuneJulyHolidayCourseInterestData.objects.all())
-		spots_left_num = 20 - number_of_applicants
+		spots_left_num = 10 - number_of_applicants
 
 		
 		form = JuneJulyHolidayRegisterationForm()

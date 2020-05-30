@@ -3,6 +3,29 @@ $(function(){
 	$('#id_is_student, #id_student_keen').removeClass("form-control")
 	$('#id_is_student, #id_student_keen div').css({'justify-self': 'center'});
 
+  //if mobile make the student quote go last
+  let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+  if (isMobile){
+
+    //create clones and get el
+    let recommendation = $('#past-student-recommendation');
+    let recommendation_clone = recommendation.clone();
+
+    let quote = $('#past-student-quote');
+    let quote_clone = quote.clone();
+    
+    // replace the appropriate ones
+    recommendation.replaceWith(quote_clone);
+    quote.replaceWith(recommendation_clone);
+    
+  }
+
+  //if tablet fix up some styling
+  let isTablet = window.matchMedia("only screen and (max-width: 760px min-width:575)").matches;
+  if (isTablet){
+    alert("tablet");
+  }
+
 	//slick
 	$('.slick-carousel').slick({
     slidesToShow: 1,

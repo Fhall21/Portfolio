@@ -3,6 +3,11 @@
 
 }
 
+.past-student{
+  padding-top: 3rem;
+}
+
+
 .course_title{
 	position: absolute;
 	left: 3vw;
@@ -21,6 +26,9 @@
 	font-size: 5rem; 
 	margin-bottom: 3rem;
 	}
+  .past-student{
+  padding-top: 3rem;
+}
 }
 
 
