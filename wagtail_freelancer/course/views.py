@@ -42,6 +42,8 @@ class CourseLandingPageView(TemplateView):
 		args = {
 		'form': form,
 		'spots_left_num': spots_left_num,
+		'course_not_closed': False, # change when you want to reopen course
+
 		}
 		return render(request, self.template_name, args)
 		
@@ -53,6 +55,7 @@ class CourseLandingPageView(TemplateView):
 		
 		form = JuneJulyHolidayRegisterationForm()
 		args = {'form': form,
+				'course_not_closed': False, # change when you want to reopen course
 				'spots_left_num': spots_left_num,
 
 		}
@@ -108,6 +111,8 @@ class CoursePaymentPageView(TemplateView):
 		'form': form,
 		'stripe_public_key': stripe_pk,
 		'spots_left_num': spots_left_num,
+		'course_not_closed': False, # change when you want to reopen course
+
 		}
 		return render(request, self.template_name, args)
 	def post(self, request):
@@ -121,6 +126,8 @@ class CoursePaymentPageView(TemplateView):
 		args = {'form': form,
 				'stripe_public_key': stripe_pk,
 				'spots_left_num': spots_left_num,
+				'course_not_closed': False, # change when you want to reopen course
+				
 
 		}
 

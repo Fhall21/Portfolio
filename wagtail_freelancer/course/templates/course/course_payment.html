@@ -40,9 +40,15 @@ Student Coding Course Payment
         <input id="total_price" type="hidden"></input>
           <div class="g-recaptcha" data-sitekey="6LeCo6MUAAAAAPU33gX1-SSwJqhc3R9FxRYpmx8f"></div>
 		
-
+        {% if course_not_closed %} 
         <button class="btn btn-primary btn-lg" id="stripe_button"
         >$40 Finalise Payment<span class="glyphicon glyphicon-shopping-cart"></span></button>
+        {% else %} 
+        <button disabled class="btn btn-primary btn-lg" id=""
+        >Sorry, course is full.<span class="glyphicon glyphicon-shopping-cart"></span></button>
+        {% endif %}
+
+
         <h4 id="name_review_comment">Sometimes, name helps with human connection...</h4>
         <h4 id="price_review_comment">Sometimes, a price tag needs to be double checked.</h4>
     </form>

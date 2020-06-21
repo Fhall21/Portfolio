@@ -402,10 +402,9 @@ Student Coding Course
 		<div class="align-items-center" style="text-align: center;">
 
 		{% block cutoff_details %}
-		<h5>Holiday: June-July School Holidays</h5>
-		<h5>Dates: <i>30/06/2020-2/07/2020</i></h5>
+		<h5>No more intakes, but let's stay in touch for future workshops!</h5>
 		<h5>Price: <i>Pay What You Want</i></h5>
-		<h5>Spots Remaining: {{ spots_left_num }}</h5>
+		<h5>Spots Remaining: 0</h5>
 		{% endblock %}
 <!-- 		<div class="flipper" 
      data-datetime="2020-01-01 00:00:00" 
@@ -480,15 +479,21 @@ Student Coding Course
 	<div class="col-sm-6 cl-white">
 		{% block main_form %}
 		<h4>Interested?</h4>
-		<h5><i>Limited time only:</i> get a recording of the first session for free, sign up for the full thing later! That's almost 1hr of content avaliable.</h5>
+		<h5>Still unsure? If you signup your interest, I'll give you a recording of the first session for free, sign up for the full thing later.</h5>
 		<p>(If anything, enjoy the free stuff...)</p>
 		<form method="post" id="interestForm" role="form">
 			    {% include 'bf_forms.html' with form=form %}
 		        {% csrf_token %}
 	              <div class="g-recaptcha" data-sitekey="6LeCo6MUAAAAAPU33gX1-SSwJqhc3R9FxRYpmx8f"></div>
 
+	              {% if course_not_closed %} 
+
 		        <button class="btn btn-primary btn-lg"
 		        >Join the excitment!<span class="glyphicon glyphicon-shopping-cart"></span></button>
+		        {% else %}
+		        <button class="btn btn-primary btn-lg"
+		        >Stay informed for future workshops<span class="glyphicon glyphicon-shopping-cart"></span></button>
+		        {% endif %}
 		    </form>
 
 		    {% endblock %}
