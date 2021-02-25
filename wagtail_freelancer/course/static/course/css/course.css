@@ -117,6 +117,18 @@
 	border: var(--colour-extra-dark);
 }
 
+.border-angle{
+  border-radius: 50px 50px 50px 50px ;
+}
+
+.border-angle-right{
+    border-radius: 0px 50px 50px 0px;
+}
+
+.border-angle-left{
+    border-radius: 50px 0px 0px 50px ;
+}
+
 .border-angle-exclude-bl{
     border-radius: 50px 50px 50px 0 ;
 }
@@ -126,6 +138,10 @@
 
 .border-angle-top{
     border-radius: 50px 50px 0 0;
+}
+.border-angle-bottom{
+    border-radius: 0px 0px 50px 50px;
+
 }
 .border-angle-left-top, #final_details {
     border-radius: 50px 0 30px 30px;
