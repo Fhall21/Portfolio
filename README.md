@@ -6,4 +6,4 @@ This project is a combination of [startbootstrap-freelancer](https://github.com/
 
 This project was originally built by Micheal and was edited for my own purposes. Feel free to check out his [Wagtail Tutorial Series](https://blog.michaelyin.info/wagtail-tutorials/)
 
-It has since been extended for personal purposes. An example of this is the additional perosnal booking system which makes use of the DjangoRestFramework and Angular. 
+It has since been extended for personal purposes. An example of this is the additional personal booking system which makes use of the DjangoRestFramework and Angular as well as the Coding Course page which has an integrated payment system and modern JS styling. 
