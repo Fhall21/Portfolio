@@ -38,7 +38,7 @@ et-xmlfile==1.1.0
 gunicorn==19.9.0
 html5lib==1.0.1
 idna==2.8
-importlib-metadata==4.10.0
+importlib-metadata>=4.8.0
 jmespath==0.9.3
 kombu==3.0.37
 l18n==2021.3
